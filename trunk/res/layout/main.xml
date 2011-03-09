@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#b6b6b6" >
+	
+	<ImageView 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:maxWidth="150px"
+    android:id="@+id/title" 
+    android:src="@drawable/title" 
+    android:scaleType="fitXY"
+    android:paddingBottom="20px"
+    ></ImageView>
+
+    <ImageView 
+    android:layout_width="wrap_content" 
+    android:layout_centerHorizontal="true"
+    android:id="@+id/squirrel1" 
+    android:src="@drawable/squirrel" 
+    android:layout_height="wrap_content"
+   	android:layout_below="@+id/title"
+    ></ImageView>
+    
+    
+    
+    <Button 
+    android:text="@string/id1" 
+    android:layout_height="wrap_content" 
+    android:layout_width="wrap_content"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentRight="true"
+    android:id="@+id/button2"
+    android:textStyle="bold" 
+    android:textSize="18px"
+    >
+    </Button>
+    
+    <Button 
+    android:text="@string/obs"
+    android:layout_height="wrap_content" 
+    android:layout_width="wrap_content" 
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_toLeftOf="@+id/button2"
+    android:id="@+id/button1"
+    android:textStyle="bold" 
+    android:textSize="18px"
+    >
+    </Button>
+    
+</RelativeLayout>
