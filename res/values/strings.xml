@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project Squirrel</string>
+    <string name="obs">New\nObservation</string>
+    <string name="id1">Squirrel\nGuide</string>
+</resources>
