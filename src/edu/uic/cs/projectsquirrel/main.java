@@ -30,8 +30,6 @@ public class main extends Activity {
 	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), observ.class);
 	            startActivity(i);
-	    		
-	    		
 	    }});
         
         

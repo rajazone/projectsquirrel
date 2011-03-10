@@ -9,12 +9,17 @@ package edu.uic.cs.projectsquirrel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.graphics.Shader;
 
 import java.util.Date;
+import java.text.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class observ extends Activity {
@@ -24,20 +29,17 @@ public class observ extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.observ);
         
-        Button dateBox = (Button) findViewById(R.id.date2);
-        Button timeBox = (Button) findViewById(R.id.time2); 
+        //DATA FROM XML  ---------------------------------------------------------------
+        Button dateBox = (Button) findViewById(R.id.date2);	//retrieve date button
+        Button timeBox = (Button) findViewById(R.id.time2); //retrieve time button
+        Button locBox  = (Button) findViewById(R.id.loc2);	//retrieve location button
+        //------------------------------------------------------------------------------
         
-        Date dte = new Date();
-        int hr = dte.getHours();		//current hour
-        int min = dte.getMinutes();		//current minute
-        String time = hr + ":" + min;	//TODO: Include AM/PM to time
+        Date dte = new Date();		//Save current date/time into variable dte
+        String time = DateFormat.getTimeInstance(DateFormat.SHORT).format(dte);	//String time now holds 00:00 time format
+        String date = DateFormat.getDateInstance(DateFormat.SHORT).format(dte); //String date now holds DD/MM/YY format
         
-        int mon = dte.getMonth(); 		 //current month
-        int day = dte.getDate();		 //current day
-        int year = dte.getYear() + 1900; //current year 
-        String date = mon + "/" + day + "/" + year;
-        
-        //Set day & Time to screen
+        //Set Day & Time to screen
         dateBox.setText(date);
         timeBox.setText(time);
         
@@ -52,6 +54,19 @@ public class observ extends Activity {
         	public void onClick(View v){
         		//TODO: Create widget TimePicker in a dialog to be displayed at this point.
 	    }});
+        
+        //Allow users to edit location
+        locBox.setOnClickListener(new View.OnClickListener(){	
+        	public void onClick(View v){
+        		//TODO: Create way to edit location. (EditText for entering zip code?)
+	    }});
+        
+        //Create Divider Under Date/Time/Location
+        BitmapDrawable divider = new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.div));
+        divider.setTileModeX(Shader.TileMode.REPEAT);
+        ImageView divView = (ImageView) findViewById(R.id.div1);
+        divView.setBackgroundDrawable(divider);
+        //-----------------------------------------
         
     }//end onCreate
 }//end observ
