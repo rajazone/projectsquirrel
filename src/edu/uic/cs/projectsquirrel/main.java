@@ -32,6 +32,11 @@ public class main extends Activity {
 	            startActivity(i);
 	    }});
         
+        sqGuide.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
+	            startActivity(i);
+	    }});
         
     }//end onCreate
 }//end main
