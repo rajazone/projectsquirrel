@@ -11,16 +11,16 @@ public class sqguide extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sqguide);
         
-        ImageView fSquirrel = (ImageView) findViewById(R.id.foxSquirrel);
+        //ImageView fSquirrel = (ImageView) findViewById(R.id.foxSquirrel);
         TextView fDesc = (TextView) findViewById(R.id.textView1);
-        fSquirrel.setImageResource(R.drawable.fox_squirrel);
-        fDesc.setText("Fox Squirrel");
+        ///fSquirrel.setImageResource(R.drawable.fox_squirrel);
+        //fDesc.setText("Fox Squirrel\n");
         
-        ImageView gSquirrel = (ImageView) findViewById(R.id.graySquirrel);
+        //ImageView gSquirrel = (ImageView) findViewById(R.id.graySquirrel);
         TextView gDesc = (TextView) findViewById(R.id.textView2);
-        gSquirrel.setImageResource(R.drawable.grey_squirrel);
-        gDesc.setText("Grey Squirrel");
-        
+        //gSquirrel.setImageResource(R.drawable.grey_squirrel);
+        gDesc.setTextSize(24);
+        fDesc.setTextSize(24);
     }
 	
 }
