@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <resources>
+        <style name="HeadingFont">
+        <item name="android:textColor">#FFC125</item>
+        <item name="android:textSize">14px</item>
+        <item name="android:textStyle">bold</item>
+        
+    </style>
+    <style name="DescriptionFont">
+        <item name="android:textColor">#FAFAFA</item>
+        <item name="android:textSize">11px</item>
+        </style>
+      
+    
+    </resources>
