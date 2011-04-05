@@ -98,6 +98,7 @@ public class observ extends Activity {
         //DATA FROM XML  ---------------------------------------------------------------
         Button dateBox = (Button) findViewById(R.id.date2);	//retrieve date button
         Button timeBox = (Button) findViewById(R.id.time2); //retrieve time button
+        Button next = (Button) findViewById(R.id.nextButton);
         //Button locBox  = (Button) findViewById(R.id.loc2);	//retrieve location button
         //------------------------------------------------------------------------------
         
@@ -121,6 +122,11 @@ public class observ extends Activity {
         		//TODO: Create widget TimePicker in a dialog to be displayed at this point.
 	    }});
         
+        next.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		Intent i = new Intent(getApplicationContext(), animals.class);
+	            startActivity(i);
+	    }});
         //Allow users to edit location
         //locBox.setOnClickListener(new View.OnClickListener(){	
         	//public void onClick(View v){
