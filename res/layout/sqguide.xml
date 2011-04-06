@@ -7,7 +7,7 @@
         <LinearLayout android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
             <ImageView android:layout_height="wrap_content" android:id="@+id/imageView1" android:layout_width="wrap_content" android:src="@drawable/fox_squirrel"></ImageView>
             <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView1" android:text="Fox Squirrel"></TextView>
-            <TextView android:text="-orange or rust backs and sides\n-orange bellies\nblack-fringed tails\n" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <TextView android:text="-orange or rust backs and sides\n-orange bellies\n-black-fringed tails\n" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
             <ImageView android:layout_height="wrap_content" android:id="@+id/imageView2" android:layout_width="wrap_content" android:src="@drawable/grey_squirrel"></ImageView>
             <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="Gray Squirrel"></TextView>
             <TextView android:text="-Gray backs and side\n-white or gray bellies\n-white-fringed tails" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
