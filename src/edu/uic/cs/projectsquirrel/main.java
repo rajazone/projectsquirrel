@@ -32,6 +32,7 @@ public class main extends Activity {
 	            startActivity(i);
 	    }});
         
+      //Set listener for "Squirrel Guide" button on main screen.
         sqGuide.setOnClickListener(new View.OnClickListener(){	
 	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);

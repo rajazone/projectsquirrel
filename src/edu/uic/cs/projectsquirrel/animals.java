@@ -2,6 +2,7 @@ package edu.uic.cs.projectsquirrel;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class animals extends Activity {
