@@ -10,6 +10,7 @@ public class animals extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animals);
 
+
         
         /*
         TextView dogs = (TextView) findViewById(R.id.textView1);
