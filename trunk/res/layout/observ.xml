@@ -96,10 +96,9 @@
 	android:layout_height="wrap_content"
 	>
 	</ImageView>
-  	<Button 
-  	android:id="@+id/nextButton" 
-  	android:layout_height="wrap_content" 
-  	android:text="Next" android:layout_width="wrap_content"></Button> 
+  	<RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+  		<Button android:text="Next" android:layout_width="wrap_content" android:id="@+id/nextButton" android:layout_height="wrap_content" android:layout_alignParentRight="true"></Button>
+  	</RelativeLayout> 
 </TableLayout>
 <!-- End of Table #1 -->
 <!-- NOTE: Divider created here dynamically in .java file -->
