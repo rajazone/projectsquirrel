@@ -14,6 +14,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class main extends Activity {
     /** Called when the activity is first created. */
@@ -38,6 +39,7 @@ public class main extends Activity {
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
 	            startActivity(i);
 	    }});
+        
         
     }//end onCreate
 }//end main

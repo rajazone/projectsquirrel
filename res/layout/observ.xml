@@ -75,7 +75,7 @@
     
     
     <!--  LOCATION  -->
-    <TableRow>
+    <!--  Note: not in table as to allow for "EditText" ro span entire screen width -->
     
 	    <TextView 
 	    android:text="Location:  " 
@@ -87,8 +87,14 @@
 	    android:textSize="14px"
 	    >
 	    </TextView>
-	    <EditText android:text="EditText" android:id="@+id/editText1" android:layout_width="wrap_content" android:layout_height="wrap_content"></EditText>
-	</TableRow>
+	    
+	    <!--  Location should auto-fill if GPS is enabled. -->
+	    <EditText 
+	    android:hint="Please Enable GPS or Enter Zip Code" 
+	    android:id="@+id/editText1" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content" >
+	    </EditText>
   
   	<ImageView
 	android:id="@+id/div1" 
