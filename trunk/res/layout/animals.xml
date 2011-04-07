@@ -5,7 +5,7 @@
   android:layout_height="fill_parent" android:orientation="vertical"
   android:background="#b6b6b6">
   
-    <TextView android:text="HOW OFTEN are the following animals at the observation site per day?\nNone, Low, Medium, or High?" 
+    <TextView android:text="HOW OFTEN are the following animals at the observation site per day?" 
     	      android:id="@+id/textView1" 
               android:layout_height="wrap_content"
               android:textColor="#FFFFFF"
@@ -13,6 +13,50 @@
 	    	  android:textStyle="bold"
 	    	  android:textSize="12px" android:layout_width="fill_parent"></TextView>
 	    	  
+	<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content" android:orientation="horizontal"
+	  android:background="#b6b6b6">
+	  
+	<TextView android:text="None, " 
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#FFFFFF"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	<TextView android:text="Low, "
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#c9f5e5"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	<TextView android:text="Medium, " 
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#6de4b8"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	    	  
+	 <TextView android:text="or High?" 
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+	    	  android:background="#000000"
+	    	  android:textColor="#10d28b"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>   
+	</LinearLayout>
 	    	  
     <TableLayout 
     android:id="@+id/tableLayout1" 
