@@ -12,7 +12,7 @@
 	    android:textColor="#FFFFFF"
 	    android:background="#000000"
 	    android:textStyle="bold"
-	    android:textSize="10px"
+	    android:textSize="12px"
 	    >
 	    </TextView>
     
@@ -73,6 +73,10 @@
 	    </Button>
 	</TableRow>
     
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#b6b6b6" android:orientation="horizontal">
     
     <!--  LOCATION  -->
     <!--  Note: not in table as to allow for "EditText" ro span entire screen width -->
@@ -85,6 +89,7 @@
 	    android:textColor="#000000"
 	    android:textStyle="bold"
 	    android:textSize="14px"
+	    android:inputType="number"
 	    >
 	    </TextView>
 	    
@@ -95,22 +100,81 @@
 	    android:layout_width="wrap_content" 
 	    android:layout_height="wrap_content" >
 	    </EditText>
+	 </LinearLayout>
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#b6b6b6" android:orientation="horizontal"> 
+	    
+  	<!--  SETTING  -->
+   	<TextView 
+	   android:text="Setting:     " 
+	   android:id="@+id/set1" 
+	   android:layout_width="wrap_content" 
+	   android:layout_height="wrap_content"
+	   android:textColor="#000000"
+	   android:textStyle="bold"
+	   android:textSize="14px"
+	   >
+	</TextView>
+		
+    <Spinner 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/spinner1"
+    >
+    </Spinner>
+    </LinearLayout>	
   
+  	<!-- NOTE: Divider created here dynamically in .java file -->
   	<ImageView
 	android:id="@+id/div1" 
 	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content"
+	android:layout_height="2px"
 	>
 	</ImageView>
-  	<RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-  		<Button android:text="Next" android:layout_width="100px" android:id="@+id/nextButton" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"></Button>
-  	</RelativeLayout> 
-</TableLayout>
-<!-- End of Table #1 -->
-<!-- NOTE: Divider created here dynamically in .java file -->
+  	
+	
+	
+	<!--  SQUIRREL COUNT -->
 	
 
+
+  <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">		
+  		<Button 
+  		android:text="Next" 
+  		android:layout_width="100px" 
+  		android:id="@+id/nextButton" 
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentRight="true" 
+  		android:layout_alignParentBottom="true">
+  		</Button>
+  		
+  		<Button 
+  		android:text="Squirrel Guide" 
+  		android:layout_width="wrap_content" 
+  		android:id="@+id/guideButton" 
+  		android:layout_height="wrap_content"
+  		android:layout_toLeftOf="@id/nextButton"
+  		android:layout_alignParentBottom="true">
+  		</Button>
+  		
+  		<Button 
+  		android:text="Cancel" 
+  		android:layout_width="100px" 
+  		android:id="@+id/cancelButton" 
+  		android:layout_height="wrap_content"
+  		android:layout_alignParentLeft="true" 
+  		android:layout_alignParentBottom="true">
+  		</Button>
+  	
+  	</RelativeLayout> 
+
+
 	
+
+	</TableLayout>
 </LinearLayout>
 
 	

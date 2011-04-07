@@ -6,7 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Spinner;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +14,7 @@ public class animals extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animals);
-
+        
         //Import SeekBars from animals.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
         SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2);
@@ -28,6 +28,8 @@ public class animals extends Activity {
         seekbar3.setOnSeekBarChangeListener(SeekChange);
         seekbar4.setOnSeekBarChangeListener(SeekChange);
         seekbar5.setOnSeekBarChangeListener(SeekChange);
+        
+        //Import Previous & Next Buttons
         
 	} //end of onCreate
 

@@ -3,4 +3,17 @@
     <string name="app_name">Project Squirrel</string>
     <string name="obs">New\nObservation</string>
     <string name="id1">Squirrel\nGuide</string>
+    <string-array name="setting_array">
+        <item>Single Family House or Duplex</item>
+        <item>Multiple Family Dwelling</item>
+        <item>Highrise Building</item>
+        <item>Neighborhood Park</item>
+        <item>Forest/Nature Preserve</item>
+        <item>Zoo/Arboretum/Botanical Garden</item>
+        <item>Commercial Establishment</item>
+        <item>School/College/University</item>
+        <item>Vacant Lot</item>
+        <item>Cemetary</item>
+        <item>Farmland</item>
+    </string-array>
 </resources>

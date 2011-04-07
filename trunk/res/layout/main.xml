@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#b6b6b6" >
+    android:background="#b6b6b6" android:layout_height="wrap_content" android:layout_width="wrap_content">
 	
 	<ImageView 
-    android:layout_width="fill_parent" 
+    android:layout_width="wrap_content" 
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:maxWidth="150px"
+    android:maxWidth="385px"
+    android:maxHeight="105px"
     android:id="@+id/title" 
-    android:src="@drawable/title" 
+    android:src="@drawable/title2" 
     android:scaleType="fitXY"
-    android:paddingBottom="20px"
     ></ImageView>
 
     <ImageView 
