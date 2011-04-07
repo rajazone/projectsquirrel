@@ -2,51 +2,120 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent" android:orientation="vertical">
-    <TextView android:text="How often are the following animals at the observation site\nLow = 1-2 per day, Medium = 3-4 per day, High = 5+ per day" 
+  android:layout_height="fill_parent" android:orientation="vertical"
+  android:background="#b6b6b6">
+  
+    <TextView android:text="HOW OFTEN are the following animals at the observation site per day?\nNone, Low, Medium, or High?" 
     	      android:id="@+id/textView1" 
               android:layout_height="wrap_content"
               android:textColor="#FFFFFF"
 	    	  android:background="#000000"
 	    	  android:textStyle="bold"
-	    	  android:textSize="10px" android:layout_width="fill_parent"></TextView>
-    <TextView android:text="Dogs" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px"></TextView>
-    <RadioGroup android:layout_height="wrap_content" android:layout_width="wrap_content" android:orientation="horizontal" android:id="@+id/dogsRadio">
-        <RadioButton android:layout_height="wrap_content" android:text="None" android:layout_width="wrap_content" android:textSize="12px" android:checked="true" android:id="@+id/noneDogs"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Low" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/lowDogs"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Medium" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/medDogs"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="High" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/highDogs"></RadioButton>
-    </RadioGroup>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView3" android:text="Cats" android:textSize="18px"></TextView>
-    <RadioGroup android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="wrap_content" android:id="@+id/catsRadio">
-        <RadioButton android:layout_height="wrap_content" android:text="None" android:layout_width="wrap_content" android:textSize="12px" android:checked="true" android:id="@+id/noneCats"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Low" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/lowCats"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Medium" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/medCats"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="High" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/highCats"></RadioButton>
-    </RadioGroup>
-    <TextView android:text="Coyotes" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px"></TextView>
-    <RadioGroup android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="wrap_content" android:id="@+id/coyotesRadio">
-        <RadioButton android:layout_height="wrap_content" android:text="None" android:layout_width="wrap_content" android:textSize="12px" android:checked="true" android:id="@+id/noneCoy"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Low" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/lowCoy"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Medium" android:layout_width="wrap_content" android:textSize="12px" android:id="@+id/lowMed"></RadioButton>
-        <RadioButton android:textSize="12px" android:layout_height="wrap_content" android:text="High" android:id="@+id/highCoy" android:layout_width="wrap_content"></RadioButton>
-    </RadioGroup>
-    <TextView android:text="Hawks" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px"></TextView>
-    <RadioGroup android:layout_height="wrap_content" android:orientation="horizontal" android:layout_width="wrap_content" android:id="@+id/hawksRadio" >
-        <RadioButton android:layout_height="wrap_content" android:text="None" android:layout_width="wrap_content" android:checked="true" android:textSize="12px" android:id="@+id/noneHawk"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Low" android:layout_width="wrap_content" android:id="@+id/lowHawk" android:textSize="12px"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Medium" android:layout_width="wrap_content" android:id="@+id/medHawk" android:textSize="12px"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="High" android:id="@+id/highHawh" android:layout_width="wrap_content" android:textSize="12px"></RadioButton>
-    </RadioGroup>
-    <TextView android:text="Poisoned Grain" android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px"></TextView>
-    <RadioGroup android:layout_height="wrap_content" android:id="@+id/grainRadio" android:layout_width="wrap_content" android:orientation="horizontal">
-        <RadioButton android:layout_height="wrap_content" android:text="None" android:layout_width="wrap_content" android:checked="true" android:textSize="12px" android:id="@+id/noneGrain"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Low" android:layout_width="wrap_content" android:id="@+id/lowGrain" android:textSize="12px"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="Medium" android:layout_width="wrap_content" android:id="@+id/medGrain" android:textSize="12px"></RadioButton>
-        <RadioButton android:layout_height="wrap_content" android:text="High" android:id="@+id/highGrain" android:layout_width="wrap_content" android:textSize="12px"></RadioButton>
-    </RadioGroup>
+	    	  android:textSize="12px" android:layout_width="fill_parent"></TextView>
+	    	  
+	    	  
+    <TableLayout 
+    android:id="@+id/tableLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content">
+	    	 
+	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Dogs" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>  
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar1"
+    android:progress="0"
+    android:max="3" 
+    android:progressDrawable="@drawable/gradient"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView3" android:text="Cats" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar2"
+    android:progress="0"
+    android:max="3" 
+    android:progressDrawable="@drawable/gradient"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Coyotes" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar3"
+    android:progress="0"
+    android:max="3" 
+    android:progressDrawable="@drawable/gradient"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Hawks" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar4"
+    android:progress="0"
+    android:max="3" 
+    android:progressDrawable="@drawable/gradient"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="25px">
+    <TextView android:text="Poisoned\nGrain" android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar5"
+    android:progress="0"
+    android:max="3" 
+    android:progressDrawable="@drawable/gradient"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    </TableLayout>
+    
+    
+    <EditText 
+        android:hint="Additional Observations (optional)" 
+        android:id="@+id/editText1" 
+        android:layout_height="wrap_content"  
+        android:layout_width="fill_parent">
+    </EditText>
+    
+    
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-        <EditText android:hint="Additional Observations (optional)" android:id="@+id/editText1" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_width="200px"></EditText>
-        <Button android:text="Next" android:id="@+id/button1" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_width="100px"></Button>
+		<Button 
+        android:text="Back" 
+        android:id="@+id/Back_Animals" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentLeft="true" 
+        android:layout_alignParentBottom="true" 
+        android:layout_width="100px">
+        </Button>
+		
+		
+        <Button 
+        android:text="Next" 
+        android:id="@+id/Next_Animals" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentRight="true" 
+        android:layout_alignParentBottom="true" 
+        android:layout_width="100px">
+        </Button>
+        
     </RelativeLayout>
+    
 </LinearLayout>
