@@ -5,23 +5,24 @@
     android:background="#b6b6b6" android:orientation="vertical">
     
     <TextView 
-	    android:text="Please complete entire form to submit Project Squirrel data." 
-	    android:id="@+id/header1" 
-	    android:layout_width="fill_parent" 
-	    android:layout_height="wrap_content"
-	    android:textColor="#FFFFFF"
-	    android:background="#000000"
-	    android:textStyle="bold"
-	    android:textSize="12px"
-	    >
-	    </TextView>
+    android:text="Please complete entire form to submit Project Squirrel data." 
+    android:id="@+id/header1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:background="#000000"
+    android:textStyle="bold"
+    android:textSize="12px"
+    >
+    </TextView>
     
     <!-- Table #1 For Date/Time/Location -->
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <TableLayout
 	android:id="@+id/main_layout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     >
     <!--  DATE  -->
     <TableRow>
@@ -73,7 +74,7 @@
 	    </Button>
 	</TableRow>
     
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="#b6b6b6" android:orientation="horizontal">
@@ -98,11 +99,13 @@
 	    android:hint="Please Enable GPS or Enter Zip Code" 
 	    android:id="@+id/editText1" 
 	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content" >
+	    android:layout_height="wrap_content"
+	    android:inputType="number" >
 	    </EditText>
 	 </LinearLayout>
-	
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		</TableLayout>
+		
+	<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="#b6b6b6" android:orientation="horizontal"> 
@@ -138,25 +141,108 @@
 	
 	
 	<!--  SQUIRREL COUNT -->
+	<TextView 
+    android:text="Please enter number of squirrels seen." 
+    android:id="@+id/header2" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:background="#000000"
+    android:textStyle="bold"
+    android:textSize="12px"
+    >
+    </TextView>
 	
+	
+    <TableLayout
+	android:id="@+id/main_layout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+    
+    <TableRow>
+    <TextView 
+    android:text="Fox Squirrels: " 
+    android:id="@+id/loc1" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:textColor="#000000"
+    android:textStyle="bold"
+    android:textSize="14px"
+    android:inputType="number"
+    >
+    </TextView>
+    <Button 
+	android:id="@+id/fox_minus" 
+	android:background="@drawable/custom_button_minus"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>
+	
+	<EditText 
+    android:text="0"
+    android:id="@+id/fox_text" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:inputType="number" >
+    </EditText>
+	
+    <Button 
+	android:id="@+id/fox_plus" 
+	android:background="@drawable/custom_button_plus"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>    
+	</TableRow>
+	
+	<TableRow>
+    <TextView 
+    android:text="Gray Squirrels: " 
+    android:id="@+id/loc1" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:textColor="#000000"
+    android:textStyle="bold"
+    android:textSize="14px"
+    android:inputType="number"
+    >
+    </TextView>
+    <Button 
+	android:id="@+id/gray_minus" 
+	android:background="@drawable/custom_button_minus"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>
+	
+	<EditText 
+    android:text="0"
+    android:id="@+id/gray_text" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:inputType="number" >
+    </EditText>
+	
+    <Button 
+	android:id="@+id/gray_plus" 
+	android:background="@drawable/custom_button_plus"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>    
+	</TableRow>
+	</TableLayout>
 
-
-  <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">		
+  <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_marginTop="25px">		
   		<Button 
   		android:text="Next" 
   		android:layout_width="100px" 
   		android:id="@+id/nextButton" 
   		android:layout_height="wrap_content"
   		android:layout_alignParentRight="true" 
-  		android:layout_alignParentBottom="true">
-  		</Button>
-  		
-  		<Button 
-  		android:text="Squirrel Guide" 
-  		android:layout_width="wrap_content" 
-  		android:id="@+id/guideButton" 
-  		android:layout_height="wrap_content"
-  		android:layout_toLeftOf="@id/nextButton"
   		android:layout_alignParentBottom="true">
   		</Button>
   		
@@ -168,13 +254,17 @@
   		android:layout_alignParentLeft="true" 
   		android:layout_alignParentBottom="true">
   		</Button>
+  		
+  		<Button 
+  		android:text="Squirrel Guide" 
+  		android:layout_width="fill_parent" 
+  		android:id="@+id/guideButton" 
+  		android:layout_height="wrap_content"
+  		android:layout_toLeftOf="@id/nextButton"
+  		android:layout_toRightOf="@id/cancelButton"
+  		android:layout_alignParentBottom="true">
+  		</Button>
   	
   	</RelativeLayout> 
 
-
-	
-
-	</TableLayout>
 </LinearLayout>
-
-	

@@ -35,13 +35,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class observ extends Activity {
 	
-	Variables LOG;	//Will hold all data to be submitted.
-	Bundle BUNDL;	//Used to transfer LOG between activities.
+	Bundle BUNDL;	//Used to transfer Log data between activities.
 	
     /** Called when the activity is first created. */
     @Override
@@ -49,14 +46,12 @@ public class observ extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.observ); 
         
-        LOG = new Variables();	//will hold all data to be submitted
-        BUNDL = new Bundle();	//used to pass data between activities
-        
+        BUNDL = new Bundle();	//used to pass data between activities, later to be stored in Log.
       
+        // LOCATION --------------------------------------------------------------------------------
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
-        
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location loc){
@@ -72,7 +67,13 @@ public class observ extends Activity {
             if (addresses.size() > 0){
                 String Text = addresses.get(0).getLocality();
                 EditText txt = (EditText) findViewById(R.id.editText1);
-                txt.setText(Text + ", " + addresses.get(0).getAdminArea());
+                txt.setText(Text + ", " + addresses.get(0).getAdminArea()); 
+                
+                //TODO: Need latitude and logitude
+                //Save them...
+                //BUNDL.putString("LATITUDE", "x");
+                //BUNDL.putString("LONGITUDE", "y");
+                //BUNDL.putString("ZIP", "XXXXX-XXXX");
             }
             }
 
@@ -96,6 +97,12 @@ public class observ extends Activity {
 			}
             
             };
+            
+            //TODO: (Robin?) If GPS is disabled & user is about to submit data...
+            //- Grab zip code from  (EditText) findViewById(R.id.editText1);
+            //- If zip code does not exist, inform user
+            //- Else convert zip code into approx. latitude & logitude
+            //- Store zip code, lat. & long. as Strings into bundl with key names LATITUDE, LOGITUDE, ZIP -> BUNDL.putString("key", "value");
 
         // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
@@ -111,7 +118,11 @@ public class observ extends Activity {
         Button timeBox = (Button) findViewById(R.id.time2); //retrieve time button
         Button next = (Button) findViewById(R.id.nextButton);
         Spinner setting = (Spinner) findViewById(R.id.spinner1);
-        //Button locBox  = (Button) findViewById(R.id.loc2);	//retrieve location button
+        
+        Button fox_minus = (Button) findViewById(R.id.fox_minus);
+        Button fox_plus = (Button) findViewById(R.id.fox_plus);
+        Button gray_minus = (Button) findViewById(R.id.gray_minus);
+        Button gray_plus = (Button) findViewById(R.id.gray_plus);
         //------------------------------------------------------------------------------
         
         Date dte = new Date();		//Save current date/time into variable dte
@@ -122,21 +133,66 @@ public class observ extends Activity {
         dateBox.setText(date);
         timeBox.setText(time);
         
+        //--------------------------------------------------------------------------------------------
+        //Add Day & Time to BUNDL     ----------------------------------------------------------------
+        /*Formats... (As specified by syllabus)
+        * Day = [DD]
+    	* Month = [MM]
+    	* Year = [YYYY]
+    	* Hour = [HH]
+    	* Minute = [MM]
+    	* AMPM = [XM]
+    	*/
+        int s1 = date.indexOf('/');			//index of first slash (date)
+        int s2 = date.indexOf('/', s1+1);	//index of second slash (date)
+        int t1 = date.indexOf('/');			//index of first slash (time)
+        int t2 = date.indexOf('/', t1+1);	//index of second slash (time)
+        int sp = date.indexOf(' ');			//index of space before AM/PM (time)
+        
+        String day = date.substring(0,s1);
+        	if(day.length()==1) { day = "0" + day; } 		//Day must be 2 characters long	
+        String month = date.substring(s1+1,s2);
+        	if(month.length()==1) { month = "0" + month; } 	//Month must be 2 characters long
+        String hour = date.substring(0,t1);
+    		if(hour.length()==1) { hour = "0" + hour; } 		//Hour must be 2 characters long	
+        String minute = date.substring(t1+1,t2);
+        	if(minute.length()==1) { minute = "0" + minute; } 	//Minute must be 2 characters long
+        
+        BUNDL.putString("Day", day);
+        BUNDL.putString("Month", month);
+        BUNDL.putString("Year", date.substring(s2+1));
+        BUNDL.putString("Hour", hour);
+        BUNDL.putString("Minute", minute);
+        BUNDL.putString("AMPM", time.substring(sp+1));
+        //--------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------
+        
         //Allow users to edit date
         dateBox.setOnClickListener(new View.OnClickListener(){	
         	public void onClick(View v){
         		//TODO: Create widget DatePicker in a dialog to be displayed at this point.
+        		//BUNDL.Day,Month,Year = this new entry
 	    }});
         
         //Allow users to edit time
         timeBox.setOnClickListener(new View.OnClickListener(){	
         	public void onClick(View v){
         		//TODO: Create widget TimePicker in a dialog to be displayed at this point.
+        		//BUNDL.Hour,Minute,AMPM = this new entry
 	    }});
         
+        
+        //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
 	    	public void onClick(View v){
+	    		//Store squirrel variables in BUNDL
+		    		EditText fox_text = (EditText) findViewById(R.id.fox_text);
+		            EditText gray_text = (EditText) findViewById(R.id.gray_text);
+		            BUNDL.putString("NUM_FOX_SQUIRRELS",fox_text.getText().toString());
+		            BUNDL.putString("NUM_GRAY_SQUIRRELS",gray_text.getText().toString());
+		            
 	    		Intent i = new Intent(getApplicationContext(), animals.class);
+	    		i.putExtras(BUNDL);	//Sends BUNDL to next activity.
 	            startActivity(i);
 	    }});
         //Allow users to edit location
@@ -167,7 +223,39 @@ public class observ extends Activity {
 			}
         });
         
-    }//end onCreate
+        //Initiate Squirrel Counters	-------------------------------------------------------------
+        fox_minus.setOnClickListener(new View.OnClickListener(){	
+        	public void onClick(View v){
+        		EditText fox_text = (EditText) findViewById(R.id.fox_text);
+        		String t = fox_text.getText().toString();
+        		int t2 = Integer.parseInt(t) - 1;
+        		fox_text.setText("" + t2);
+	    }});
+        fox_plus.setOnClickListener(new View.OnClickListener(){	
+        	public void onClick(View v){
+        		EditText fox_text = (EditText) findViewById(R.id.fox_text);
+        		String t = fox_text.getText().toString();
+        		int t2 = Integer.parseInt(t) + 1;
+        		fox_text.setText("" + t2);
+	    }});
+        
+        gray_minus.setOnClickListener(new View.OnClickListener(){	
+        	public void onClick(View v){
+        		EditText gray_text = (EditText) findViewById(R.id.gray_text);
+        		String t = gray_text.getText().toString();
+        		int t2 = Integer.parseInt(t) - 1;
+        		gray_text.setText("" + t2);
+	    }});
+        gray_plus.setOnClickListener(new View.OnClickListener(){	
+        	public void onClick(View v){
+        		EditText gray_text = (EditText) findViewById(R.id.gray_text);
+        		String t = gray_text.getText().toString();
+        		int t2 = Integer.parseInt(t) + 1;
+        		gray_text.setText("" + t2);
+	    }});
+        // End Squirrel Counters -------------------------------------------------------------------
+        
+    }// End onCreate
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)  {
@@ -175,7 +263,6 @@ public class observ extends Activity {
         	showDialog(0);
             return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
     
@@ -203,20 +290,6 @@ public class observ extends Activity {
 		
 		return dialog;
 	}
-    
-    
- /*   public class MyOnItemSelectedListener implements OnItemSelectedListener {
-
-        public void onItemSelected(AdapterView<?> parent,
-            View view, int pos, long id) {
-
-        }
-
-        public void onNothingSelected(AdapterView<?> parent) {
-          // Do nothing.
-        }
-    }*/
-    
    
     }/* End of UseGps Activity */
 //end observ
