@@ -4,13 +4,13 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent" android:orientation="vertical">
     <ScrollView android:layout_height="wrap_content" android:id="@+id/scrollView1" android:layout_width="fill_parent">
-        <LinearLayout android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <ImageView android:layout_height="wrap_content" android:id="@+id/imageView1" android:layout_width="wrap_content" android:src="@drawable/fox_squirrel"></ImageView>
-            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView1" android:text="Fox Squirrel"></TextView>
-            <TextView android:text="-orange or rust backs and sides\n-orange bellies\n-black-fringed tails\n" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-            <ImageView android:layout_height="wrap_content" android:id="@+id/imageView2" android:layout_width="wrap_content" android:src="@drawable/grey_squirrel"></ImageView>
-            <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="Gray Squirrel"></TextView>
-            <TextView android:text="-Gray backs and side\n-white or gray bellies\n-white-fringed tails" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+        <LinearLayout android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:orientation="vertical" android:layout_height="fill_parent">
+            <ImageView android:src="@drawable/fox_squirrel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/imageView1"></ImageView>
+            <TextView android:id="@+id/textView1" android:text="Fox Squirrel" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <TextView android:id="@+id/textView3" android:text="- Orange or rust colored backs and sides.\n- Orange bellies.\n- Black-fringed tails.\n" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <ImageView android:src="@drawable/grey_squirrel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/imageView2"></ImageView>
+            <TextView android:id="@+id/textView2" android:text="Gray Squirrel" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+            <TextView android:id="@+id/textView4" android:text="- Gray backs and side.\n- White or gray bellies.\n- White-fringed tails." android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
