@@ -117,6 +117,8 @@ public class observ extends Activity {
         Button dateBox = (Button) findViewById(R.id.date2);	//retrieve date button
         Button timeBox = (Button) findViewById(R.id.time2); //retrieve time button
         Button next = (Button) findViewById(R.id.nextButton);
+        Button cancel = (Button) findViewById(R.id.cancelButton);
+        Button guide = (Button) findViewById(R.id.guideButton);
         Spinner setting = (Spinner) findViewById(R.id.spinner1);
         
         Button fox_minus = (Button) findViewById(R.id.fox_minus);
@@ -195,6 +197,20 @@ public class observ extends Activity {
 	    		i.putExtras(BUNDL);	//Sends BUNDL to next activity.
 	            startActivity(i);
 	    }});
+        
+        //CANCEL BUTTON  
+        cancel.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		showDialog(0);
+	    }});  
+        
+        //SQUIRREL GUIDE BUTTON  
+        guide.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
+	    		startActivity(i);
+	    }});
+        
         //Allow users to edit location
         //locBox.setOnClickListener(new View.OnClickListener(){	
         	//public void onClick(View v){
@@ -228,30 +244,42 @@ public class observ extends Activity {
         	public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
-        		int t2 = Integer.parseInt(t) - 1;
-        		fox_text.setText("" + t2);
+        		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
+        		else {
+        			int t2 = Integer.parseInt(t) - 1;
+        			fox_text.setText("" + t2);
+        		}
 	    }});
         fox_plus.setOnClickListener(new View.OnClickListener(){	
         	public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
-        		int t2 = Integer.parseInt(t) + 1;
-        		fox_text.setText("" + t2);
+        		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
+        		else {
+        			int t2 = Integer.parseInt(t) + 1;
+        			fox_text.setText("" + t2);
+        		}
 	    }});
         
         gray_minus.setOnClickListener(new View.OnClickListener(){	
         	public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
-        		int t2 = Integer.parseInt(t) - 1;
-        		gray_text.setText("" + t2);
+        		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
+        		else {
+        			int t2 = Integer.parseInt(t) - 1;
+        			gray_text.setText("" + t2);
+        		}
 	    }});
         gray_plus.setOnClickListener(new View.OnClickListener(){	
         	public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
-        		int t2 = Integer.parseInt(t) + 1;
-        		gray_text.setText("" + t2);
+        		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
+        		else {
+        			int t2 = Integer.parseInt(t) + 1;
+        			gray_text.setText("" + t2);
+        		}
 	    }});
         // End Squirrel Counters -------------------------------------------------------------------
         
