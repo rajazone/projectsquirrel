@@ -17,6 +17,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.*;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.graphics.Shader;
 
 import java.util.Date;
@@ -52,6 +53,18 @@ public class observ extends Activity {
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
+        
+        //
+        //
+        //
+        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            buildAlertMessageNoGps();
+        }
+
+
+        //
+        //
+        //
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location loc){
@@ -67,13 +80,13 @@ public class observ extends Activity {
             if (addresses.size() > 0){
                 String Text = addresses.get(0).getLocality();
                 EditText txt = (EditText) findViewById(R.id.editText1);
-                txt.setText(Text + ", " + addresses.get(0).getAdminArea()); 
+                txt.setText(addresses.get(0).getPostalCode()); 
                 
                 //TODO: Need latitude and logitude
                 //Save them...
-                //BUNDL.putString("LATITUDE", "x");
-                //BUNDL.putString("LONGITUDE", "y");
-                //BUNDL.putString("ZIP", "XXXXX-XXXX");
+                BUNDL.putString("LATITUDE", String.valueOf(loc.getLatitude()));
+                BUNDL.putString("LONGITUDE", String.valueOf(loc.getLongitude()));
+                BUNDL.putString("ZIP", String.valueOf(addresses.get(0).getPostalCode()));
             }
             }
 
@@ -318,6 +331,25 @@ public class observ extends Activity {
 		
 		return dialog;
 	}
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Yout GPS seems to be disabled, do you want to enable it?")
+               .setCancelable(false)
+               .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                   public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                       //launchGPSOptions(); 
+                	   Intent myIntent = new Intent( Settings.ACTION_SECURITY_SETTINGS );
+                	    startActivity(myIntent);
+                   }
+               })
+               .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                   public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        dialog.cancel();
+                   }
+               });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
    
     }/* End of UseGps Activity */
 //end observ
