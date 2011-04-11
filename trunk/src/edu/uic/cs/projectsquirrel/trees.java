@@ -13,18 +13,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class animals extends Activity {
+public class trees extends Activity {
 	
 	Bundle BUNDL;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.animals);
+        setContentView(R.layout.trees);
 
         //Import Bundle from previous activity
         BUNDL = getIntent().getExtras();
         
-        //Import SeekBars from animals.xml
+        //Import SeekBars from trees.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
         SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2);
         SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3);
@@ -39,34 +39,30 @@ public class animals extends Activity {
         seekbar5.setOnSeekBarChangeListener(SeekChange);
 
         //Import Previous & Next Buttons
-        Button next = (Button) findViewById(R.id.Next_Animals);
-        Button prev = (Button) findViewById(R.id.Back_Animals);
+        Button next = (Button) findViewById(R.id.Next_Trees);
+        Button prev = (Button) findViewById(R.id.Back_Trees);
         
       //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
 	    	public void onClick(View v){
 	    		//Store variables in BUNDL
-	    		/*SITE_DOGS = [X, where X is one of NONE, LOW, MEDIUM, HIGH]"
-	    		* SITE_CATS = [X, where X is one of NONE, LOW, MEDIUM, HIGH]"
-	    		* SITE_COYOTES = [X, where X is one of NONE, LOW, MEDIUM, HIGH]"
-	    		* SITE_HAWKS = [X, where X is one of NONE, LOW, MEDIUM, HIGH]"
-	    		* SITE_GRAIN = [X, where X is one of NONE, LOW, MEDIUM, HIGH]"
+	    		/*SITE_DOGS = [X, where X is one of YES,UNSURE,NO]"
+	    		* SITE_CATS = [X, where X is one of YES,UNSURE,NO]"
+	    		* SITE_COYOTES = [X, where X is one of YES,UNSURE,NO]"
+	    		* SITE_HAWKS = [X, where X is one of YES,UNSURE,NO]"
+	    		* SITE_GRAIN = [X, where X is one of YES,UNSURE,NO]""
 	    		*/
-	            SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Dogs
-	            SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Cats
-	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Coyotes
-	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Hawks
-	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Grain
+	            SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Nut_Trees
+	            SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Seed_Trees
+	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Fruit_Trees
+	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Tiny_Trees
+	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Con_Trees
 	            
-	            BUNDL.putString("SITE_DOGS", getProgressValue(seekbar1.getProgress()));
-	            BUNDL.putString("SITE_CATS", getProgressValue(seekbar2.getProgress()));
-	            BUNDL.putString("SITE_COYOTES", getProgressValue(seekbar3.getProgress()));
-	            BUNDL.putString("SITE_HAWKS", getProgressValue(seekbar4.getProgress()));
-	            BUNDL.putString("SITE_GRAIN", getProgressValue(seekbar5.getProgress()));
-	            
-	            Intent i = new Intent(getApplicationContext(), trees.class);
-            	i.putExtras(BUNDL);	//Sends BUNDL to next activity.
-            	startActivity(i);
+	            BUNDL.putString("NUT_TREES", getProgressValue(seekbar1.getProgress()));
+	            BUNDL.putString("SEED_TREES", getProgressValue(seekbar2.getProgress()));
+	            BUNDL.putString("FRUIT_TREES", getProgressValue(seekbar3.getProgress()));
+	            BUNDL.putString("TINY_TREES", getProgressValue(seekbar4.getProgress()));
+	            BUNDL.putString("CON_TREES", getProgressValue(seekbar5.getProgress()));
 	    		
 	    		//Move to next screen
 	    		//Intent i = new Intent(getApplicationContext(), ????.class);
@@ -98,41 +94,37 @@ public class animals extends Activity {
         		switch (seekBar.getProgress()) {
         		case 0:
         			
-        			text = "None";
+        			text = "Yes";
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
         			
         		case 1:
-        			text = "1-2 (per day)";
+        			text = "Unsure";
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
         		
         		case 2:
-        			text = "3-4 (per day)";
+        			text = "No";
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
         			
-        		case 3:
-        			text = "5+ (per day)";
-        			toast = Toast.makeText(context, text, duration);
-        			toast.show();
-        			break;
+        		
         		}
 	        }
         };
         
-       //Convert Number 0-3 into String = NONE/LOW/MEDIUM/HIGH
+       //Convert Number 0-2 into String = Yes/Unsure/No
        public String getProgressValue(int p)
        {
-    	   if(p == 1) { return "LOW"; }
-    	   if(p == 2) { return "MEDIUM"; }
-    	   if(p == 3) { return "HIGH"; }
+    	   if(p == 0) { return "YES"; }
+    	   if(p == 1) { return "UNSURE"; }
+    	   if(p == 2) { return "NO"; }
     	   return "NONE";
        }
         
-} //end of class animals
+} //end of class trees
 
 

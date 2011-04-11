@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical"
+  android:background="#b6b6b6">
+  
+    <TextView android:text="Are there any of the following kinds of trees at the observation site?" 
+    	      android:id="@+id/textView1" 
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+	    	  android:background="#000000"
+	    	  android:textStyle="bold"
+	    	  android:textSize="12px" android:layout_width="fill_parent"></TextView>
+	    	  
+	<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content" android:orientation="horizontal"
+	  android:background="#b6b6b6">
+	  
+	
+	<TextView android:text="Yes "
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#10d28b"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	    	  <TextView android:text="Don't Know " 
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#FFFFFF"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	<TextView android:text="No " 
+    	      android:id="@+id/textView2" 
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+	    	  android:background="#000000"
+	    	  android:textColor="#FF0000"
+	    	  android:textStyle="bold"
+	    	  android:textSize="14px">
+	    	  </TextView>
+	    	  
+	  
+	</LinearLayout>
+	    	  
+    <TableLayout 
+    android:id="@+id/tableLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content">
+	    	 
+	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Nut-bearing trees" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>  
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar1"
+    android:progress="1"
+    android:max="2" 
+    android:progressDrawable="@drawable/gradient2"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView3" android:text="Seed-bearing trees" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar2"
+    android:progress="1"
+    android:max="2" 
+    android:progressDrawable="@drawable/gradient2"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Fruit-bearing trees" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar3"
+    android:progress="1"
+    android:max="2" 
+    android:progressDrawable="@drawable/gradient2"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
+    <TextView android:text="Tiny-seeded trees" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar4"
+    android:progress="1"
+    android:max="2" 
+    android:progressDrawable="@drawable/gradient2"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="25px">
+    <TextView android:text="Coniferous trees" android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+    <SeekBar 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:id="@+id/seekBar5"
+    android:progress="1"
+    android:max="2" 
+    android:progressDrawable="@drawable/gradient2"
+    android:layout_weight=".5">
+    </SeekBar>
+    </TableRow>
+    
+    </TableLayout>
+    
+    
+    <EditText 
+        android:hint="Other trees or comments about trees" 
+        android:id="@+id/editText1" 
+        android:layout_height="wrap_content"  
+        android:layout_width="fill_parent">
+    </EditText>
+    
+    
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<Button 
+        android:text="Back" 
+        android:id="@+id/Back_Trees" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentLeft="true" 
+        android:layout_alignParentBottom="true" 
+        android:layout_width="100px">
+        </Button>
+		
+		
+        <Button 
+        android:text="Next" 
+        android:id="@+id/Next_Trees" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentRight="true" 
+        android:layout_alignParentBottom="true" 
+        android:layout_width="100px">
+        </Button>
+        
+    </RelativeLayout>
+    
+</LinearLayout>

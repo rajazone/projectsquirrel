@@ -11,30 +11,37 @@ public class treeguide extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treeguide);
         
-        ImageView NBImage = (ImageView) findViewById(R.id.NutBearingImage);
-        TextView NBDesc = (TextView) findViewById(R.id.NutBearingDesc);
-       // NBImage.setImageResource(R.drawable.fox_squirrel);
-        NBDesc.setText("Nut Bearing trees");
+        ImageView Tree1Image = (ImageView) findViewById(R.id.Tree1Image);
+        ImageView Nut1Image = (ImageView) findViewById(R.id.Nut1Image);
+     // Tree1Image.setImageResource(R.drawable.fox_squirrel);
+     // Nut1Image.setImageResource(R.drawable.fox_squirrel);
+        TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
+        TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
+       
+       // Tree1Desc.setText("Nut Bearing trees");
+       // Nut1Desc.setText("Nut Bearing trees");
         
-        ImageView SBImage = (ImageView) findViewById(R.id.SeedBearingImage);
-        TextView SBDesc = (TextView) findViewById(R.id.SeedBearingDesc);
-       // SBImage.setImageResource(R.drawable.grey_squirrel);
-        SBDesc.setText("Seed Bearing trees");
+        ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
+        ImageView Nut2Image = (ImageView) findViewById(R.id.Nut2Image);
+     // Tree2Image.setImageResource(R.drawable.fox_squirrel);
+     // Nut2Image.setImageResource(R.drawable.fox_squirrel);
+        TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
+        TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);
+       
+       // Tree2Desc.setText("Nut Bearing trees");
+       // Nut2Desc.setText("Nut Bearing trees");
         
-        ImageView FBImage = (ImageView) findViewById(R.id.FruitBearingImage);
-        TextView FBDesc = (TextView) findViewById(R.id.FruitBearingDesc);
-        //FBImage.setImageResource(R.drawable.grey_squirrel);
-        FBDesc.setText("Fruit Bearing trees");
+        ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
+        ImageView Nut3Image = (ImageView) findViewById(R.id.Nut3Image);
+     // Tree3Image.setImageResource(R.drawable.fox_squirrel);
+     // Nut3Image.setImageResource(R.drawable.fox_squirrel);
+        TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
+        TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
+       
+       // Tree3Desc.setText("Nut Bearing trees");
+       // Nut3Desc.setText("Nut Bearing trees");
         
-        ImageView TSImage = (ImageView) findViewById(R.id.TinySeededImage);
-        TextView TSDesc = (TextView) findViewById(R.id.TinySeededDesc);
-        //TSImage.setImageResource(R.drawable.grey_squirrel);
-        TSDesc.setText("Tiny Seeded trees");
-        
-        ImageView CTImage = (ImageView) findViewById(R.id.ConiferousImage);
-        TextView CTDesc = (TextView) findViewById(R.id.ConiferousDesc);
-        //CTImage.setImageResource(R.drawable.grey_squirrel);
-        CTDesc.setText("Coniferous Trees");
+       
         
     }
 	
