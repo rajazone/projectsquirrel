@@ -30,6 +30,13 @@ public class animals extends Activity {
         SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3);
         SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4);
         SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5);
+
+        seekbar1.setMax(3);
+        seekbar2.setMax(3);
+        seekbar3.setMax(3);
+        seekbar4.setMax(3);
+        seekbar5.setMax(3);
+        
         
         //Hook SeekBars to Custom Listener (Makes a Toast telling user of their selection)
         seekbar1.setOnSeekBarChangeListener(SeekChange);
