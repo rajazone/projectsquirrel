@@ -31,6 +31,12 @@ public class trees extends Activity {
         SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4);
         SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5);
         
+        seekbar1.setMax(2);
+        seekbar2.setMax(2);
+        seekbar3.setMax(2);
+        seekbar4.setMax(2);
+        seekbar5.setMax(2);
+        
         //Hook SeekBars to Custom Listener (Makes a Toast telling user of their selection)
         seekbar1.setOnSeekBarChangeListener(SeekChange);
         seekbar2.setOnSeekBarChangeListener(SeekChange);
