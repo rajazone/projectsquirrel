@@ -65,9 +65,9 @@ public class trees extends Activity {
 	            BUNDL.putString("CON_TREES", getProgressValue(seekbar5.getProgress()));
 	    		
 	    		//Move to next screen
-	    		//Intent i = new Intent(getApplicationContext(), ????.class);
-	    		//i.putExtras(BUNDL);	//Sends BUNDL to next activity.
-	            //startActivity(i);
+	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
+	    		i.putExtras(BUNDL);	//Sends BUNDL to next activity.
+	            startActivity(i);
 	    }});
         
         
