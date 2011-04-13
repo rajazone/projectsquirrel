@@ -278,11 +278,6 @@ public class observ extends Activity {
 	    		startActivity(i);
 	    }});
         
-        //Allow users to edit location
-        //locBox.setOnClickListener(new View.OnClickListener(){	
-        	//public void onClick(View v){
-        		//TODO: Create way to edit location. (EditText for entering zip code?)
-	    //}});
         
         //Create Divider Under Date/Time/Location
         BitmapDrawable divider = new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.div));
@@ -365,14 +360,15 @@ public class observ extends Activity {
     	Button timeBox = (Button) findViewById(R.id.time2); //retrieve time button
                 
                         // Month is 0 based so add 1
-    					if(String.valueOf(mMonth).length()==2)
+    					if(mMonth > 8)
     						Month = String.valueOf((mMonth + 1));
     					else
     						Month = "0"+String.valueOf((mMonth + 1));
+    					
                         if(String.valueOf(mDay).length()==1)
                         	Day = ("0"+String.valueOf(mDay)+"/");
                         else
-                        Day = String.valueOf(mDay)+("/");
+                        Day = String.valueOf(mDay);
                         Year = String.valueOf(mYear).substring(2);
                         
 
