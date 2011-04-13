@@ -314,6 +314,7 @@ public class observ extends Activity {
         		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
         		else {
         			int t2 = Integer.parseInt(t) - 1;
+        			if(t2 < 0) { t2 = 0; } //Prevents negative numbers.
         			fox_text.setText("" + t2);
         		}
 	    }});
@@ -335,6 +336,7 @@ public class observ extends Activity {
         		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
         		else {
         			int t2 = Integer.parseInt(t) - 1;
+        			if(t2 < 0) { t2 = 0; } //Prevents negative numbers.
         			gray_text.setText("" + t2);
         		}
 	    }});
