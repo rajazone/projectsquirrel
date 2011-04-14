@@ -48,7 +48,7 @@ public class NBGuide extends Activity {
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
         
-       Tree3Desc.setText("Hickory trees");
+       Tree3Desc.setText("Hickory tree");
        Tree3Desc.setTextSize(24);
       //  Nut3Desc.setText("Hickory fruit");
         

@@ -70,8 +70,8 @@ public class trees extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-			//	Intent j = new Intent(getApplicationContext(), SBGuide.class);
-			//  startActivity(j);	
+				Intent j = new Intent(getApplicationContext(), SBGuide.class);
+			  startActivity(j);	
 			}
 		});
         
@@ -82,8 +82,8 @@ public class trees extends Activity {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
-//		Intent j = new Intent(getApplicationContext(), FBGuide.class);
-//		startActivity(j);
+		Intent j = new Intent(getApplicationContext(), FBGuide.class);
+		startActivity(j);
 	}
 });
  
@@ -93,8 +93,8 @@ public class trees extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
-//			Intent j = new Intent(getApplicationContext(), TSGuide.class);
-//			startActivity(j);
+			Intent j = new Intent(getApplicationContext(), TSGuide.class);
+			startActivity(j);
 		}
 	});
  
@@ -104,8 +104,8 @@ public class trees extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
-//			Intent j = new Intent(getApplicationContext(), CFGuide.class);
-//			startActivity(j);
+			Intent j = new Intent(getApplicationContext(), CFGuide.class);
+			startActivity(j);
 		}
 	});
  
