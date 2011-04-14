@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class treeguide extends Activity {
+public class SBGuide extends Activity {
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class treeguide extends Activity {
      
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
-        Tree1Desc.setTextSize(24);
+       
         Tree1Desc.setText("Walnut Tree");
       // Nut1Desc.setText("Walnut Seed");
         
@@ -38,14 +38,14 @@ public class treeguide extends Activity {
        
        Tree2Desc.setText("Oak Tree");
       // Nut2Desc.setText("Oak");
-       Tree2Desc.setTextSize(24);
+        
         ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
         //ImageView Nut3Image = (ImageView) findViewById(R.id.Nut3Image);
      Tree3Image.setImageResource(R.drawable.hickorytree);
    //  Nut3Image.setImageResource(R.drawable.hickoryfruit);
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
-        Tree3Desc.setTextSize(24);
+       
        Tree3Desc.setText("Hickory trees");
       //  Nut3Desc.setText("Hickory fruit");
         

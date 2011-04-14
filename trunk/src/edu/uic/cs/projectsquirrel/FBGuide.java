@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class treeguide extends Activity {
+public class FBGuide extends Activity {
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {

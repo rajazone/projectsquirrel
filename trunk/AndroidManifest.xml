@@ -23,6 +23,12 @@
         <activity android:name="about"></activity>
         <activity android:name="food"></activity>
         <activity android:name="finalscreen"></activity>
+         <activity android:name="about"></activity>
+          <activity android:name="NBGuide"></activity>
+        <activity android:name="SBGuide"></activity>
+        <activity android:name="CFGuide"></activity>
+        <activity android:name="TSGuide"></activity>
+        <activity android:name="FBGuide"></activity>
     
     </application>
 </manifest>

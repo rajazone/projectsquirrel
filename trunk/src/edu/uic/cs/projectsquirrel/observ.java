@@ -97,7 +97,8 @@ public class observ extends Activity {
         //
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
-            public void onLocationChanged(Location loc){
+            @Override
+			public void onLocationChanged(Location loc){
             //updateWithNewLocation(loc);
             Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
             List<Address> addresses = null;
@@ -121,18 +122,21 @@ public class observ extends Activity {
             }
 
 			//@Override
+			@Override
 			public void onProviderDisabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
+			@Override
 			public void onProviderEnabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
+			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub
@@ -217,7 +221,8 @@ public class observ extends Activity {
         
         //Allow users to edit date
         dateBox.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		//TODO: Create widget DatePicker in a dialog to be displayed at this point.
         		//BUNDL.Day,Month,Year = this new entry
         		showDialog(DATE_DIALOG_ID);
@@ -235,7 +240,8 @@ public class observ extends Activity {
 
         //Allow users to edit time
         timeBox.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		//TODO: Create widget TimePicker in a dialog to be displayed at this point.
         		//BUNDL.Hour,Minute,AMPM = this new entry
         		showDialog(TIME_DIALOG_ID);
@@ -248,7 +254,8 @@ public class observ extends Activity {
         
         //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		//Store squirrel variables in BUNDL
 		    		EditText fox_text = (EditText) findViewById(R.id.fox_text);
 		            EditText gray_text = (EditText) findViewById(R.id.gray_text);
@@ -272,13 +279,15 @@ public class observ extends Activity {
         
         //CANCEL BUTTON  
         cancel.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		showDialog(0);
 	    }});  
         
         //SQUIRREL GUIDE BUTTON  
         guide.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
 	    		startActivity(i);
 	    }});
@@ -297,10 +306,12 @@ public class observ extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         setting.setAdapter(adapter);
         setting.setOnItemSelectedListener(new OnItemSelectedListener(){
-        	public void onItemSelected(AdapterView<?> parent,
+        	@Override
+			public void onItemSelected(AdapterView<?> parent,
                     View view, int pos, long id) {
 
                 }
+			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				
 			}
@@ -308,7 +319,8 @@ public class observ extends Activity {
         
         //Initiate Squirrel Counters	-------------------------------------------------------------
         fox_minus.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
         		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
@@ -319,7 +331,8 @@ public class observ extends Activity {
         		}
 	    }});
         fox_plus.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
         		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
@@ -330,7 +343,8 @@ public class observ extends Activity {
 	    }});
         
         gray_minus.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
         		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
@@ -341,7 +355,8 @@ public class observ extends Activity {
         		}
 	    }});
         gray_plus.setOnClickListener(new View.OnClickListener(){	
-        	public void onClick(View v){
+        	@Override
+			public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
         		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
@@ -429,7 +444,8 @@ public class observ extends Activity {
  // the callback received when the user "sets" the time in the dialog
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
         new TimePickerDialog.OnTimeSetListener() {
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            @Override
+			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 mHour = hourOfDay;
                 mMinute = minute;
                 updateDisplay();
@@ -439,7 +455,8 @@ public class observ extends Activity {
     private DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
 
-                public void onDateSet(DatePicker view, int year, 
+                @Override
+				public void onDateSet(DatePicker view, int year, 
                                       int monthOfYear, int dayOfMonth) {
                     mYear = year;
                     mMonth = monthOfYear;
@@ -450,6 +467,7 @@ public class observ extends Activity {
 
 
 
+	@Override
 	protected Dialog onCreateDialog(int i) 
 	{
     	Dialog dialog = null;
@@ -461,12 +479,14 @@ public class observ extends Activity {
 			builder.setMessage("Are you sure you wish to exit? Data will be lost.")
 			       .setCancelable(false)
 			       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
+			           @Override
+					public void onClick(DialogInterface dialog, int id) {
 			                observ.this.finish();
 			           }
 			       })
 			       .setNegativeButton("No", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
+			           @Override
+					public void onClick(DialogInterface dialog, int id) {
 			                dialog.cancel();
 			           }
 			       });
@@ -484,7 +504,8 @@ public class observ extends Activity {
 			builder.setMessage("You need to enter a zip code.")
 			       .setCancelable(false)
 			       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
+			           @Override
+					public void onClick(DialogInterface dialog, int id) {
 			        	   dialog.cancel();
 			           }
 			       });
@@ -500,7 +521,8 @@ public class observ extends Activity {
         builder.setMessage("Yout GPS seems to be disabled, do you want to enable it?")
                .setCancelable(false)
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                   public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                   @Override
+				public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                        //launchGPSOptions(); 
                 	   Intent myIntent = new Intent( Settings.ACTION_SECURITY_SETTINGS );
                 	    startActivity(myIntent);
@@ -508,7 +530,8 @@ public class observ extends Activity {
                    }
                })
                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                   public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                   @Override
+				public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         dialog.cancel();
                    }
                });
@@ -524,7 +547,8 @@ public class observ extends Activity {
         //
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
-            public void onLocationChanged(Location loc){
+            @Override
+			public void onLocationChanged(Location loc){
             //updateWithNewLocation(loc);
             Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
             List<Address> addresses = null;
@@ -548,18 +572,21 @@ public class observ extends Activity {
             }
 
 			//@Override
+			@Override
 			public void onProviderDisabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
+			@Override
 			public void onProviderEnabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
+			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub
@@ -578,7 +605,8 @@ public class observ extends Activity {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         }
     }
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             showDialog(0);
             return true;
@@ -595,7 +623,8 @@ public class observ extends Activity {
     	return true;
     }
     
-    public boolean onOptionsItemSelected(MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{

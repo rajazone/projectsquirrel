@@ -30,7 +30,8 @@ public class finalscreen extends Activity{
     	return true;
     }
     
-    public boolean onOptionsItemSelected(MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{
