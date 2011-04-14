@@ -29,12 +29,12 @@ public class about extends Activity
     	switch (item.getItemId())
     	{
 			//View "About Us"
-			case R.id.menu_about:
+			case R.id.menu_about2:
 				//Do nothing.
 				return true;
 			
 			//Visit Web Site	
-			case R.id.menu_web:
+			case R.id.menu_web2:
 				String url = "http://www.projectsquirrel.org/";
 				Intent i3 = new Intent(Intent.ACTION_VIEW);
 				i3.setData(Uri.parse(url));
