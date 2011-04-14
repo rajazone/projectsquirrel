@@ -7,27 +7,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class sqguide extends Activity {
+public class food extends Activity{
 
+	/** Called when the activity is first created. */
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sqguide);
+        setContentView(R.layout.food); 
         
-        //ImageView fSquirrel = (ImageView) findViewById(R.id.foxSquirrel);
-        TextView fDesc = (TextView) findViewById(R.id.textView1);
-        ///fSquirrel.setImageResource(R.drawable.fox_squirrel);
-        //fDesc.setText("Fox Squirrel\n");
         
-        //ImageView gSquirrel = (ImageView) findViewById(R.id.graySquirrel);
-        TextView gDesc = (TextView) findViewById(R.id.textView2);
-        //gSquirrel.setImageResource(R.drawable.grey_squirrel);
-        gDesc.setTextSize(24);
-        fDesc.setTextSize(24);
-    }
-    
+        
+    }//End onCreate
+	
+
     //Customize Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) 
@@ -59,5 +52,5 @@ public class sqguide extends Activity {
 				return super.onOptionsItemSelected(item);
     	}
     }
-	
-}
+
+}//End class food
