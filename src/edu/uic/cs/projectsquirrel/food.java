@@ -1,22 +1,135 @@
 package edu.uic.cs.projectsquirrel;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class food extends Activity{
+	
+	Bundle BUNDL;
 
 	/** Called when the activity is first created. */
+	private OnSeekBarChangeListener SeekChange = new OnSeekBarChangeListener(){	 
+		 
+        public void onProgressChanged(SeekBar seekBar, int progress,
+                        boolean fromUser) {
+        		
+        }
+
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        public void onStopTrackingTouch(SeekBar seekBar) {
+        	
+    		Context context = getApplicationContext();
+    		int duration = Toast.LENGTH_SHORT;
+    		CharSequence text;
+    		Toast toast;
+    		
+    		switch (seekBar.getProgress()) {
+    		case 0:
+    			
+    			text = "Never";
+    			toast = Toast.makeText(context, text, duration);
+    			toast.show();
+    			break;
+    			
+    		case 1:
+    			text = "Seldom";
+    			toast = Toast.makeText(context, text, duration);
+    			toast.show();
+    			break;
+    		
+    		case 2:
+    			text = "Often";
+    			toast = Toast.makeText(context, text, duration);
+    			toast.show();
+    			break;
+    			
+    		case 3:
+    			text = "Regularly";
+    			toast = Toast.makeText(context, text, duration);
+    			toast.show();
+    			break;
+    		}
+        }
+    };
+    
+   public String getProgressValue(int p)
+   {
+	   if(p == 1) { return "Seldom"; }
+	   if(p == 2) { return "Often"; }
+	   if(p == 3) { return "Regularly"; }
+	   return "Never";
+   }
+   
+   //Customize Menu
+  
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food); 
         
+        BUNDL = getIntent().getExtras();
+        SeekBar sb1 = (SeekBar) findViewById(R.id.food_seekBar1); //Bird Feeder
+        SeekBar sb2 = (SeekBar) findViewById(R.id.food_seekBar2); //Humans
+        SeekBar sb3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
+        SeekBar sb4 = (SeekBar) findViewById(R.id.food_seekBar4); //Garbage
+        SeekBar sb5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
         
+        sb1.setMax(3);
+        sb2.setMax(3);
+        sb3.setMax(3);
+        sb4.setMax(3);
+        sb5.setMax(3);
+        
+        sb1.setOnSeekBarChangeListener(SeekChange);
+        sb2.setOnSeekBarChangeListener(SeekChange);
+        sb3.setOnSeekBarChangeListener(SeekChange);
+        sb4.setOnSeekBarChangeListener(SeekChange);
+        sb5.setOnSeekBarChangeListener(SeekChange);
+
+        
+       //button on food.xml
+        Button next = (Button) findViewById(R.id.Next_Food);
+      //NEXT BUTTON
+        next.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		
+	            SeekBar seekbar1 = (SeekBar) findViewById(R.id.food_seekBar1); //Bird Feeder
+	            SeekBar seekbar2 = (SeekBar) findViewById(R.id.food_seekBar2); //Humans
+	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
+	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.food_seekBar4); //Garbage
+	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
+	            TextView othertxt = (TextView) findViewById(R.id.food_editText1);
+
+	            
+	            BUNDL.putString("Bird_Feeder", getProgressValue(seekbar1.getProgress()));
+	            BUNDL.putString("Human_Handouts", getProgressValue(seekbar2.getProgress()));
+	            BUNDL.putString("Trees_Plants", getProgressValue(seekbar3.getProgress()));
+	            BUNDL.putString("Garbage", getProgressValue(seekbar4.getProgress()));
+	            BUNDL.putString("Other", getProgressValue(seekbar5.getProgress()));
+	            BUNDL.putString("Other_Text", othertxt.toString());
+
+	    		//Move to next screen - final screen
+	    		Intent i = new Intent(getApplicationContext(), finalscreen.class);
+	    		i.putExtras(BUNDL);	//Sends BUNDL to final screen
+	            startActivity(i);
+	    }});
+      
         
     }//End onCreate
 	
@@ -30,8 +143,7 @@ public class food extends Activity{
     	return true;
     }
     
-    @Override
-	public boolean onOptionsItemSelected(MenuItem item)
+    public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{
