@@ -44,9 +44,9 @@ public class trees extends Activity {
         seekbar4.setOnSeekBarChangeListener(SeekChange);
         seekbar5.setOnSeekBarChangeListener(SeekChange);
 
-        //Import Previous & Next Buttons
+        //Import Next Button & Tree_Guide Button
         Button next = (Button) findViewById(R.id.Next_Trees);
-        Button prev = (Button) findViewById(R.id.Back_Trees);
+        Button guide = (Button) findViewById(R.id.Tree_Guide_Button);
         
       //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
@@ -71,11 +71,21 @@ public class trees extends Activity {
 	            BUNDL.putString("CON_TREES", getProgressValue(seekbar5.getProgress()));
 	    		
 	    		//Move to next screen
-	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
+	    		Intent i = new Intent(getApplicationContext(), food.class);
 	    		i.putExtras(BUNDL);	//Sends BUNDL to next activity.
 	            startActivity(i);
 	    }});
         
+        //Dynamically set width of guide button.
+        int w = guide.getWidth();
+        if(w < 100) { guide.setWidth(100); }
+        
+       //TREE GUIDE BUTTON  
+        guide.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
+	    		Intent i = new Intent(getApplicationContext(), treeguide.class);
+	    		startActivity(i);
+	    }});
         
 	} //end of onCreate
 

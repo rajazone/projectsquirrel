@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.*;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.graphics.Shader;
@@ -32,6 +33,9 @@ import java.lang.String;
 
 import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -63,6 +67,7 @@ public class observ extends Activity {
     static final int TIME_DIALOG_ID = 2;
     static final int NO_ZIP_DIALOG_ID = 3;
     static final int DATE_DIALOG_ID = 1;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -579,6 +584,38 @@ public class observ extends Activity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+    
+    //Customize Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
+    	MenuInflater inflater = getMenuInflater();
+    	inflater.inflate(R.menu.menu_alt, menu);
+    	return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+    	switch (item.getItemId())
+    	{
+			//View "About Us"
+			case R.id.menu_about:
+				Intent i2 = new Intent(getApplicationContext(), about.class);
+	            startActivity(i2);
+				return true;
+			
+			//Visit Web Site	
+			case R.id.menu_web:
+				String url = "http://www.projectsquirrel.org/";
+				Intent i3 = new Intent(Intent.ACTION_VIEW);
+				i3.setData(Uri.parse(url));
+				startActivity(i3);
+				return true;
+			
+			default:
+				return super.onOptionsItemSelected(item);
+    	}
     }
    
     }/* End of UseGps Activity */

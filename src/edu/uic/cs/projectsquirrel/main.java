@@ -68,7 +68,8 @@ public class main extends Activity {
 			
 			//View "About Us"
 			case R.id.menu_about:
-				
+				Intent i2 = new Intent(getApplicationContext(), about.class);
+	            startActivity(i2);
 				return true;
 			
 			//Visit Web Site	

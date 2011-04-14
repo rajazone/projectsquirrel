@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent" android:orientation="vertical"
-  android:background="#b6b6b6">
+  android:background="#b6b6b6" android:screenOrientation="portrait">
   
     <TextView android:text="Are there any of the following kinds of trees at the observation site?" 
     	      android:id="@+id/textView1" 
@@ -131,7 +131,7 @@
     
     
     <EditText 
-        android:hint="Other trees or comments about trees" 
+        android:hint="Other trees or comments about trees. (optional)" 
         android:id="@+id/editText1" 
         android:layout_height="wrap_content"  
         android:layout_width="fill_parent">
@@ -140,12 +140,12 @@
     
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
 		<Button 
-        android:text="Back" 
-        android:id="@+id/Back_Trees" 
+        android:text="Tree Guide" 
+        android:id="@+id/Tree_Guide_Button" 
         android:layout_height="wrap_content" 
-        android:layout_alignParentLeft="true" 
+        android:layout_centerHorizontal="true" 
         android:layout_alignParentBottom="true" 
-        android:layout_width="100px">
+        android:layout_width="wrap_content">
         </Button>
 		
 		
