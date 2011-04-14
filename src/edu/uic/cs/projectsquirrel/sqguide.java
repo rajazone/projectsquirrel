@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class sqguide extends Activity {
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sqguide);
         
@@ -37,7 +38,8 @@ public class sqguide extends Activity {
     	return true;
     }
     
-    public boolean onOptionsItemSelected(MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{

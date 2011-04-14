@@ -31,14 +31,16 @@ public class main extends Activity {
         
         //Set listener for "New Observation" button on main screen.
         newObs.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), observ.class);
 	            startActivity(i);
 	    }});
         
       //Set listener for "Squirrel Guide" button on main screen.
         sqGuide.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
 	            startActivity(i);
 	    }});
@@ -56,7 +58,8 @@ public class main extends Activity {
     	return true;
     }
     
-    public boolean onOptionsItemSelected(MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{

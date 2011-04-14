@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 public class about extends Activity
 {
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);      
@@ -24,7 +25,8 @@ public class about extends Activity
     	return true;
     }
 	
-    public boolean onOptionsItemSelected(MenuItem item)
+    @Override
+	public boolean onOptionsItemSelected(MenuItem item)
     {
     	switch (item.getItemId())
     	{

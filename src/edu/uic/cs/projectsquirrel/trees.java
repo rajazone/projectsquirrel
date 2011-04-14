@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +16,7 @@ public class trees extends Activity {
 	
 	Bundle BUNDL;
 	
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trees);
@@ -48,9 +48,72 @@ public class trees extends Activity {
         Button next = (Button) findViewById(R.id.Next_Trees);
         Button guide = (Button) findViewById(R.id.Tree_Guide_Button);
         
+        // Making text view clickable
+        TextView NBDesc = (TextView) findViewById(R.id.NBText);
+        TextView SBDesc = (TextView) findViewById(R.id.SBText);
+        TextView FBDesc = (TextView) findViewById(R.id.FBText);
+        TextView TSDesc = (TextView) findViewById(R.id.TSText);
+        TextView CFDesc = (TextView) findViewById(R.id.CFText);
+        
+        NBDesc.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent j = new Intent(getApplicationContext(), NBGuide.class);
+			startActivity(j);
+			}
+		});
+        
+ SBDesc.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			//	Intent j = new Intent(getApplicationContext(), SBGuide.class);
+			//  startActivity(j);	
+			}
+		});
+        
+ 
+ FBDesc.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+//		Intent j = new Intent(getApplicationContext(), FBGuide.class);
+//		startActivity(j);
+	}
+});
+ 
+ TSDesc.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+//			Intent j = new Intent(getApplicationContext(), TSGuide.class);
+//			startActivity(j);
+		}
+	});
+ 
+ CFDesc.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			
+//			Intent j = new Intent(getApplicationContext(), CFGuide.class);
+//			startActivity(j);
+		}
+	});
+ 
+        
       //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		//Store variables in BUNDL
 	    		/*SITE_DOGS = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_CATS = [X, where X is one of YES,UNSURE,NO]"
@@ -82,7 +145,8 @@ public class trees extends Activity {
         
        //TREE GUIDE BUTTON  
         guide.setOnClickListener(new View.OnClickListener(){	
-	    	public void onClick(View v){
+	    	@Override
+			public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), treeguide.class);
 	    		startActivity(i);
 	    }});
@@ -91,16 +155,19 @@ public class trees extends Activity {
 
         private OnSeekBarChangeListener SeekChange = new OnSeekBarChangeListener(){	 
 		 
-	        public void onProgressChanged(SeekBar seekBar, int progress,
+	        @Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
 	                        boolean fromUser) {
 	        		
 	        }
 	
-	        public void onStartTrackingTouch(SeekBar seekBar) {
+	        @Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
 	
 	        }
 	
-	        public void onStopTrackingTouch(SeekBar seekBar) {
+	        @Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
 	        	
         		Context context = getApplicationContext();
         		int duration = Toast.LENGTH_SHORT;
