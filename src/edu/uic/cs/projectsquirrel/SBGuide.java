@@ -19,35 +19,38 @@ public class SBGuide extends Activity {
         
         ImageView Tree1Image = (ImageView) findViewById(R.id.Tree1Image);
        //ImageView Nut1Image = (ImageView) findViewById(R.id.Nut1Image);
-     Tree1Image.setImageResource(R.drawable.walnuttree);
+     Tree1Image.setImageResource(R.drawable.elmtree);
     // Nut1Image.setImageResource(R.drawable.walnutfruit);
      
      
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
        
-        Tree1Desc.setText("Walnut Tree");
+        Tree1Desc.setText("Elm Tree");
       // Nut1Desc.setText("Walnut Seed");
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
        // ImageView Nut2Image = (ImageView) findViewById(R.id.Nut2Image);
-     Tree2Image.setImageResource(R.drawable.oaktree);
+     Tree2Image.setImageResource(R.drawable.mapletree);
      // Nut2Image.setImageResource(R.drawable.oakfruit);
         TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
        // TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);
        
-       Tree2Desc.setText("Oak Tree");
+       Tree2Desc.setText("Maple Tree");
       // Nut2Desc.setText("Oak");
         
         ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
         //ImageView Nut3Image = (ImageView) findViewById(R.id.Nut3Image);
-     Tree3Image.setImageResource(R.drawable.hickorytree);
+     Tree3Image.setImageResource(R.drawable.locusttree);
    //  Nut3Image.setImageResource(R.drawable.hickoryfruit);
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
        
-       Tree3Desc.setText("Hickory trees");
+       Tree3Desc.setText("Locust Tree");
       //  Nut3Desc.setText("Hickory fruit");
+       Tree1Desc.setTextSize(24);
+       Tree2Desc.setTextSize(24);
+       Tree3Desc.setTextSize(24);
         
        
         
