@@ -23,9 +23,7 @@ public class main extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        int a;
-        
+        setContentView(R.layout.main);  
         
         Button newObs = (Button) findViewById(R.id.button1);
         Button sqGuide = (Button) findViewById(R.id.button2);
