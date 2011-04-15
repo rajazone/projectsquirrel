@@ -4,8 +4,13 @@ package edu.uic.cs.projectsquirrel;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Button;
@@ -14,15 +19,10 @@ import android.widget.Toast;
 
 public class trees extends Activity {
 	
-	Bundle BUNDL;
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trees);
-
-        //Import Bundle from previous activity
-        BUNDL = getIntent().getExtras();
         
         //Import SeekBars from trees.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
@@ -46,28 +46,24 @@ public class trees extends Activity {
 
         //Import Next Button & Tree_Guide Button
         Button next = (Button) findViewById(R.id.Next_Trees);
-        Button guide = (Button) findViewById(R.id.Tree_Guide_Button);
+        //Button guide = (Button) findViewById(R.id.Tree_Guide_Button);
         
         // Making text view clickable
-        TextView NBDesc = (TextView) findViewById(R.id.NBText);
-        TextView SBDesc = (TextView) findViewById(R.id.SBText);
-        TextView FBDesc = (TextView) findViewById(R.id.FBText);
-        TextView TSDesc = (TextView) findViewById(R.id.TSText);
-        TextView CFDesc = (TextView) findViewById(R.id.CFText);
+        Button NBDesc = (Button) findViewById(R.id.trees_btn1);
+        Button SBDesc = (Button) findViewById(R.id.trees_btn2);
+        Button FBDesc = (Button) findViewById(R.id.trees_btn3);
+        Button TSDesc = (Button) findViewById(R.id.trees_btn4);
+        Button CFDesc = (Button) findViewById(R.id.trees_btn5);
         
         NBDesc.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
 			public void onClick(View v) {
-				
 				Intent j = new Intent(getApplicationContext(), NBGuide.class);
-			startActivity(j);
+				startActivity(j);
 			}
 		});
         
- SBDesc.setOnClickListener(new View.OnClickListener() {
+        SBDesc.setOnClickListener(new View.OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 				
 				Intent j = new Intent(getApplicationContext(), SBGuide.class);
@@ -78,7 +74,6 @@ public class trees extends Activity {
  
  FBDesc.setOnClickListener(new View.OnClickListener() {
 	
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		
@@ -89,7 +84,6 @@ public class trees extends Activity {
  
  TSDesc.setOnClickListener(new View.OnClickListener() {
 		
-		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
@@ -100,7 +94,6 @@ public class trees extends Activity {
  
  CFDesc.setOnClickListener(new View.OnClickListener() {
 		
-		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
@@ -112,8 +105,7 @@ public class trees extends Activity {
         
       //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+	    	public void onClick(View v){
 	    		//Store variables in BUNDL
 	    		/*SITE_DOGS = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_CATS = [X, where X is one of YES,UNSURE,NO]"
@@ -127,47 +119,39 @@ public class trees extends Activity {
 	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Tiny_Trees
 	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Con_Trees
 	            
-	            BUNDL.putString("NUT_TREES", getProgressValue(seekbar1.getProgress()));
-	            BUNDL.putString("SEED_TREES", getProgressValue(seekbar2.getProgress()));
-	            BUNDL.putString("FRUIT_TREES", getProgressValue(seekbar3.getProgress()));
-	            BUNDL.putString("TINY_TREES", getProgressValue(seekbar4.getProgress()));
-	            BUNDL.putString("CON_TREES", getProgressValue(seekbar5.getProgress()));
+	            //Store Log Variables
+	            observ.INFO.NUT_TREES = getProgressValue(seekbar1.getProgress());
+	            observ.INFO.SEED_TREES = getProgressValue(seekbar2.getProgress());
+	            observ.INFO.FRUIT_TREES = getProgressValue(seekbar3.getProgress());
+	            observ.INFO.TINY_TREES = getProgressValue(seekbar4.getProgress());
+	            observ.INFO.CON_TREES = getProgressValue(seekbar5.getProgress());
 	    		
-	    		//Move to next screen
+	    		//Move to Food screen
 	    		Intent i = new Intent(getApplicationContext(), food.class);
-	    		i.putExtras(BUNDL);	//Sends BUNDL to next activity.
 	            startActivity(i);
 	    }});
         
-        //Dynamically set width of guide button.
-        int w = guide.getWidth();
-        if(w < 100) { guide.setWidth(100); }
-        
-       //TREE GUIDE BUTTON  
-        guide.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+       //TREE GUIDE BUTTON  ... Don't need since we have individual guides, yes?
+        /*guide.setOnClickListener(new View.OnClickListener(){	
+	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), treeguide.class);
 	    		startActivity(i);
-	    }});
+	    }});*/ 
         
 	} //end of onCreate
 
         private OnSeekBarChangeListener SeekChange = new OnSeekBarChangeListener(){	 
 		 
-	        @Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
+	        public void onProgressChanged(SeekBar seekBar, int progress,
 	                        boolean fromUser) {
 	        		
 	        }
 	
-	        @Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
+	        public void onStartTrackingTouch(SeekBar seekBar) {
 	
 	        }
 	
-	        @Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
+	        public void onStopTrackingTouch(SeekBar seekBar) {
 	        	
         		Context context = getApplicationContext();
         		int duration = Toast.LENGTH_SHORT;
@@ -206,6 +190,38 @@ public class trees extends Activity {
     	   if(p == 1) { return "UNSURE"; }
     	   if(p == 2) { return "NO"; }
     	   return "NONE";
+       }
+       
+     //Customize Menu
+       @Override
+       public boolean onCreateOptionsMenu(Menu menu) 
+       {
+       	MenuInflater inflater = getMenuInflater();
+       	inflater.inflate(R.menu.menu_alt, menu);
+       	return true;
+       }
+       
+       public boolean onOptionsItemSelected(MenuItem item)
+       {
+       	switch (item.getItemId())
+       	{
+   			//View "About Us"
+   			case R.id.menu_about:
+   				Intent i2 = new Intent(getApplicationContext(), about.class);
+   	            startActivity(i2);
+   				return true;
+   			
+   			//Visit Web Site	
+   			case R.id.menu_web:
+   				String url = "http://www.projectsquirrel.org/";
+   				Intent i3 = new Intent(Intent.ACTION_VIEW);
+   				i3.setData(Uri.parse(url));
+   				startActivity(i3);
+   				return true;
+   			
+   			default:
+   				return super.onOptionsItemSelected(item);
+       	}
        }
         
 } //end of class trees

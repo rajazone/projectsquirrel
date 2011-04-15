@@ -44,6 +44,12 @@ public class Variables {
 	public String USED_DIFFERENT_SITE = ""; //"[X, where X is one of YES, NO]"
 	public String COMMENTS = ""; //"[X, where X is a string]"
 	
+	public void clearAll()
+	{
+		
+		
+	}
+	
 	public void makeLog() throws IOException //Submits the user data to the Log file.
 	{
 		String msg =	

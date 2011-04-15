@@ -24,6 +24,7 @@ public class main extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        int a;
         
         
         Button newObs = (Button) findViewById(R.id.button1);
@@ -31,16 +32,14 @@ public class main extends Activity {
         
         //Set listener for "New Observation" button on main screen.
         newObs.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), observ.class);
 	            startActivity(i);
 	    }});
         
       //Set listener for "Squirrel Guide" button on main screen.
         sqGuide.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
 	            startActivity(i);
 	    }});
