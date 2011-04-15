@@ -28,7 +28,7 @@ android:background="#b6b6b6">
     android:layout_height="wrap_content"
     android:textColor="#000000"
     android:textSize="12px"
-    android:text="Tanks for your valuable input." 
+    android:text="Thanks for your valuable input." 
     android:padding="4px"
     >
     </TextView>

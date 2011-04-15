@@ -17,6 +17,9 @@ public class SBGuide extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treeguide);
         
+        TextView cat = (TextView) findViewById(R.id.treeCategory);
+        cat.setText("Seed-bearing Trees");
+        
         ImageView Tree1Image = (ImageView) findViewById(R.id.Tree1Image);
        //ImageView Nut1Image = (ImageView) findViewById(R.id.Nut1Image);
      Tree1Image.setImageResource(R.drawable.elmtree);
@@ -26,7 +29,7 @@ public class SBGuide extends Activity {
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
        
-        Tree1Desc.setText("Elm Tree");
+        Tree1Desc.setText("Elm Tree\n");
       // Nut1Desc.setText("Walnut Seed");
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
@@ -36,7 +39,7 @@ public class SBGuide extends Activity {
         TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
        // TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);
        
-       Tree2Desc.setText("Maple Tree");
+       Tree2Desc.setText("Maple Tree\n");
       // Nut2Desc.setText("Oak");
         
         ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
@@ -46,7 +49,7 @@ public class SBGuide extends Activity {
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
        
-       Tree3Desc.setText("Locust Tree");
+       Tree3Desc.setText("Locust Tree\n");
       //  Nut3Desc.setText("Hickory fruit");
        Tree1Desc.setTextSize(24);
        Tree2Desc.setTextSize(24);
