@@ -19,14 +19,9 @@ import android.widget.Toast;
 
 public class animals extends Activity {
 	
-	Bundle BUNDL;
-	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animals);
-
-        //Import Bundle from previous activity
-        BUNDL = getIntent().getExtras();
         
         //Import SeekBars from animals.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
@@ -68,20 +63,16 @@ public class animals extends Activity {
 	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Hawks
 	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Grain
 	            
-	            BUNDL.putString("SITE_DOGS", getProgressValue(seekbar1.getProgress()));
-	            BUNDL.putString("SITE_CATS", getProgressValue(seekbar2.getProgress()));
-	            BUNDL.putString("SITE_COYOTES", getProgressValue(seekbar3.getProgress()));
-	            BUNDL.putString("SITE_HAWKS", getProgressValue(seekbar4.getProgress()));
-	            BUNDL.putString("SITE_GRAIN", getProgressValue(seekbar5.getProgress()));
+	            //Store Log Variables
+	            observ.INFO.SITE_DOGS = getProgressValue(seekbar1.getProgress());
+	            observ.INFO.SITE_CATS = getProgressValue(seekbar2.getProgress());
+	            observ.INFO.SITE_COYOTES = getProgressValue(seekbar3.getProgress());
+	            observ.INFO.SITE_HAWKS = getProgressValue(seekbar4.getProgress());  
+	            observ.INFO.SITE_GRAIN = getProgressValue(seekbar5.getProgress());
 	            
+	            //Move to Trees screen
 	            Intent i = new Intent(getApplicationContext(), trees.class);
-            	i.putExtras(BUNDL);	//Sends BUNDL to next activity.
             	startActivity(i);
-	    		
-	    		//Move to next screen
-	    		//Intent i = new Intent(getApplicationContext(), ????.class);
-	    		//i.putExtras(BUNDL);	//Sends BUNDL to next activity.
-	            //startActivity(i);
 	    }});
         
         

@@ -58,8 +58,18 @@
     android:layout_height="wrap_content">
 	    	 
 	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Nut-bearing trees" android:id="@+id/NBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"                 
-       android:clickable="true"></TextView>  
+        
+    <Button 
+	android:id="@+id/trees_btn1" 
+	android:background="@drawable/custom_button_leaf"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>  
+    
+    <TextView android:text="Nut-Bearing Trees" android:id="@+id/NBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"                 
+       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
+    
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
@@ -71,10 +81,21 @@
     </SeekBar>
     <TextView android:text="   " android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
     </TableRow>
+
     
     <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/SBText" android:text="Seed-bearing trees" android:textSize="18px" android:textColor="#000000"                 
-       android:clickable="true"></TextView>
+        
+    <Button 
+	android:id="@+id/trees_btn2" 
+	android:background="@drawable/custom_button_leaf"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>  
+    
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/SBText" android:text="Seed-Bearing Trees" android:textSize="16px" android:textColor="#000000"                 
+       android:clickable="true" 
+       android:layout_gravity="center_vertical"></TextView>
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
@@ -88,8 +109,17 @@
     </TableRow>
     
     <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Fruit-bearing trees" android:id="@+id/FBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"                 
-       android:clickable="true"></TextView>
+    
+    <Button 
+	android:id="@+id/trees_btn3" 
+	android:background="@drawable/custom_button_leaf"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>  
+    
+    <TextView android:text="Fruit-Bearing Trees" android:id="@+id/FBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"                 
+       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
@@ -101,10 +131,27 @@
     </SeekBar>
     <TextView android:text="   " android:id="@+id/textView9" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
     </TableRow>
-    
-    
+
     <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Tiny-seeded trees" android:id="@+id/TSText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
+        
+    <Button 
+	android:id="@+id/trees_btn4" 
+	android:background="@drawable/custom_button_leaf"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>  
+  
+    <TextView 
+    android:text="Tiny-Seeded Trees" 
+    android:id="@+id/TSText" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:textSize="16px" 
+    android:textColor="#000000"
+    android:layout_gravity="center_vertical">
+    </TextView>
+    
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
@@ -117,9 +164,19 @@
     <TextView android:text="   " android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
     </TableRow>
     
+    
     <TableRow android:layout_width="fill_parent" android:layout_marginBottom="25px">
-    <TextView android:text="Coniferous trees" android:id="@+id/CFText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"              
-       android:clickable="true"></TextView>
+    
+    <Button 
+	android:id="@+id/trees_btn5" 
+	android:background="@drawable/custom_button_leaf"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	>
+	</Button>  
+    
+    <TextView android:text="Coniferous Trees" android:id="@+id/CFText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"              
+       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
@@ -131,6 +188,9 @@
     </SeekBar>
     <TextView android:text="   " android:id="@+id/textView11" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
     </TableRow>
+    
+    
+    
     
     </TableLayout>
     
@@ -144,15 +204,6 @@
     
     
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-		<Button 
-        android:text="Tree Guide" 
-        android:id="@+id/Tree_Guide_Button" 
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true" 
-        android:layout_alignParentBottom="true" 
-        android:layout_width="wrap_content">
-        </Button>
-		
 		
         <Button 
         android:text="Next" 

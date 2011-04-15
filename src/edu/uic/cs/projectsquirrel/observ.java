@@ -49,7 +49,6 @@ import android.widget.TimePicker;
 
 public class observ extends Activity {
 	
-	Bundle BUNDL;	//Used to transfer Log data between activities.
 	private int mYear;
     private int mMonth;
     private int mDay;
@@ -68,14 +67,16 @@ public class observ extends Activity {
     static final int NO_ZIP_DIALOG_ID = 3;
     static final int DATE_DIALOG_ID = 1;
     
+    public static Variables INFO;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.observ); 
+
+        INFO = new Variables();
         
-        BUNDL = new Bundle();	//used to pass data between activities, later to be stored in Log.
-      
         // LOCATION --------------------------------------------------------------------------------
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -97,8 +98,7 @@ public class observ extends Activity {
         //
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
-            @Override
-			public void onLocationChanged(Location loc){
+            public void onLocationChanged(Location loc){
             //updateWithNewLocation(loc);
             Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
             List<Address> addresses = null;
@@ -113,30 +113,29 @@ public class observ extends Activity {
                 EditText txt = (EditText) findViewById(R.id.editText1);
                 txt.setText(addresses.get(0).getPostalCode()); 
                 
-                //TODO: Need latitude and logitude
-                //Save them...
-                BUNDL.putString("LATITUDE", String.valueOf(loc.getLatitude()));
+                /*BUNDL.putString("LATITUDE", String.valueOf(loc.getLatitude()));
                 BUNDL.putString("LONGITUDE", String.valueOf(loc.getLongitude()));
-                BUNDL.putString("ZIP", String.valueOf(addresses.get(0).getPostalCode()));
+                BUNDL.putString("ZIP", String.valueOf(addresses.get(0).getPostalCode()));*/
+                
+                INFO.LATITUDE = String.valueOf(loc.getLatitude());
+                INFO.LONGITUDE = String.valueOf(loc.getLongitude());
+                INFO.ZIP = String.valueOf(addresses.get(0).getPostalCode());
             }
             }
 
 			//@Override
-			@Override
 			public void onProviderDisabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
-			@Override
 			public void onProviderEnabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
-			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub
@@ -210,19 +209,26 @@ public class observ extends Activity {
         String minute = date.substring(t1+1,t2);
         	if(minute.length()==1) { minute = "0" + minute; } 	//Minute must be 2 characters long
         
-        BUNDL.putString("Day", day);
+        /*BUNDL.putString("Day", day);
         BUNDL.putString("Month", month);
         BUNDL.putString("Year", date.substring(s2+1));
         BUNDL.putString("Hour", hour);
         BUNDL.putString("Minute", minute);
-        BUNDL.putString("AMPM", time.substring(sp+1));
+        BUNDL.putString("AMPM", time.substring(sp+1));*/
+        
+        INFO.Day = day;
+        INFO.Month = month;
+        INFO.Year = date.substring(s2+1);
+        INFO.Hour = hour;
+        INFO.Minute = minute;
+        INFO.AMPM = time.substring(sp+1);
+        
         //--------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------
         
         //Allow users to edit date
         dateBox.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		//TODO: Create widget DatePicker in a dialog to be displayed at this point.
         		//BUNDL.Day,Month,Year = this new entry
         		showDialog(DATE_DIALOG_ID);
@@ -240,8 +246,7 @@ public class observ extends Activity {
 
         //Allow users to edit time
         timeBox.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		//TODO: Create widget TimePicker in a dialog to be displayed at this point.
         		//BUNDL.Hour,Minute,AMPM = this new entry
         		showDialog(TIME_DIALOG_ID);
@@ -254,40 +259,45 @@ public class observ extends Activity {
         
         //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
-	    		//Store squirrel variables in BUNDL
+	    	public void onClick(View v){
+	    			//Store squirrel variables in Log Variables (INFO)
 		    		EditText fox_text = (EditText) findViewById(R.id.fox_text);
 		            EditText gray_text = (EditText) findViewById(R.id.gray_text);
-		            BUNDL.putString("NUM_FOX_SQUIRRELS",fox_text.getText().toString());
-		            BUNDL.putString("NUM_GRAY_SQUIRRELS",gray_text.getText().toString());
+		            INFO.NUM_FOX_SQUIRRELS = fox_text.getText().toString();
+		            INFO.NUM_GRAY_SQUIRRELS = gray_text.getText().toString();
+		            
+		            //Store Setting
+		            String[] setting = getResources().getStringArray(R.array.setting_array);	//Load setting array
+		            Spinner spin = (Spinner) findViewById(R.id.spinner1);						//Load Spinner
+		            int s = spin.getSelectedItemPosition();										//Load current selection on spinner
+		            INFO.SETTING = setting[s];													//Store setting[position] (= String)
 		            
 		            EditText txt = (EditText) findViewById(R.id.editText1);
 		            String str = txt.getText().toString();
-		            if(str.equals(""))
+		            if(str.equals("") && INFO.ZIP == "") //If TextEdit is empty AND no ZIP code was auto-generated
 		            {
 		            	showDialog(NO_ZIP_DIALOG_ID);
 		            }
 		            else
 		            {
-		            	BUNDL.putString("ZIP", txt.getText().toString());
+		            	if(INFO.ZIP == "")
+		            	{
+		            		INFO.ZIP = txt.getText().toString();
+		            	}
 		            	Intent i = new Intent(getApplicationContext(), animals.class);
-		            	i.putExtras(BUNDL);	//Sends BUNDL to next activity.
 		            	startActivity(i);
 		            }
 	    }});
         
         //CANCEL BUTTON  
         cancel.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+	    	public void onClick(View v){
 	    		showDialog(0);
 	    }});  
         
         //SQUIRREL GUIDE BUTTON  
         guide.setOnClickListener(new View.OnClickListener(){	
-	    	@Override
-			public void onClick(View v){
+	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), sqguide.class);
 	    		startActivity(i);
 	    }});
@@ -306,12 +316,9 @@ public class observ extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         setting.setAdapter(adapter);
         setting.setOnItemSelectedListener(new OnItemSelectedListener(){
-        	@Override
-			public void onItemSelected(AdapterView<?> parent,
+        	public void onItemSelected(AdapterView<?> parent,
                     View view, int pos, long id) {
-
                 }
-			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
 				
 			}
@@ -319,8 +326,7 @@ public class observ extends Activity {
         
         //Initiate Squirrel Counters	-------------------------------------------------------------
         fox_minus.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
         		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
@@ -331,8 +337,7 @@ public class observ extends Activity {
         		}
 	    }});
         fox_plus.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		EditText fox_text = (EditText) findViewById(R.id.fox_text);
         		String t = fox_text.getText().toString();
         		if(t == null || t == "" || t == " ") { fox_text.setText("0"); }
@@ -343,8 +348,7 @@ public class observ extends Activity {
 	    }});
         
         gray_minus.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
         		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
@@ -355,8 +359,7 @@ public class observ extends Activity {
         		}
 	    }});
         gray_plus.setOnClickListener(new View.OnClickListener(){	
-        	@Override
-			public void onClick(View v){
+        	public void onClick(View v){
         		EditText gray_text = (EditText) findViewById(R.id.gray_text);
         		String t = gray_text.getText().toString();
         		if(t == null || t == "" || t == " ") { gray_text.setText("0"); }
@@ -393,9 +396,11 @@ public class observ extends Activity {
                         
 
                         dateBox.setText(Month+"/"+Day+"/"+Year);
-                        BUNDL.putString("Day", Day);
-                        BUNDL.putString("Month", Month);
-                        BUNDL.putString("Year", Year);
+                        
+                        //Update Log Variables
+                        INFO.Day = Day;
+                        INFO.Month = Month;
+                        INFO.Year = Year;
                         
         //Update the Time when it is changed
                         if(mHour<12)
@@ -437,15 +442,15 @@ public class observ extends Activity {
                         }
                         timeBox.setText(Hour+":"+Minute+ " " + ampm);
                         
-                        BUNDL.putString("Hour", Hour);
-                        BUNDL.putString("Minute", Minute);
-                        BUNDL.putString("AMPM", ampm);
+                        //Update Log Variables
+                        INFO.Hour = Hour;
+                        INFO.Minute = Minute;
+                        INFO.AMPM = ampm;
 	}
  // the callback received when the user "sets" the time in the dialog
     private TimePickerDialog.OnTimeSetListener mTimeSetListener =
         new TimePickerDialog.OnTimeSetListener() {
-            @Override
-			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 mHour = hourOfDay;
                 mMinute = minute;
                 updateDisplay();
@@ -455,8 +460,7 @@ public class observ extends Activity {
     private DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
 
-                @Override
-				public void onDateSet(DatePicker view, int year, 
+                public void onDateSet(DatePicker view, int year, 
                                       int monthOfYear, int dayOfMonth) {
                     mYear = year;
                     mMonth = monthOfYear;
@@ -479,14 +483,12 @@ public class observ extends Activity {
 			builder.setMessage("Are you sure you wish to exit? Data will be lost.")
 			       .setCancelable(false)
 			       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-			           @Override
-					public void onClick(DialogInterface dialog, int id) {
+			           public void onClick(DialogInterface dialog, int id) {
 			                observ.this.finish();
 			           }
 			       })
 			       .setNegativeButton("No", new DialogInterface.OnClickListener() {
-			           @Override
-					public void onClick(DialogInterface dialog, int id) {
+			           public void onClick(DialogInterface dialog, int id) {
 			                dialog.cancel();
 			           }
 			       });
@@ -504,8 +506,7 @@ public class observ extends Activity {
 			builder.setMessage("You need to enter a zip code.")
 			       .setCancelable(false)
 			       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			           @Override
-					public void onClick(DialogInterface dialog, int id) {
+			           public void onClick(DialogInterface dialog, int id) {
 			        	   dialog.cancel();
 			           }
 			       });
@@ -521,8 +522,7 @@ public class observ extends Activity {
         builder.setMessage("Yout GPS seems to be disabled, do you want to enable it?")
                .setCancelable(false)
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                   @Override
-				public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                   public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                        //launchGPSOptions(); 
                 	   Intent myIntent = new Intent( Settings.ACTION_SECURITY_SETTINGS );
                 	    startActivity(myIntent);
@@ -530,8 +530,7 @@ public class observ extends Activity {
                    }
                })
                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                   @Override
-				public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                   public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                         dialog.cancel();
                    }
                });
@@ -547,8 +546,7 @@ public class observ extends Activity {
         //
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
-            @Override
-			public void onLocationChanged(Location loc){
+            public void onLocationChanged(Location loc){
             //updateWithNewLocation(loc);
             Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
             List<Address> addresses = null;
@@ -563,30 +561,26 @@ public class observ extends Activity {
                 EditText txt = (EditText) findViewById(R.id.editText1);
                 txt.setText(addresses.get(0).getPostalCode()); 
                 
-                //TODO: Need latitude and logitude
-                //Save them...
-                BUNDL.putString("LATITUDE", String.valueOf(loc.getLatitude()));
-                BUNDL.putString("LONGITUDE", String.valueOf(loc.getLongitude()));
-                BUNDL.putString("ZIP", String.valueOf(addresses.get(0).getPostalCode()));
+                //Save Log Variables
+                INFO.LATITUDE = String.valueOf(loc.getLatitude());
+                INFO.LONGITUDE = String.valueOf(loc.getLongitude());
+                INFO.ZIP = String.valueOf(addresses.get(0).getPostalCode());
             }
             }
 
 			//@Override
-			@Override
 			public void onProviderDisabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
-			@Override
 			public void onProviderEnabled(String provider) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			//@Override
-			@Override
 			public void onStatusChanged(String provider, int status,
 					Bundle extras) {
 				// TODO Auto-generated method stub

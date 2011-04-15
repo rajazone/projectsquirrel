@@ -18,8 +18,6 @@ import android.widget.Toast;
 
 public class food extends Activity{
 	
-	Bundle BUNDL;
-
 	/** Called when the activity is first created. */
 	private OnSeekBarChangeListener SeekChange = new OnSeekBarChangeListener(){	 
 		 
@@ -83,7 +81,6 @@ public class food extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food); 
         
-        BUNDL = getIntent().getExtras();
         SeekBar sb1 = (SeekBar) findViewById(R.id.food_seekBar1); //Bird Feeder
         SeekBar sb2 = (SeekBar) findViewById(R.id.food_seekBar2); //Humans
         SeekBar sb3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
@@ -116,24 +113,21 @@ public class food extends Activity{
 	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
 	            TextView othertxt = (TextView) findViewById(R.id.food_editText1);
 
-	            
-	            BUNDL.putString("Bird_Feeder", getProgressValue(seekbar1.getProgress()));
-	            BUNDL.putString("Human_Handouts", getProgressValue(seekbar2.getProgress()));
-	            BUNDL.putString("Trees_Plants", getProgressValue(seekbar3.getProgress()));
-	            BUNDL.putString("Garbage", getProgressValue(seekbar4.getProgress()));
-	            BUNDL.putString("Other", getProgressValue(seekbar5.getProgress()));
-	            BUNDL.putString("Other_Text", othertxt.toString());
+	            observ.INFO.FEED_BIRD_FEEDER = getProgressValue(seekbar1.getProgress());
+	            observ.INFO.FEED_HANDOUTS = getProgressValue(seekbar2.getProgress());
+	            observ.INFO.FEED_TREES = getProgressValue(seekbar3.getProgress());
+	            observ.INFO.FEED_GARBAGE = getProgressValue(seekbar4.getProgress());
+	            observ.INFO.FEED_OTHER = getProgressValue(seekbar5.getProgress());
+	            observ.INFO.FEED_OTHER_DETAILS = othertxt.toString();
 
 	    		//Move to next screen - final screen
 	    		Intent i = new Intent(getApplicationContext(), finalscreen.class);
-	    		i.putExtras(BUNDL);	//Sends BUNDL to final screen
 	            startActivity(i);
 	    }});
       
         
     }//End onCreate
 	
-
     //Customize Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) 
