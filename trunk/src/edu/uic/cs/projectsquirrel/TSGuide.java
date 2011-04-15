@@ -17,6 +17,9 @@ public class TSGuide extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treeguide);
         
+        TextView cat = (TextView) findViewById(R.id.treeCategory);
+        cat.setText("Tiny-seeded Trees");
+        
         ImageView Tree1Image = (ImageView) findViewById(R.id.Tree1Image);
        //ImageView Nut1Image = (ImageView) findViewById(R.id.Nut1Image);
      Tree1Image.setImageResource(R.drawable.cottonwoodtree);
@@ -26,7 +29,7 @@ public class TSGuide extends Activity {
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
         Tree1Desc.setTextSize(24);
-        Tree1Desc.setText("Cotton Wood Tree");
+        Tree1Desc.setText("Cotton Wood Tree\n");
       // Nut1Desc.setText("Walnut Seed");
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
@@ -36,7 +39,7 @@ public class TSGuide extends Activity {
         TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
        // TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);
        
-       Tree2Desc.setText("Willow Tree");
+       Tree2Desc.setText("Willow Tree\n");
       // Nut2Desc.setText("Oak");
        Tree2Desc.setTextSize(24);
         ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
@@ -46,7 +49,7 @@ public class TSGuide extends Activity {
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
         Tree3Desc.setTextSize(24);
-       Tree3Desc.setText("Ash tree");
+       Tree3Desc.setText("Ash tree\n");
       //  Nut3Desc.setText("Hickory fruit");
         
        

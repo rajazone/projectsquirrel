@@ -17,16 +17,19 @@ public class CFGuide extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treeguide);
         
+        TextView cat = (TextView) findViewById(R.id.treeCategory);
+        cat.setText("Coniferous Trees");
+        
         ImageView Tree1Image = (ImageView) findViewById(R.id.Tree1Image);
        //ImageView Nut1Image = (ImageView) findViewById(R.id.Nut1Image);
-     Tree1Image.setImageResource(R.drawable.pinetree);
+        Tree1Image.setImageResource(R.drawable.pinetree);
     // Nut1Image.setImageResource(R.drawable.walnutfruit);
      
      
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
         Tree1Desc.setTextSize(24);
-        Tree1Desc.setText("Pine Tree");
+        Tree1Desc.setText("Pine Tree\n");
       // Nut1Desc.setText("Walnut Seed");
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
@@ -36,7 +39,7 @@ public class CFGuide extends Activity {
         TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
        // TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);
        
-       Tree2Desc.setText("Spruce Tree");
+       Tree2Desc.setText("Spruce Tree\n");
       // Nut2Desc.setText("Oak");
        Tree2Desc.setTextSize(24);
         ImageView Tree3Image = (ImageView) findViewById(R.id.Tree3Image);
@@ -46,7 +49,7 @@ public class CFGuide extends Activity {
         TextView Tree3Desc = (TextView) findViewById(R.id.Tree3Desc);
        // TextView Nut3Desc = (TextView) findViewById(R.id.Nut3Desc);
         Tree3Desc.setTextSize(24);
-       Tree3Desc.setText("Fir tree");
+       Tree3Desc.setText("Fir tree\n");
       //  Nut3Desc.setText("Hickory fruit");
         
        
