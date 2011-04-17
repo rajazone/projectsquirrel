@@ -11,11 +11,10 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5px"
     android:background="#b6b6b6" android:orientation="horizontal">
-    <!--  DATE  -->
      
 	    <TextView 
 	    android:text="Email :  " 
-	    android:id="@+id/date1" 
+	    android:id="@+id/emailid" 
 	    android:layout_width="wrap_content" 
 	    android:layout_height="wrap_content"
 	    android:textColor="#000000"
@@ -24,10 +23,9 @@
 	    >
 	    </TextView>
 	    
-	    <!--  TIME  -->
 	    <EditText 
 	    android:layout_width="wrap_content" 
-	    android:text="enter your email id" 
+	    android:hint="enter your email id" 
 	    android:layout_height="wrap_content" 
 	    android:id="@+id/email_editText"></EditText>
 	</LinearLayout>
@@ -37,30 +35,9 @@
     android:layout_height="wrap_content"
     android:background="#b6b6b6" android:orientation="horizontal">
     
-    <!--  LOCATION  -->
-    <!--  Note: not in table as to allow for "EditText" ro span entire screen width -->
-	    
-	    <!--  Location should auto-fill if GPS is enabled. -->
-	 </LinearLayout>
+     </LinearLayout>
 		
-	<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="#b6b6b6" android:orientation="horizontal"> 
-	    
-  	<!--  SETTING  -->
-    </LinearLayout>	
-  
-  	<!-- NOTE: Divider created here dynamically in .java file -->
-  	<ImageView
-	android:id="@+id/div1" 
-	android:layout_width="fill_parent" 
-	android:layout_height="2px"
-	>
-	</ImageView>
-
 	
-	<!--  SQUIRREL COUNT -->
 	<TextView 
     android:text="Compared to the last year, the squirrel population has :" 
     android:id="@+id/header2" 
@@ -103,11 +80,30 @@
         <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="No" android:layout_height="wrap_content"></RadioButton>
         </TableRow>
     </RadioGroup>
+    
+    <TextView 
+    android:text="Have you submitted this observation in any other site ?" 
+    android:id="@+id/header3" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:textColor="#FFFFFF"
+    android:background="#000000"
+    android:textStyle="bold"
+    android:textSize="12px"
+    >
+    </TextView>
+    <RadioGroup android:id="@+id/radioGroup3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TableRow>
+        <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Yes" android:layout_height="wrap_content" android:checked="true"></RadioButton>
+        <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="No" android:layout_height="wrap_content"></RadioButton>
+        </TableRow>
+    </RadioGroup>
+    
 <EditText 
 	    android:layout_width="wrap_content" 
-	    android:text="Other Site, please specify here" 
+	    android:hint="Other Comments, please enter here" 
 	    android:layout_height="wrap_content" 
-	    android:id="@+id/othersite_editText"></EditText>	
+	    android:id="@+id/comments_editText"></EditText>	
 	
   		<RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
     
