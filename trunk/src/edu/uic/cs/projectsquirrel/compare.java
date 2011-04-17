@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class compare extends Activity{
 	
-	Bundle BNDL;
+	Bundle BUNDL;
 
         /** Called when the activity is first created. */
     @Override
@@ -23,7 +23,7 @@ public class compare extends Activity{
         setContentView(R.layout.compare); 
         
       //submit button on compare.xml
-        Button submit = (Button) findViewById(R.id.Next_Food);
+        Button submit = (Button) findViewById(R.id.submit_button);
       
         //Submit BUTTON
         submit.setOnClickListener(new View.OnClickListener() {
@@ -31,7 +31,7 @@ public class compare extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-		        TextView emailid = (TextView) findViewById(R.id.email_editText);
+		     /*   TextView emailid = (TextView) findViewById(R.id.email_editText);
 	        RadioGroup comparecount = (RadioGroup) findViewById(R.id.radioGroup1);
 	        RadioGroup prevsurvey = (RadioGroup) findViewById(R.id.radioGroup2);
 	        TextView othersite = (TextView) findViewById(R.id.othersite_editText);
@@ -40,10 +40,10 @@ public class compare extends Activity{
 				BNDL.putString("Email", emailid.toString() );
 				BNDL.putString("Compare_Count", comparecount.toString());
 				BNDL.putString("Previous_Survey", prevsurvey.toString());
-				BNDL.putString("Other_Site", othersite.toString());
+				BNDL.putString("Other_Site", othersite.toString());*/
 				
 				Intent i = new Intent(getApplicationContext(), finalscreen.class);
-	    		i.putExtras(BNDL);	//Sends BNDL to final screen
+	    		//i.putExtras(BUNDL);	//Sends BNDL to final screen
 	            startActivity(i);
 				
 			}

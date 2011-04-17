@@ -121,7 +121,7 @@ public class food extends Activity{
 	            observ.INFO.FEED_OTHER_DETAILS = othertxt.toString();
 
 	    		//Move to next screen - final screen
-	    		Intent i = new Intent(getApplicationContext(), finalscreen.class);
+	    		Intent i = new Intent(getApplicationContext(), compare.class);
 	            startActivity(i);
 	    }});
       
