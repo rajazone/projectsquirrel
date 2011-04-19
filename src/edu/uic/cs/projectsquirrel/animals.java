@@ -109,19 +109,42 @@ public class animals extends Activity {
         			break;
         			
         		case 1:
-        			text = "1-2 (per day)";
+        			if(seekBar.getId() == R.id.seekBar3 || seekBar.getId() == R.id.seekBar4 || seekBar.getId() == R.id.seekBar5)
+        			{
+        				text = "you see them if you're lucky";
+        			}
+        			else
+        			{
+        				text = "1-2 (per day)";
+        			}
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
         		
         		case 2:
-        			text = "3-4 (per day)";
+        			if(seekBar.getId() == R.id.seekBar3 || seekBar.getId() == R.id.seekBar4 || seekBar.getId() == R.id.seekBar5)
+        			{
+        				text = "you see them if you're looking for them";
+        			}
+        			else
+        			{
+        				text = "3-4 (per day)";
+        			}
+        			
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
         			
         		case 3:
-        			text = "5+ (per day)";
+        			if(seekBar.getId() == R.id.seekBar3 || seekBar.getId() == R.id.seekBar4 || seekBar.getId() == R.id.seekBar5)
+        			{
+        				text = "you see them regularly";
+        			}
+        			else
+        			{
+        				text = "5+ (per day)";
+        			}
+        			
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
