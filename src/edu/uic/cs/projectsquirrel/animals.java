@@ -228,8 +228,13 @@ public class animals extends Activity {
            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Grain
            
            //Import Log Variables
+           //If variable length = 0, then the variable was never set to anything.
+           //Else, data was previously stored and needs to be retrieved.
+           //This method calls getIntProgressValue() [SEE LINE ~142]
+           //		Which converts the String [NONE/LOW/MEDIUM/HIGH] to 0,1,2 or 3.
            if(observ.INFO.SITE_DOGS.length() > 0)
            {
+        	   //Set seekBar corresponding to variable SITE_DOGS to the correct value.
         	   seekbar1.setProgress(getIntProgressValue(observ.INFO.SITE_DOGS));
            }
            if(observ.INFO.SITE_CATS.length() > 0)
