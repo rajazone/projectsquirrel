@@ -24,6 +24,8 @@ public class food extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food); 
         
+        importVars2();
+        
         SeekBar sb1 = (SeekBar) findViewById(R.id.food_seekBar1); //Bird Feeder
         SeekBar sb2 = (SeekBar) findViewById(R.id.food_seekBar2); //Humans
         SeekBar sb3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
@@ -126,6 +128,14 @@ public class food extends Activity{
 	   if(p == 3) { return "Regularly"; }
 	   return "Never";
    }
+   
+   private int getIntProgressValue(String p) {
+		
+	   if(p == "Seldom") { return 1; }
+	   if(p == "Often") { return 2; }
+	   if(p == "Regularly") { return 3; }
+	   return 0;
+	}
  
     //Customize Menu
     @Override
@@ -174,5 +184,43 @@ public class food extends Activity{
         	
         } 
     }
+    
+    
+    private void importVars2()
+    {
+        SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Bird Feeder
+        SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Humans
+        SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Trees
+        SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Garbage
+        SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Others
+        
+        //Import Log Variables
+        if(observ.INFO.FEED_BIRD_FEEDER.length() > 0)
+        {
+                seekbar1.setProgress(getIntProgressValue(observ.INFO.FEED_BIRD_FEEDER));
+        }
+        if(observ.INFO.FEED_HANDOUTS.length() > 0)
+        {
+                seekbar2.setProgress(getIntProgressValue(observ.INFO.FEED_HANDOUTS));
+        }
+        if(observ.INFO.FEED_TREES.length() > 0)
+        {
+                seekbar3.setProgress(getIntProgressValue(observ.INFO.FEED_TREES));
+        }
+        if(observ.INFO.FEED_GARBAGE.length() > 0)
+        {
+                seekbar4.setProgress(getIntProgressValue(observ.INFO.FEED_GARBAGE));
+        }
+        if(observ.INFO.FEED_OTHER.length() > 0)
+        {
+                seekbar5.setProgress(getIntProgressValue(observ.INFO.FEED_OTHER));
+        }
+        if(observ.INFO.FEED_OTHER_DETAILS.length()>0)
+        {
+        	
+        }
+    }
+
+	
     
 }//End class food

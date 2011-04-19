@@ -24,6 +24,9 @@ public class trees extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trees);
         
+        //Checking for past values
+        importVars1();
+        
         //Import SeekBars from trees.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
         SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2);
@@ -186,6 +189,15 @@ public class trees extends Activity {
     	   return "NONE";
        }
        
+       private int getIntProgressValue(String p) {
+   		
+   		if(p == "YES")               { return 0; }
+           if(p == "UNSURE") { return 1; }
+           if(p == "NO") { return 2; }
+           return 0;
+   		
+   	}
+       
      //Customize Menu
        @Override
        public boolean onCreateOptionsMenu(Menu menu) 
@@ -218,6 +230,8 @@ public class trees extends Activity {
        	}
        }
        
+       
+       
        //ON NEXT ACTIVITY FINISH
        @Override
        protected void onActivityResult(int requestCode, int resultCode, Intent data) {    	
@@ -233,6 +247,40 @@ public class trees extends Activity {
            	
            } 
        }
+       
+       
+       private void importVars1()
+       {
+           SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Nut_trees
+           SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Seed_Trees
+           SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Fruit_Trees
+           SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Tiny_Trees
+           SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Con_Trees
+           
+           //Import Log Variables
+           if(observ.INFO.NUT_TREES.length() > 0)
+           {
+                   seekbar1.setProgress(getIntProgressValue(observ.INFO.NUT_TREES));
+           }
+           if(observ.INFO.SEED_TREES.length() > 0)
+           {
+                   seekbar2.setProgress(getIntProgressValue(observ.INFO.SEED_TREES));
+           }
+           if(observ.INFO.FRUIT_TREES.length() > 0)
+           {
+                   seekbar3.setProgress(getIntProgressValue(observ.INFO.FRUIT_TREES));
+           }
+           if(observ.INFO.TINY_TREES.length() > 0)
+           {
+                   seekbar4.setProgress(getIntProgressValue(observ.INFO.TINY_TREES));
+           }
+           if(observ.INFO.CON_TREES.length() > 0)
+           {
+                   seekbar5.setProgress(getIntProgressValue(observ.INFO.CON_TREES));
+           }
+       }
+
+	
         
 } //end of class trees
 
