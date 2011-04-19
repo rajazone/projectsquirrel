@@ -65,6 +65,7 @@ public class observ extends Activity {
     static final int CHECK_EXIT_DIALOG_ID = 0;
     static final int TIME_DIALOG_ID = 2;
     static final int NO_ZIP_DIALOG_ID = 3;
+    static final int INVALID_ZIP_ID = 4;
     static final int DATE_DIALOG_ID = 1;
     
     public static Variables INFO;	//Used to store all Log data.
@@ -274,9 +275,13 @@ public class observ extends Activity {
 		            
 		            EditText txt = (EditText) findViewById(R.id.editText1);
 		            String str = txt.getText().toString();
-		            if(str.equals("") && INFO.ZIP == "") //If TextEdit is empty AND no ZIP code was auto-generated
+		            /*if(str.equals("") && INFO.ZIP == "") //If TextEdit is empty AND no ZIP code was auto-generated
 		            {
 		            	showDialog(NO_ZIP_DIALOG_ID);
+		            }*/
+		           if((str.length()<5) || (str.length()>5 && str.length()<9)|| (str.length()>9)) // To avoid invalid zip code
+		            {
+		            	showDialog(INVALID_ZIP_ID);
 		            }
 		            else
 		            {
@@ -501,9 +506,22 @@ public class observ extends Activity {
 		case TIME_DIALOG_ID:
 	        return new TimePickerDialog(this,
 	                mTimeSetListener, mHour, mMinute, false);
-		case NO_ZIP_DIALOG_ID:
+		
+		/*case NO_ZIP_DIALOG_ID:
 		    builder = new AlertDialog.Builder(this);
 			builder.setMessage("You need to enter a zip code.")
+			       .setCancelable(false)
+			       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   dialog.cancel();
+			           }
+			       });
+			 alert = builder.create();
+			 return alert;*/
+		
+		case INVALID_ZIP_ID:
+		    builder = new AlertDialog.Builder(this);
+			builder.setMessage("Please enter a valid zip code.")
 			       .setCancelable(false)
 			       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
