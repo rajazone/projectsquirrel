@@ -67,7 +67,7 @@ public class observ extends Activity {
     static final int NO_ZIP_DIALOG_ID = 3;
     static final int DATE_DIALOG_ID = 1;
     
-    public static Variables INFO;
+    public static Variables INFO;	//Used to store all Log data.
     
     /** Called when the activity is first created. */
     @Override
@@ -285,7 +285,7 @@ public class observ extends Activity {
 		            		INFO.ZIP = txt.getText().toString();
 		            	}
 		            	Intent i = new Intent(getApplicationContext(), animals.class);
-		            	startActivity(i);
+		            	startActivityForResult(i,1);
 		            }
 	    }});
         
@@ -641,5 +641,16 @@ public class observ extends Activity {
     	}
     }
    
+    
+    //ON NEXT ACTIVITY FINISH
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // If the request went well (OK)
+        if(resultCode == Activity.RESULT_OK) {
+        	finish();
+        }
+    }
+    
+    
     }/* End of UseGps Activity */
 //end observ
