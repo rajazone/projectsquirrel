@@ -72,35 +72,29 @@ public class trees extends Activity {
 		});
         
  
- FBDesc.setOnClickListener(new View.OnClickListener() {
-	
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
-		Intent j = new Intent(getApplicationContext(), FBGuide.class);
-		startActivity(j);
-	}
-});
- 
- TSDesc.setOnClickListener(new View.OnClickListener() {
+	 FBDesc.setOnClickListener(new View.OnClickListener() {
 		
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			
-			Intent j = new Intent(getApplicationContext(), TSGuide.class);
+			Intent j = new Intent(getApplicationContext(), FBGuide.class);
 			startActivity(j);
 		}
 	});
  
- CFDesc.setOnClickListener(new View.OnClickListener() {
-		
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
+	 TSDesc.setOnClickListener(new View.OnClickListener() {
 			
-			Intent j = new Intent(getApplicationContext(), CFGuide.class);
-			startActivity(j);
-		}
-	});
+			public void onClick(View v) {
+				Intent j = new Intent(getApplicationContext(), TSGuide.class);
+				startActivity(j);
+			}
+		});
+ 
+	 CFDesc.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				Intent j = new Intent(getApplicationContext(), CFGuide.class);
+				startActivity(j);
+			}
+		});
  
         
       //NEXT BUTTON
@@ -128,7 +122,7 @@ public class trees extends Activity {
 	    		
 	    		//Move to Food screen
 	    		Intent i = new Intent(getApplicationContext(), food.class);
-	            startActivity(i);
+	            startActivityForResult(i,1);
 	    }});
         
        //TREE GUIDE BUTTON  ... Don't need since we have individual guides, yes?
@@ -222,6 +216,22 @@ public class trees extends Activity {
    			default:
    				return super.onOptionsItemSelected(item);
        	}
+       }
+       
+       //ON NEXT ACTIVITY FINISH
+       @Override
+       protected void onActivityResult(int requestCode, int resultCode, Intent data) {    	
+           // If the request went well (OK)
+           if(resultCode == Activity.RESULT_OK) {
+        	   	Intent intent = getIntent();
+        	   	setResult(RESULT_OK, intent);
+           		finish();
+           }
+
+           else 
+           {
+           	
+           } 
        }
         
 } //end of class trees

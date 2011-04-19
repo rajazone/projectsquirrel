@@ -3,43 +3,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#b6b6b6" android:orientation="vertical"
-    android:screenOrientation="portrait">
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5px"
-    android:background="#b6b6b6" android:orientation="horizontal">
-     
-	    <TextView 
-	    android:text="Email :  " 
-	    android:id="@+id/emailid" 
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content"
-	    android:textColor="#000000"
-	    android:textStyle="bold"
-	    android:textSize="14px"
-	    >
-	    </TextView>
-	    
-	    <EditText 
-	    android:layout_width="wrap_content" 
-	    android:hint="enter your email id" 
-	    android:layout_height="wrap_content" 
-	    android:id="@+id/email_editText"></EditText>
-	</LinearLayout>
-	
-    <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="#b6b6b6" android:orientation="horizontal">
-    
-     </LinearLayout>
-		
+    android:screenOrientation="portrait">	
 	
 	<TextView 
-    android:text="Compared to the last year, the squirrel population has :" 
+    android:text="Compared to the last year, do you think the number of squirrels has..." 
     android:id="@+id/header2" 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
@@ -54,16 +21,15 @@
     
         <RadioGroup android:id="@+id/radioGroup1" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <TableRow>
-            <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Increased" android:layout_height="wrap_content" android:checked="true"></RadioButton>
+            <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Increased" android:layout_height="wrap_content"></RadioButton>
             <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="Decreased" android:layout_height="wrap_content"></RadioButton>            </TableRow>
-            
-            <RadioButton android:id="@+id/radio2" android:layout_width="wrap_content" android:text="NoChange" android:layout_height="wrap_content"></RadioButton>
+            <RadioButton android:id="@+id/radio2" android:layout_width="wrap_content" android:text="No Change" android:layout_height="wrap_content" android:checked="true"></RadioButton>
         </RadioGroup>    
 	
 
 	
 	<TextView 
-    android:text="Have you submitted this observation already ?" 
+    android:text="Have you submitted data for THIS observation site before?" 
     android:id="@+id/header2" 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
@@ -76,13 +42,13 @@
     
     <RadioGroup android:id="@+id/radioGroup2" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <TableRow>
-        <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Yes" android:layout_height="wrap_content" android:checked="true"></RadioButton>
-        <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="No" android:layout_height="wrap_content"></RadioButton>
+        <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Yes" android:layout_height="wrap_content"></RadioButton>
+        <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="No" android:layout_height="wrap_content" android:checked="true"></RadioButton>
         </TableRow>
     </RadioGroup>
     
     <TextView 
-    android:text="Have you submitted this observation in any other site ?" 
+    android:text="Have you ever submitted data for any other site?" 
     android:id="@+id/header3" 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
@@ -94,18 +60,58 @@
     </TextView>
     <RadioGroup android:id="@+id/radioGroup3" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <TableRow>
-        <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Yes" android:layout_height="wrap_content" android:checked="true"></RadioButton>
+        <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="Yes" android:layout_height="wrap_content"></RadioButton>
         <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="No" android:layout_height="wrap_content"></RadioButton>
         </TableRow>
     </RadioGroup>
     
-<EditText 
+    
+    
+    	<TextView 
+	    android:text="Additional Comments:  " 
+	    android:id="@+id/emailid" 
 	    android:layout_width="wrap_content" 
-	    android:hint="Other Comments, please enter here" 
+	    android:layout_height="wrap_content"
+	    android:textColor="#000000"
+	    android:textStyle="bold"
+	    android:textSize="14px"
+	    >
+	    </TextView>
+	    
+    	
+    
+		<EditText 
+	    android:layout_width="fill_parent" 
+	    android:hint="Other Comments, please enter here." 
 	    android:layout_height="wrap_content" 
 	    android:id="@+id/comments_editText"></EditText>	
+	    
+	    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5px"
+	    android:background="#b6b6b6" android:orientation="horizontal">
+     
+	    <TextView 
+	    android:text="Email :  " 
+	    android:id="@+id/emailid" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:textColor="#000000"
+	    android:textStyle="bold"
+	    android:textSize="14px"
+	    >
+	    </TextView>
+	    
+	    <EditText 
+	    android:layout_width="fill_parent" 
+	    android:hint="Enter your email." 
+	    android:layout_height="wrap_content" 
+	    android:id="@+id/email_editText"></EditText>
+	</LinearLayout>
+	    
 	
-  		<RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+  		<RelativeLayout android:layout_height="wrap_content" android:layout_width="fill_parent">
     
         <Button 
         android:text="Submit" 
@@ -116,6 +122,6 @@
         android:layout_width="100px">
         </Button>
         
-    </RelativeLayout>
+    	</RelativeLayout>
     
 </LinearLayout>

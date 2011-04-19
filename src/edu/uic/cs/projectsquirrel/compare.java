@@ -1,5 +1,7 @@
 package edu.uic.cs.projectsquirrel;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,41 +13,40 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class compare extends Activity{
-	
-	Bundle BUNDL;
 
-        /** Called when the activity is first created. */
+    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.compare); 
-        
-      //submit button on compare.xml
+
+        //submit button on compare.xml
         Button submit = (Button) findViewById(R.id.submit_button);
       
         //Submit BUTTON
         submit.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				// TODO Store the rest of the variables
 		     /*   TextView emailid = (TextView) findViewById(R.id.email_editText);
 	        RadioGroup comparecount = (RadioGroup) findViewById(R.id.radioGroup1);
 	        RadioGroup prevsurvey = (RadioGroup) findViewById(R.id.radioGroup2);
 	        TextView othersite = (TextView) findViewById(R.id.othersite_editText);
-
-
-				BNDL.putString("Email", emailid.toString() );
-				BNDL.putString("Compare_Count", comparecount.toString());
-				BNDL.putString("Previous_Survey", prevsurvey.toString());
-				BNDL.putString("Other_Site", othersite.toString());*/
+	        */
+				
+				
+				
+				//Submit final data to Log
+				try {
+					observ.INFO.makeLog();
+				} catch (IOException e) {
+					 Toast.makeText(getApplicationContext(), "Error Storing Log Data.", Toast.LENGTH_SHORT).show();
+				}
 				
 				Intent i = new Intent(getApplicationContext(), finalscreen.class);
-	    		//i.putExtras(BUNDL);	//Sends BNDL to final screen
-	            startActivity(i);
-				
+	            startActivityForResult(i,1);
 			}
 		});
                 
@@ -83,6 +84,22 @@ public class compare extends Activity{
                         default:
                                 return super.onOptionsItemSelected(item);
         }
+    }
+    
+    //ON NEXT ACTIVITY FINISH
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {    	
+        // If the request went well (OK)
+        if(resultCode == Activity.RESULT_OK) {
+     	   	Intent intent = getIntent();
+     	   	setResult(RESULT_OK, intent);
+        	finish();
+        }
+
+        else 
+        {
+        	
+        } 
     }
 
 }//End class compare

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class finalscreen extends Activity{
 
@@ -16,10 +18,15 @@ public class finalscreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finalscreen); 
         
+        Button OK = (Button) findViewById(R.id.final_ok_button);
         
-        
-        
-        
+        OK.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				
+				Intent i = getIntent();
+				setResult(RESULT_OK, i);
+				finish();
+			}});
     }//End onCreate
 	
 

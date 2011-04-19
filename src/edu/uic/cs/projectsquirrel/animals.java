@@ -23,6 +23,10 @@ public class animals extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animals);
         
+        //Check For Past Data
+        importVars();
+        
+        
         //Import SeekBars from animals.xml
         SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
         SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2);
@@ -72,7 +76,7 @@ public class animals extends Activity {
 	            
 	            //Move to Trees screen
 	            Intent i = new Intent(getApplicationContext(), trees.class);
-            	startActivity(i);
+            	startActivityForResult(i,1);
 	    }});
         
         
@@ -134,6 +138,15 @@ public class animals extends Activity {
     	   return "NONE";
        }
        
+     //String = NONE/LOW/MEDIUM/HIGH to number 0-3
+       public int getIntProgressValue(String p)
+       {
+    	   if(p == "LOW") 		{ return 1; }
+    	   if(p == "MEDIUM") { return 2; }
+    	   if(p == "HIGH") { return 3; }
+    	   return 0;
+       }
+       
        //Customize Menu
        @Override
        public boolean onCreateOptionsMenu(Menu menu) 
@@ -164,6 +177,54 @@ public class animals extends Activity {
    			default:
    				return super.onOptionsItemSelected(item);
        	}
+       }
+       
+       
+       //ON NEXT ACTIVITY FINISH
+       @Override
+       protected void onActivityResult(int requestCode, int resultCode, Intent data) {    	
+           // If the request went well (OK)
+           if(resultCode == Activity.RESULT_OK) {
+        	   Intent intent = getIntent();
+        	   setResult(RESULT_OK, intent);
+        	   finish();
+           }
+
+           else 
+           {
+           	
+           } 
+       }
+       
+       private void importVars()
+       {
+    	   SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Dogs
+           SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Cats
+           SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Coyotes
+           SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Hawks
+           SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Grain
+           
+           //Import Log Variables
+           if(observ.INFO.SITE_DOGS.length() > 0)
+           {
+        	   seekbar1.setProgress(getIntProgressValue(observ.INFO.SITE_DOGS));
+           }
+           if(observ.INFO.SITE_CATS.length() > 0)
+           {
+        	   seekbar2.setProgress(getIntProgressValue(observ.INFO.SITE_CATS));
+           }
+           if(observ.INFO.SITE_COYOTES.length() > 0)
+           {
+        	   seekbar3.setProgress(getIntProgressValue(observ.INFO.SITE_COYOTES));
+           }
+           if(observ.INFO.SITE_HAWKS.length() > 0)
+           {
+        	   seekbar4.setProgress(getIntProgressValue(observ.INFO.SITE_HAWKS));
+           }
+           if(observ.INFO.SITE_GRAIN.length() > 0)
+           {
+        	   seekbar5.setProgress(getIntProgressValue(observ.INFO.SITE_GRAIN));
+           }
        }
         
 } //end of class animals
