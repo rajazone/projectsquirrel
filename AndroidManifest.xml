@@ -31,6 +31,7 @@
         <activity android:name="FBGuide"></activity>
         <activity android:name="treeguide"></activity>
         <activity android:name="compare"></activity>
+        <activity android:name="compare2"></activity>
     
     </application>
 </manifest>
