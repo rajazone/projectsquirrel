@@ -92,7 +92,7 @@
     android:layout_height="wrap_content" 
     android:layout_width="50dip" 
     android:id="@+id/compare_seekBar"
-    android:progress="0"
+    android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"
     android:layout_weight=".5">

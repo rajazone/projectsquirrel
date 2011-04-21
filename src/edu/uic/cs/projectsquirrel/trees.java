@@ -183,17 +183,17 @@ public class trees extends Activity {
        //Convert Number 0-2 into String = Yes/Unsure/No
        public String getProgressValue(int p)
        {
-    	   if(p == 0) { return "YES"; }
+    	   if(p == 0) { return "NO"; }
     	   if(p == 1) { return "UNSURE"; }
-    	   if(p == 2) { return "NO"; }
+    	   if(p == 2) { return "YES"; }
     	   return "NONE";
        }
        
        private int getIntProgressValue(String p) {
    		
-   		if(p == "YES")               { return 0; }
+   		if(p == "NO")               { return 0; }
            if(p == "UNSURE") { return 1; }
-           if(p == "NO") { return 2; }
+           if(p == "YES") { return 2; }
            return 0;
    		
    	}
