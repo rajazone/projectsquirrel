@@ -34,7 +34,7 @@ public class SBGuide extends Activity {
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);
        // ImageView Nut2Image = (ImageView) findViewById(R.id.Nut2Image);
-     Tree2Image.setImageResource(R.drawable.mapletree);
+     Tree2Image.setImageResource(R.drawable.maple);
      // Nut2Image.setImageResource(R.drawable.oakfruit);
         TextView Tree2Desc = (TextView) findViewById(R.id.Tree2Desc);
        // TextView Nut2Desc = (TextView) findViewById(R.id.Nut2Desc);

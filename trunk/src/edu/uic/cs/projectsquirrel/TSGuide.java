@@ -29,7 +29,7 @@ public class TSGuide extends Activity {
         TextView Tree1Desc = (TextView) findViewById(R.id.Tree1Desc);
        // TextView Nut1Desc = (TextView) findViewById(R.id.Nut1Desc);
         Tree1Desc.setTextSize(24);
-        Tree1Desc.setText("Cotton Wood Tree\n");
+        Tree1Desc.setText("Cottonwood Tree\n");
       // Nut1Desc.setText("Walnut Seed");
         
         ImageView Tree2Image = (ImageView) findViewById(R.id.Tree2Image);

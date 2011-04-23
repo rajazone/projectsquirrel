@@ -137,14 +137,6 @@
     </TableLayout>
     
     
-    <EditText 
-        android:hint="Additional Observations (optional)" 
-        android:id="@+id/editText1" 
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent">
-    </EditText>
-    
-    
     <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
     
         <Button 

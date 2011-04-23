@@ -68,21 +68,17 @@ public class observ extends Activity {
     static final int INVALID_ZIP_ID = 4;
     static final int DATE_DIALOG_ID = 1;
     
-    public static Variables INFO;	//Used to store all Log data.
+    public static Variables INFO = new Variables();	//Used to store all Log data.
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.observ); 
-
-        INFO = new Variables();
+        setContentView(R.layout.observ);
         
         // LOCATION --------------------------------------------------------------------------------
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-        
 
 		//
         //
@@ -92,7 +88,6 @@ public class observ extends Activity {
         }
         else
         {
-
 
         //
         //
@@ -110,17 +105,17 @@ public class observ extends Activity {
 				e.printStackTrace();
 			}
             if (addresses.size() > 0){
-                String Text = addresses.get(0).getLocality();
+               //String Text = addresses.get(0).getLocality();
                 EditText txt = (EditText) findViewById(R.id.editText1);
                 txt.setText(addresses.get(0).getPostalCode()); 
-                
-                /*BUNDL.putString("LATITUDE", String.valueOf(loc.getLatitude()));
-                BUNDL.putString("LONGITUDE", String.valueOf(loc.getLongitude()));
-                BUNDL.putString("ZIP", String.valueOf(addresses.get(0).getPostalCode()));*/
-                
+
+                //Store variables in INFO
                 INFO.LATITUDE = String.valueOf(loc.getLatitude());
                 INFO.LONGITUDE = String.valueOf(loc.getLongitude());
-                INFO.ZIP = String.valueOf(addresses.get(0).getPostalCode());
+                
+                String zip = String.valueOf(addresses.get(0).getPostalCode());
+                INFO.ZIP = zip;
+                txt.setText(zip);	//Show location in text box
             }
             }
 
@@ -210,12 +205,6 @@ public class observ extends Activity {
         String minute = date.substring(t1+1,t2);
         	if(minute.length()==1) { minute = "0" + minute; } 	//Minute must be 2 characters long
         
-        /*BUNDL.putString("Day", day);
-        BUNDL.putString("Month", month);
-        BUNDL.putString("Year", date.substring(s2+1));
-        BUNDL.putString("Hour", hour);
-        BUNDL.putString("Minute", minute);
-        BUNDL.putString("AMPM", time.substring(sp+1));*/
         
         INFO.Day = day;
         INFO.Month = month;
@@ -264,6 +253,7 @@ public class observ extends Activity {
 	    			//Store squirrel variables in Log Variables (INFO)
 		    		EditText fox_text = (EditText) findViewById(R.id.fox_text);
 		            EditText gray_text = (EditText) findViewById(R.id.gray_text);
+		            
 		            INFO.NUM_FOX_SQUIRRELS = fox_text.getText().toString();
 		            INFO.NUM_GRAY_SQUIRRELS = gray_text.getText().toString();
 		            
@@ -275,20 +265,14 @@ public class observ extends Activity {
 		            
 		            EditText txt = (EditText) findViewById(R.id.editText1);
 		            String str = txt.getText().toString();
-		            /*if(str.equals("") && INFO.ZIP == "") //If TextEdit is empty AND no ZIP code was auto-generated
-		            {
-		            	showDialog(NO_ZIP_DIALOG_ID);
-		            }*/
+		 
 		           if((str.length()<5) || (str.length()>5 && str.length()<9)|| (str.length()>9)) // To avoid invalid zip code
 		            {
 		            	showDialog(INVALID_ZIP_ID);
 		            }
 		            else
 		            {
-		            	if(INFO.ZIP == "")
-		            	{
 		            		INFO.ZIP = txt.getText().toString();
-		            	}
 		            	Intent i = new Intent(getApplicationContext(), animals.class);
 		            	startActivityForResult(i,1);
 		            }
@@ -575,14 +559,17 @@ public class observ extends Activity {
 				e.printStackTrace();
 			}
             if (addresses.size() > 0){
-                String Text = addresses.get(0).getLocality();
+                //String Text = addresses.get(0).getLocality();
                 EditText txt = (EditText) findViewById(R.id.editText1);
                 txt.setText(addresses.get(0).getPostalCode()); 
                 
                 //Save Log Variables
                 INFO.LATITUDE = String.valueOf(loc.getLatitude());
                 INFO.LONGITUDE = String.valueOf(loc.getLongitude());
-                INFO.ZIP = String.valueOf(addresses.get(0).getPostalCode());
+                
+                String zip = String.valueOf(addresses.get(0).getPostalCode());
+                INFO.ZIP = zip;
+                txt.setText(zip);	//Show location in text box
             }
             }
 
@@ -617,6 +604,7 @@ public class observ extends Activity {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         }
     }
+    
     @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
@@ -665,6 +653,8 @@ public class observ extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // If the request went well (OK)
         if(resultCode == Activity.RESULT_OK) {
+        	Intent intent = getIntent();
+     	   	setResult(RESULT_OK, intent);
         	finish();
         }
     }

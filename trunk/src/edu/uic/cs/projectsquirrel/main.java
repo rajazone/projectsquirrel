@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class main extends Activity {
 	
@@ -26,11 +27,11 @@ public class main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);  
         
-        Button newObs = (Button) findViewById(R.id.button1);
-        Button sqGuide = (Button) findViewById(R.id.button2);
+        Button newObs = (Button) findViewById(R.id.buttonObs);
+        Button sqGuide = (Button) findViewById(R.id.buttonSQG);
         
         //Set listener for "New Observation" button on main screen.
-        newObs.setOnClickListener(new View.OnClickListener(){	
+        newObs.setOnClickListener(new View.OnClickListener(){
 	    	public void onClick(View v){
 	    		Intent i = new Intent(getApplicationContext(), observ.class);
 	            startActivity(i);

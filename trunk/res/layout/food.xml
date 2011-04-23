@@ -64,7 +64,7 @@
     android:layout_height="wrap_content">
 	    	 
 	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Bird Feeders" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>  
+    <TextView android:text="Bird\nFeeders" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>  
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
