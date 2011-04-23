@@ -106,6 +106,7 @@ public class compare2 extends Activity{
 						 Toast.makeText(getApplicationContext(), "Error Storing Log Data.", Toast.LENGTH_SHORT).show();
 					}
 					
+					observ.INFO.clearAll();
 					
 		        	Intent i = new Intent(getApplicationContext(), finalscreen.class);
 		            startActivityForResult(i,1);
