@@ -133,13 +133,13 @@ public class compare2 extends Activity{
         switch (item.getItemId())
         {
                         //View "About Us"
-                        case R.id.menu_about:
-                                Intent i2 = new Intent(getApplicationContext(), finalscreen.class);
-                    startActivity(i2);
+                        case R.id.menu_about2:
+                                Intent i2 = new Intent(getApplicationContext(), about.class);
+                                startActivity(i2);
                                 return true;
                         
                         //Visit Web Site        
-                        case R.id.menu_web:
+                        case R.id.menu_web2:
                                 String url = "http://www.projectsquirrel.org/";
                                 Intent i3 = new Intent(Intent.ACTION_VIEW);
                                 i3.setData(Uri.parse(url));

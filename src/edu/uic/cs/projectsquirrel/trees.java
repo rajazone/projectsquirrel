@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -116,6 +118,7 @@ public class trees extends Activity {
 	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.trees_seekBar3); //Fruit_Trees
 	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.trees_seekBar4); //Tiny_Trees
 	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.trees_seekBar5); //Con_Trees
+	            EditText other = (EditText) findViewById(R.id.trees_comments);	//Comements about trees
 	            
 	            //Store Log Variables
 	            observ.INFO.NUT_TREES = getProgressValue(seekbar1.getProgress());
@@ -123,6 +126,11 @@ public class trees extends Activity {
 	            observ.INFO.FRUIT_TREES = getProgressValue(seekbar3.getProgress());
 	            observ.INFO.TINY_TREES = getProgressValue(seekbar4.getProgress());
 	            observ.INFO.CON_TREES = getProgressValue(seekbar5.getProgress());
+	            
+	            if(other.getText() != null)
+	            {
+	            	observ.INFO.OTHER_TREES = other.getText().toString();
+	            }
 	    		
 	    		//Move to Food screen
 	    		Intent i = new Intent(getApplicationContext(), food.class);
@@ -232,13 +240,13 @@ public class trees extends Activity {
        	switch (item.getItemId())
        	{
    			//View "About Us"
-   			case R.id.menu_about:
+   			case R.id.menu_about2:
    				Intent i2 = new Intent(getApplicationContext(), about.class);
    	            startActivity(i2);
    				return true;
    			
    			//Visit Web Site	
-   			case R.id.menu_web:
+   			case R.id.menu_web2:
    				String url = "http://www.projectsquirrel.org/";
    				Intent i3 = new Intent(Intent.ACTION_VIEW);
    				i3.setData(Uri.parse(url));
@@ -276,6 +284,7 @@ public class trees extends Activity {
            SeekBar seekbar3 = (SeekBar) findViewById(R.id.trees_seekBar3); //Fruit_Trees
            SeekBar seekbar4 = (SeekBar) findViewById(R.id.trees_seekBar4); //Tiny_Trees
            SeekBar seekbar5 = (SeekBar) findViewById(R.id.trees_seekBar5); //Con_Trees
+           EditText other = (EditText) findViewById(R.id.trees_comments);	//Comements about trees
            
            //Import Log Variables
            if(observ.INFO.NUT_TREES != null && observ.INFO.NUT_TREES.length() > 0)
@@ -298,9 +307,26 @@ public class trees extends Activity {
            {
                    seekbar5.setProgress(getIntProgressValue(observ.INFO.CON_TREES));
            }
+           if(observ.INFO.OTHER_TREES != null && observ.INFO.OTHER_TREES.length() > 0)
+           {
+        	   other.setText(observ.INFO.OTHER_TREES);
+           }
        }
 
-	
+       @Override
+   	public boolean onKeyDown(int keyCode, KeyEvent event) {
+       if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+    	   
+			EditText other = (EditText) findViewById(R.id.trees_comments);	//Comements about trees
+	   		if(other.getText() != null)
+	        {
+	        	observ.INFO.OTHER_TREES = other.getText().toString();
+	        }
+	       	
+	       	return super.onKeyDown(keyCode, event);
+       }
+       return super.onKeyDown(keyCode, event);
+   }
         
 } //end of class trees
 
