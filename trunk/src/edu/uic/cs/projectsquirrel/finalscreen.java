@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -60,6 +61,19 @@ public class finalscreen extends Activity{
 			default:
 				return super.onOptionsItemSelected(item);
     	}
+    }
+    
+  //On back button pressed, save variables.
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+        	
+        	Intent i = getIntent();
+			setResult(RESULT_OK, i);
+			finish();
+        	return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }//End class food

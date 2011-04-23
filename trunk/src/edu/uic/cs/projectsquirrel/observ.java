@@ -473,6 +473,7 @@ public class observ extends Activity {
 			       .setCancelable(false)
 			       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
+			        	    observ.INFO.clearAll();
 			                observ.this.finish();
 			           }
 			       })
