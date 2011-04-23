@@ -2,6 +2,7 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
+  android:background="#F0E68C"
   android:layout_height="fill_parent" android:orientation="vertical">
   
     <ScrollView android:layout_height="wrap_content" android:id="@+id/scrollView_treeguide" android:layout_width="fill_parent">
@@ -14,9 +15,8 @@
 			android:id="@+id/textView1" 
 			android:layout_width="fill_parent">
 			</TextView>
-		  	<TextView 
-			  android:background="#000000" 
-			  android:textColor="#00FF00" 
+		  	<TextView  
+			  android:textColor="#556B2F" 
 			  android:text="Tree Category" 
 			  android:layout_height="wrap_content" 
 			  android:textSize="22px" 
@@ -31,17 +31,17 @@
             
             <TableRow>
             <ImageView android:layout_height="wrap_content" android:src="@drawable/grey_squirrel" android:layout_width="wrap_content" android:id="@+id/Tree1Image"></ImageView>
-            <TextView android:layout_width="wrap_content" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree1Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
+            <TextView android:layout_width="wrap_content" android:textColor="#556B2F" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree1Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
             </TableRow>
             
             <TableRow android:layout_marginTop="5px">
             <ImageView android:layout_height="wrap_content" android:src="@drawable/grey_squirrel" android:layout_width="wrap_content" android:id="@+id/Tree2Image"></ImageView>
-            <TextView android:layout_width="wrap_content" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree2Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
+            <TextView android:layout_width="wrap_content" android:textColor="#556B2F" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree2Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
        		</TableRow>
        		
 			<TableRow android:layout_marginTop="5px">
             <ImageView android:layout_height="wrap_content" android:src="@drawable/grey_squirrel" android:layout_width="wrap_content" android:id="@+id/Tree3Image"></ImageView>
-            <TextView android:layout_width="wrap_content" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree3Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
+            <TextView android:layout_width="wrap_content" android:textColor="#556B2F" android:text="Gray Squirrel" android:layout_height="wrap_content" android:id="@+id/Tree3Desc" android:layout_marginLeft="5px" android:layout_gravity="center_vertical"></TextView>
         	</TableRow>
         	
         	</TableLayout>
