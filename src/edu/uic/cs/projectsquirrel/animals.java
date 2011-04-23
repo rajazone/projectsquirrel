@@ -86,7 +86,27 @@ public class animals extends Activity {
 		 
 	        public void onProgressChanged(SeekBar seekBar, int progress,
 	                        boolean fromUser) {
-	        		
+	        	
+	        	switch(seekBar.getId())
+        		{
+	        		case (R.id.seekBar1):
+	        			observ.INFO.SITE_DOGS = getProgressValue(progress);
+	        			break;
+	        		case (R.id.seekBar2):
+	        			observ.INFO.SITE_CATS = getProgressValue(progress);
+	        			break;
+	        		case (R.id.seekBar3):
+	        			observ.INFO.SITE_COYOTES = getProgressValue(progress);
+	        			break;
+	        		case (R.id.seekBar4):
+	        			observ.INFO.SITE_HAWKS = getProgressValue(progress);
+	        			break;
+	        		case (R.id.seekBar5):
+	        			observ.INFO.SITE_GRAIN = getProgressValue(progress);
+	        			break;
+        		
+        		}
+	        	
 	        }
 	
 	        public void onStartTrackingTouch(SeekBar seekBar) {

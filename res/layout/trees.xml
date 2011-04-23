@@ -74,7 +74,7 @@
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
-    android:id="@+id/seekBar1"
+    android:id="@+id/trees_seekBar1"
     android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"
@@ -100,7 +100,7 @@
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
-    android:id="@+id/seekBar2"
+    android:id="@+id/trees_seekBar2"
     android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"
@@ -124,7 +124,7 @@
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
-    android:id="@+id/seekBar3"
+    android:id="@+id/trees_seekBar3"
     android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"
@@ -156,7 +156,7 @@
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
-    android:id="@+id/seekBar4"
+    android:id="@+id/trees_seekBar4"
     android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"
@@ -181,7 +181,7 @@
     <SeekBar 
     android:layout_height="wrap_content" 
     android:layout_width="fill_parent" 
-    android:id="@+id/seekBar5"
+    android:id="@+id/trees_seekBar5"
     android:progress="1"
     android:max="2" 
     android:progressDrawable="@drawable/gradient3"

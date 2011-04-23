@@ -63,7 +63,12 @@ public class food extends Activity{
 	            observ.INFO.FEED_TREES = getProgressValue(seekbar3.getProgress());
 	            observ.INFO.FEED_GARBAGE = getProgressValue(seekbar4.getProgress());
 	            observ.INFO.FEED_OTHER = getProgressValue(seekbar5.getProgress());
-	            observ.INFO.FEED_OTHER_DETAILS = othertxt.toString();
+	            
+	            if(othertxt.getText() != null)
+	            {
+	            	observ.INFO.FEED_OTHER_DETAILS = othertxt.getText().toString();
+	            }
+	            
 
 	    		//Move to next screen - compare
 	    		Intent i = new Intent(getApplicationContext(), compare2.class);
@@ -78,7 +83,31 @@ public class food extends Activity{
 		
         public void onProgressChanged(SeekBar seekBar, int progress,
                         boolean fromUser) {
-        		
+        	switch(seekBar.getId())
+    		{
+        		case (R.id.food_seekBar1):
+        			observ.INFO.FEED_BIRD_FEEDER = getProgressValue(progress);
+        			break;
+        		case (R.id.food_seekBar2):
+        			observ.INFO.FEED_HANDOUTS = getProgressValue(progress);
+        			break;
+        		case (R.id.food_seekBar3):
+        			observ.INFO.FEED_TREES = getProgressValue(progress);
+        			break;
+        		case (R.id.food_seekBar4):
+        			observ.INFO.FEED_GARBAGE = getProgressValue(progress);
+        			break;
+        		case (R.id.food_seekBar5):
+        			observ.INFO.FEED_OTHER = getProgressValue(progress);
+        			break;
+    		
+    		}
+        	
+        	TextView othertxt = (TextView) findViewById(R.id.food_editText1);
+        	if(othertxt.getText() != null)
+            {
+            	observ.INFO.FEED_OTHER_DETAILS = othertxt.getText().toString();
+            }
         }
 
         public void onStartTrackingTouch(SeekBar seekBar) {
@@ -123,17 +152,17 @@ public class food extends Activity{
     
    public String getProgressValue(int p)
    {
-	   if(p == 1) { return "Seldom"; }
-	   if(p == 2) { return "Often"; }
-	   if(p == 3) { return "Regularly"; }
-	   return "Never";
+	   if(p == 1) { return "SELDOM"; }
+	   if(p == 2) { return "OFTEN"; }
+	   if(p == 3) { return "REGULARLY"; }
+	   return "NEVER";
    }
    
    private int getIntProgressValue(String p) {
 		
-	   if(p == "Seldom") { return 1; }
-	   if(p == "Often") { return 2; }
-	   if(p == "Regularly") { return 3; }
+	   if(p == "SELDOM") { return 1; }
+	   if(p == "OFTEN") { return 2; }
+	   if(p == "REGULARLY") { return 3; }
 	   return 0;
 	}
  
@@ -188,36 +217,37 @@ public class food extends Activity{
     
     private void importVars2()
     {
-        SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Bird Feeder
-        SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Humans
-        SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Trees
-        SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Garbage
-        SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Others
+    	SeekBar seekbar1 = (SeekBar) findViewById(R.id.food_seekBar1); //Bird Feeder
+        SeekBar seekbar2 = (SeekBar) findViewById(R.id.food_seekBar2); //Humans
+        SeekBar seekbar3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
+        SeekBar seekbar4 = (SeekBar) findViewById(R.id.food_seekBar4); //Garbage
+        SeekBar seekbar5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
+        TextView othertxt = (TextView) findViewById(R.id.food_editText1);
         
         //Import Log Variables
-        if(observ.INFO.FEED_BIRD_FEEDER.length() > 0)
+        if(observ.INFO.FEED_BIRD_FEEDER != null && observ.INFO.FEED_BIRD_FEEDER.length() > 0)
         {
                 seekbar1.setProgress(getIntProgressValue(observ.INFO.FEED_BIRD_FEEDER));
         }
-        if(observ.INFO.FEED_HANDOUTS.length() > 0)
+        if(observ.INFO.FEED_HANDOUTS != null && observ.INFO.FEED_HANDOUTS.length() > 0)
         {
                 seekbar2.setProgress(getIntProgressValue(observ.INFO.FEED_HANDOUTS));
         }
-        if(observ.INFO.FEED_TREES.length() > 0)
+        if(observ.INFO.FEED_TREES != null && observ.INFO.FEED_TREES.length() > 0)
         {
                 seekbar3.setProgress(getIntProgressValue(observ.INFO.FEED_TREES));
         }
-        if(observ.INFO.FEED_GARBAGE.length() > 0)
+        if(observ.INFO.FEED_GARBAGE != null && observ.INFO.FEED_GARBAGE.length() > 0)
         {
                 seekbar4.setProgress(getIntProgressValue(observ.INFO.FEED_GARBAGE));
         }
-        if(observ.INFO.FEED_OTHER.length() > 0)
+        if(observ.INFO.FEED_OTHER != null && observ.INFO.FEED_OTHER.length() > 0)
         {
                 seekbar5.setProgress(getIntProgressValue(observ.INFO.FEED_OTHER));
         }
-        if(observ.INFO.FEED_OTHER_DETAILS.length()>0)
+        if(observ.INFO.FEED_OTHER_DETAILS != null && observ.INFO.FEED_OTHER_DETAILS.length()>0)
         {
-        	
+        		othertxt.setText(observ.INFO.FEED_OTHER_DETAILS);
         }
     }
 

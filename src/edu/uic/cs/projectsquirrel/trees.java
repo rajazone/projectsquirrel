@@ -28,11 +28,11 @@ public class trees extends Activity {
         importVars1();
         
         //Import SeekBars from trees.xml
-        SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1);
-        SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2);
-        SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3);
-        SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4);
-        SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5);
+        SeekBar seekbar1 = (SeekBar) findViewById(R.id.trees_seekBar1);
+        SeekBar seekbar2 = (SeekBar) findViewById(R.id.trees_seekBar2);
+        SeekBar seekbar3 = (SeekBar) findViewById(R.id.trees_seekBar3);
+        SeekBar seekbar4 = (SeekBar) findViewById(R.id.trees_seekBar4);
+        SeekBar seekbar5 = (SeekBar) findViewById(R.id.trees_seekBar5);
         
         seekbar1.setMax(2);
         seekbar2.setMax(2);
@@ -103,18 +103,19 @@ public class trees extends Activity {
       //NEXT BUTTON
         next.setOnClickListener(new View.OnClickListener(){	
 	    	public void onClick(View v){
-	    		//Store variables in BUNDL
+	    		
+	    		//Store variables in oberv.INFO
 	    		/*SITE_DOGS = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_CATS = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_COYOTES = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_HAWKS = [X, where X is one of YES,UNSURE,NO]"
 	    		* SITE_GRAIN = [X, where X is one of YES,UNSURE,NO]""
 	    		*/
-	            SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Nut_Trees
-	            SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Seed_Trees
-	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Fruit_Trees
-	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Tiny_Trees
-	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Con_Trees
+	            SeekBar seekbar1 = (SeekBar) findViewById(R.id.trees_seekBar1); //Nut_Trees
+	            SeekBar seekbar2 = (SeekBar) findViewById(R.id.trees_seekBar2); //Seed_Trees
+	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.trees_seekBar3); //Fruit_Trees
+	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.trees_seekBar4); //Tiny_Trees
+	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.trees_seekBar5); //Con_Trees
 	            
 	            //Store Log Variables
 	            observ.INFO.NUT_TREES = getProgressValue(seekbar1.getProgress());
@@ -141,7 +142,26 @@ public class trees extends Activity {
 		 
 	        public void onProgressChanged(SeekBar seekBar, int progress,
 	                        boolean fromUser) {
-	        		
+	        	
+	        	switch(seekBar.getId())
+        		{
+	        		case (R.id.trees_seekBar1):
+	        			observ.INFO.NUT_TREES = getProgressValue(progress);
+	        			break;
+	        		case (R.id.trees_seekBar2):
+	        			observ.INFO.SEED_TREES = getProgressValue(progress);
+	        			break;
+	        		case (R.id.trees_seekBar3):
+	        			observ.INFO.FRUIT_TREES = getProgressValue(progress);
+	        			break;
+	        		case (R.id.trees_seekBar4):
+	        			observ.INFO.TINY_TREES = getProgressValue(progress);
+	        			break;
+	        		case (R.id.trees_seekBar5):
+	        			observ.INFO.CON_TREES = getProgressValue(progress);
+	        			break;
+        		
+        		}
 	        }
 	
 	        public void onStartTrackingTouch(SeekBar seekBar) {
@@ -183,18 +203,18 @@ public class trees extends Activity {
        //Convert Number 0-2 into String = Yes/Unsure/No
        public String getProgressValue(int p)
        {
-    	   if(p == 0) { return "NO"; }
-    	   if(p == 1) { return "UNSURE"; }
-    	   if(p == 2) { return "YES"; }
-    	   return "NONE";
+    	   	if(p == 0) 		{ return "NO"; }
+    	   	if(p == 1) 		{ return "UNSURE"; }
+    	   	if(p == 2) 		{ return "YES"; }
+    	   	return "NONE";
        }
        
        private int getIntProgressValue(String p) {
    		
-   		if(p == "NO")               { return 0; }
-           if(p == "UNSURE") { return 1; }
-           if(p == "YES") { return 2; }
-           return 0;
+   		 	if(p == "NO")  		{ return 0; }
+   		 	if(p == "UNSURE") 	{ return 1; }
+   		 	if(p == "YES") 		{ return 2; }
+   		 	return 0;
    		
    	}
        
@@ -251,30 +271,30 @@ public class trees extends Activity {
        
        private void importVars1()
        {
-           SeekBar seekbar1 = (SeekBar) findViewById(R.id.seekBar1); //Nut_trees
-           SeekBar seekbar2 = (SeekBar) findViewById(R.id.seekBar2); //Seed_Trees
-           SeekBar seekbar3 = (SeekBar) findViewById(R.id.seekBar3); //Fruit_Trees
-           SeekBar seekbar4 = (SeekBar) findViewById(R.id.seekBar4); //Tiny_Trees
-           SeekBar seekbar5 = (SeekBar) findViewById(R.id.seekBar5); //Con_Trees
+           SeekBar seekbar1 = (SeekBar) findViewById(R.id.trees_seekBar1); //Nut_trees
+           SeekBar seekbar2 = (SeekBar) findViewById(R.id.trees_seekBar2); //Seed_Trees
+           SeekBar seekbar3 = (SeekBar) findViewById(R.id.trees_seekBar3); //Fruit_Trees
+           SeekBar seekbar4 = (SeekBar) findViewById(R.id.trees_seekBar4); //Tiny_Trees
+           SeekBar seekbar5 = (SeekBar) findViewById(R.id.trees_seekBar5); //Con_Trees
            
            //Import Log Variables
-           if(observ.INFO.NUT_TREES.length() > 0)
+           if(observ.INFO.NUT_TREES != null && observ.INFO.NUT_TREES.length() > 0)
            {
                    seekbar1.setProgress(getIntProgressValue(observ.INFO.NUT_TREES));
            }
-           if(observ.INFO.SEED_TREES.length() > 0)
+           if(observ.INFO.SEED_TREES != null && observ.INFO.SEED_TREES.length() > 0)
            {
                    seekbar2.setProgress(getIntProgressValue(observ.INFO.SEED_TREES));
            }
-           if(observ.INFO.FRUIT_TREES.length() > 0)
+           if(observ.INFO.FRUIT_TREES != null && observ.INFO.FRUIT_TREES.length() > 0)
            {
                    seekbar3.setProgress(getIntProgressValue(observ.INFO.FRUIT_TREES));
            }
-           if(observ.INFO.TINY_TREES.length() > 0)
+           if(observ.INFO.TINY_TREES != null && observ.INFO.TINY_TREES.length() > 0)
            {
                    seekbar4.setProgress(getIntProgressValue(observ.INFO.TINY_TREES));
            }
-           if(observ.INFO.CON_TREES.length() > 0)
+           if(observ.INFO.CON_TREES != null && observ.INFO.CON_TREES.length() > 0)
            {
                    seekbar5.setProgress(getIntProgressValue(observ.INFO.CON_TREES));
            }
