@@ -198,7 +198,7 @@
     
     <EditText 
         android:hint="Other trees or comments about trees. (optional)" 
-        android:id="@+id/editText1" 
+        android:id="@+id/trees_comments" 
         android:layout_height="wrap_content"  
         android:layout_width="fill_parent">
     </EditText>

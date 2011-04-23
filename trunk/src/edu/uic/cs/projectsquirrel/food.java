@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -56,7 +57,7 @@ public class food extends Activity{
 	            SeekBar seekbar3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
 	            SeekBar seekbar4 = (SeekBar) findViewById(R.id.food_seekBar4); //Garbage
 	            SeekBar seekbar5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
-	            TextView othertxt = (TextView) findViewById(R.id.food_editText1);
+	            EditText othertxt = (EditText) findViewById(R.id.food_editText1);
 
 	            observ.INFO.FEED_BIRD_FEEDER = getProgressValue(seekbar1.getProgress());
 	            observ.INFO.FEED_HANDOUTS = getProgressValue(seekbar2.getProgress());
@@ -180,13 +181,13 @@ public class food extends Activity{
     	switch (item.getItemId())
     	{
 			//View "About Us"
-			case R.id.menu_about:
+			case R.id.menu_about2:
 				Intent i2 = new Intent(getApplicationContext(), about.class);
 	            startActivity(i2);
 				return true;
 			
 			//Visit Web Site	
-			case R.id.menu_web:
+			case R.id.menu_web2:
 				String url = "http://www.projectsquirrel.org/";
 				Intent i3 = new Intent(Intent.ACTION_VIEW);
 				i3.setData(Uri.parse(url));
@@ -222,7 +223,7 @@ public class food extends Activity{
         SeekBar seekbar3 = (SeekBar) findViewById(R.id.food_seekBar3); //Trees
         SeekBar seekbar4 = (SeekBar) findViewById(R.id.food_seekBar4); //Garbage
         SeekBar seekbar5 = (SeekBar) findViewById(R.id.food_seekBar5); //Others
-        TextView othertxt = (TextView) findViewById(R.id.food_editText1);
+        EditText othertxt = (EditText) findViewById(R.id.food_editText1);
         
         //Import Log Variables
         if(observ.INFO.FEED_BIRD_FEEDER != null && observ.INFO.FEED_BIRD_FEEDER.length() > 0)
@@ -251,6 +252,19 @@ public class food extends Activity{
         }
     }
 
-	
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+        	
+        	EditText othertxt = (EditText) findViewById(R.id.food_editText1);
+        	if(othertxt.getText() != null)
+            {
+            	observ.INFO.FEED_OTHER_DETAILS = othertxt.getText().toString();
+            }
+        	
+        	return super.onKeyDown(keyCode, event);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
     
 }//End class food

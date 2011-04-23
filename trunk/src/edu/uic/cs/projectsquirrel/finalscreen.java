@@ -36,7 +36,7 @@ public class finalscreen extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) 
     {
     	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.menu_alt, menu);
+    	inflater.inflate(R.menu.menu_main, menu);
     	return true;
     }
     
@@ -44,6 +44,12 @@ public class finalscreen extends Activity{
     {
     	switch (item.getItemId())
     	{
+    		//Start New Obervation
+    		case R.id.menu_new:	
+			Intent i = new Intent(getApplicationContext(), observ.class);
+            startActivity(i);
+			return true;
+    	
 			//View "About Us"
 			case R.id.menu_about:
 				Intent i2 = new Intent(getApplicationContext(), about.class);
