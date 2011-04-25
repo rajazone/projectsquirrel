@@ -76,87 +76,7 @@ public class observ extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.observ);
         
-        // LOCATION --------------------------------------------------------------------------------
-        // Acquire a reference to the system Location Manager
-        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
-		//
-        //
-        //
-        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
-            buildAlertMessageNoGps();
-        }
-        else
-        {
-
-        //
-        //
-        //
-        // Define a listener that responds to location updates
-        LocationListener locationListener = new LocationListener() {
-            public void onLocationChanged(Location loc){
-            //updateWithNewLocation(loc);
-            Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
-            List<Address> addresses = null;
-			try {
-				addresses = gcd.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            if (addresses.size() > 0){
-               //String Text = addresses.get(0).getLocality();
-                EditText txt = (EditText) findViewById(R.id.editText1);
-                txt.setText(addresses.get(0).getPostalCode()); 
-
-                //Store variables in INFO
-                INFO.LATITUDE = String.valueOf(loc.getLatitude());
-                INFO.LONGITUDE = String.valueOf(loc.getLongitude());
-                
-                String zip = String.valueOf(addresses.get(0).getPostalCode());
-                INFO.ZIP = zip;
-                txt.setText(zip);	//Show location in text box
-            }
-            }
-
-			//@Override
-			public void onProviderDisabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			//@Override
-			public void onProviderEnabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			//@Override
-			public void onStatusChanged(String provider, int status,
-					Bundle extras) {
-				// TODO Auto-generated method stub
-				
-			}
-            
-            };
-            
-            //TODO: (Robin) If GPS is disabled & user is about to submit data...
-            //- Grab zip code from  (EditText) findViewById(R.id.editText1);
-            // CHECK
-            //- If zip code does not exist, inform user
-            //	CHECK
-            //- Else convert zip code into approx. latitude & logitude
-            //- Store zip code, lat. & long. as Strings into bundl with key names LATITUDE, LOGITUDE, ZIP -> BUNDL.putString("key", "value");
-            // CHECK
-
-        // Register the listener with the Location Manager to receive location updates
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-        }
-        
-       // *
-       // *
-       // *
-        
+        final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         
         //DATA FROM XML  ---------------------------------------------------------------
         Button dateBox = (Button) findViewById(R.id.date2);	//retrieve date button
@@ -164,6 +84,8 @@ public class observ extends Activity {
         Button next = (Button) findViewById(R.id.nextButton);
         Button cancel = (Button) findViewById(R.id.cancelButton);
         Button guide = (Button) findViewById(R.id.guideButton);
+        Button useGPS = (Button) findViewById(R.id.useGPS);
+        
         Spinner setting = (Spinner) findViewById(R.id.spinner1);
         
         Button fox_minus = (Button) findViewById(R.id.fox_minus);
@@ -242,6 +164,7 @@ public class observ extends Activity {
         		showDialog(TIME_DIALOG_ID);
 	    }});
         
+        
         mHour = c.get(Calendar.HOUR_OF_DAY);
         mMinute = c.get(Calendar.MINUTE);
         
@@ -277,6 +200,93 @@ public class observ extends Activity {
 		            	startActivityForResult(i,1);
 		            }
 	    }});
+        
+        useGPS.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// LOCATION --------------------------------------------------------------------------------
+		        // Acquire a reference to the system Location Manager
+		        
+
+				//
+		        //
+		        //
+		        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+		            buildAlertMessageNoGps();
+		        }
+		        else
+		        {
+
+		        //
+		        //
+		        //
+		        // Define a listener that responds to location updates
+		        LocationListener locationListener = new LocationListener() {
+		            public void onLocationChanged(Location loc){
+		            //updateWithNewLocation(loc);
+		            Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
+		            List<Address> addresses = null;
+					try {
+						addresses = gcd.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            if (addresses.size() > 0){
+		               //String Text = addresses.get(0).getLocality();
+		                EditText txt = (EditText) findViewById(R.id.editText1);
+		                txt.setText(addresses.get(0).getPostalCode()); 
+
+		                //Store variables in INFO
+		                INFO.LATITUDE = String.valueOf(loc.getLatitude());
+		                INFO.LONGITUDE = String.valueOf(loc.getLongitude());
+		                
+		                String zip = String.valueOf(addresses.get(0).getPostalCode());
+		                INFO.ZIP = zip;
+		                txt.setText(zip);	//Show location in text box
+		            }
+		            }
+
+					//@Override
+					public void onProviderDisabled(String provider) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					//@Override
+					public void onProviderEnabled(String provider) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					//@Override
+					public void onStatusChanged(String provider, int status,
+							Bundle extras) {
+						// TODO Auto-generated method stub
+						
+					}
+		            
+		            };
+		            
+		            //TODO: (Robin) If GPS is disabled & user is about to submit data...
+		            //- Grab zip code from  (EditText) findViewById(R.id.editText1);
+		            // CHECK
+		            //- If zip code does not exist, inform user
+		            //	CHECK
+		            //- Else convert zip code into approx. latitude & logitude
+		            //- Store zip code, lat. & long. as Strings into bundl with key names LATITUDE, LOGITUDE, ZIP -> BUNDL.putString("key", "value");
+		            // CHECK
+
+		        // Register the listener with the Location Manager to receive location updates
+		        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		        }
+		        
+		       // *
+		       // *
+		       // *
+		        
+				
+			}
+		});
         
         //CANCEL BUTTON  
         cancel.setOnClickListener(new View.OnClickListener(){	
