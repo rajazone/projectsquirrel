@@ -37,6 +37,8 @@
                 <TextView android:text="Gray squirrels may have a hint of rust on their backs and sides. Fox squirrels may have predominantly white bellies" android:id="@+id/textView9" android:textColor="#556B2F" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
                 <TextView android:text="\nWhat about black squirrels?" android:textStyle="bold" android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#556B2F"></TextView>
                 <TextView android:textColor="#556B2F" android:text="In the Chicagoland region, any black squirrel you might see is a variety of the gray squirrel." android:id="@+id/textView11" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+                <Button android:text="Take a Photo" android:id="@+id/userPhotoButton" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+                <ImageView android:src="@drawable/icon" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/userPic"></ImageView>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
