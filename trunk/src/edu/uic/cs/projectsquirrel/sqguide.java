@@ -51,8 +51,8 @@ public class sqguide extends Activity {
         	Bitmap thumbnail = (Bitmap) data.getExtras().get("data");  
         	ImageView usrPic = (ImageView) findViewById(R.id.userPic);
         	usrPic.setImageBitmap(thumbnail);
-        	usrPic.setVisibility(View.VISIBLE);
-        }  
+        	usrPic.setVisibility(View.VISIBLE);}
+        
     } 
     
     //Customize Menu
