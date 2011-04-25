@@ -53,6 +53,9 @@ public class sqguide extends Activity {
         	usrPic.setImageBitmap(thumbnail);
         	usrPic.setVisibility(View.VISIBLE);}
         
+        if(resultCode == RESULT_CANCELED) {
+        	return;
+        }
     } 
     
     //Customize Menu
