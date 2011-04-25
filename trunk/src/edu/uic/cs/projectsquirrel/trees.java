@@ -186,7 +186,7 @@ public class trees extends Activity {
         		switch (seekBar.getProgress()) {
         		case 0:
         			
-        			text = "Yes";
+        			text = "No";
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
@@ -198,7 +198,7 @@ public class trees extends Activity {
         			break;
         		
         		case 2:
-        			text = "No";
+        			text = "Yes";
         			toast = Toast.makeText(context, text, duration);
         			toast.show();
         			break;
