@@ -86,6 +86,7 @@ public class observ extends Activity {
         Button guide = (Button) findViewById(R.id.guideButton);
         Button useGPS = (Button) findViewById(R.id.useGPS);
         
+        
         Spinner setting = (Spinner) findViewById(R.id.spinner1);
         
         Button fox_minus = (Button) findViewById(R.id.fox_minus);
@@ -516,7 +517,7 @@ public class observ extends Activity {
 		
 		case INVALID_ZIP_ID:
 		    builder = new AlertDialog.Builder(this);
-			builder.setMessage("Please enter a valid zip code.")
+			builder.setMessage("Please enter a valid zip code. Zip code should be 5 digits long.")
 			       .setCancelable(false)
 			       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
