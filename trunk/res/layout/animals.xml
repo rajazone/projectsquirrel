@@ -135,19 +135,9 @@
     </TableRow>
     
     </TableLayout>
-    
-    
-    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-    
-        <Button 
-        android:text="Next" 
-        android:id="@+id/Next_Animals" 
-        android:layout_height="wrap_content" 
-        android:layout_alignParentRight="true" 
-        android:layout_alignParentBottom="true" 
-        android:layout_width="100px">
-        </Button>
-        
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/relativeLayout1">
+        <Button android:layout_width="100px" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:id="@+id/Next_Animals" android:layout_alignParentBottom="true" android:text="Next"></Button>
+        <ImageView android:layout_width="wrap_content" android:id="@+id/imageView1" android:src="@drawable/coyote" android:layout_alignParentBottom="true" android:layout_height="wrap_content"></ImageView>
     </RelativeLayout>
     
 </LinearLayout>

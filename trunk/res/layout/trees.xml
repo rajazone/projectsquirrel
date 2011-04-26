@@ -21,7 +21,7 @@
 	  android:background="#b6b6b6">
 	  
 	
-	<TextView android:text="No"
+	<TextView android:text="No,"
     	      android:id="@+id/textView2" 
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
 	    	  android:textSize="14px">
 	    	  
 	    	  </TextView>
-	    	  <TextView android:text="Don't Know " 
+	    	  <TextView android:text="Don't Know, " 
     	      android:id="@+id/textView2" 
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
 	    	  android:textStyle="bold"
 	    	  android:textSize="14px">
 	    	  </TextView>
-	<TextView android:text="Yes" 
+	<TextView android:text="or Yes?" 
     	      android:id="@+id/textView2" 
               android:layout_height="wrap_content"
               android:layout_width="fill_parent"
@@ -215,6 +215,16 @@
         android:layout_width="100px">
         </Button>
         
+        <TextView 
+	    android:text="TIP: Buttons next to each tree type\nlead to tree guides." 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:textColor="#000000"
+	    android:textSize="12px"
+	    android:padding="2px">
+	    </TextView>
+        
     </RelativeLayout>
-    
+
 </LinearLayout>
