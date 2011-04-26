@@ -181,6 +181,15 @@ public class observ extends Activity {
 		    		EditText fox_text = (EditText) findViewById(R.id.fox_text);
 		            EditText gray_text = (EditText) findViewById(R.id.gray_text);
 		            
+		            if(fox_text.getText().length() < 1)
+		            {
+		            	fox_text.setText("0");
+		            }
+		            if(gray_text.getText().length() < 1)
+		            {
+		            	gray_text.setText("0");
+		            }
+		            
 		            INFO.NUM_FOX_SQUIRRELS = fox_text.getText().toString();
 		            INFO.NUM_GRAY_SQUIRRELS = gray_text.getText().toString();
 		            
@@ -199,7 +208,7 @@ public class observ extends Activity {
 		            }
 		            else
 		            {
-		            		INFO.ZIP = txt.getText().toString();
+		            	INFO.ZIP = txt.getText().toString();
 		            	Intent i = new Intent(getApplicationContext(), animals.class);
 		            	startActivityForResult(i,1);
 		            }

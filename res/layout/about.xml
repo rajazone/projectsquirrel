@@ -68,7 +68,7 @@ android:background="#b6b6b6">
 	<TextView 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content"
-    android:textSize="12px"
+    android:textSize="16px"
     android:text="http://projectsquirrel.org/"
     android:autoLink="web"
     >

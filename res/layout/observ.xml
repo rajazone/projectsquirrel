@@ -33,6 +33,7 @@
 	    android:textColor="#000000"
 	    android:textStyle="bold"
 	    android:textSize="14px"
+	    android:layout_weight="2"
 	    >
 	    </TextView>
 	    
@@ -54,7 +55,9 @@
 	    android:layout_width="wrap_content" 
 	    android:layout_marginLeft="20px"
 	    android:textStyle="bold" 
-	    android:textSize="14px">
+	    android:textSize="14px"
+	    android:layout_weight="2"
+	    android:gravity="right">
 	    </TextView>
 	    
 	    <Button 
@@ -74,10 +77,9 @@
     <!--  LOCATION  -->
     <!--  Note: not in table as to allow for "EditText" ro span entire screen width -->
         <TextView android:textColor="#000000" android:inputType="number" android:textStyle="bold" android:id="@+id/loc1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="14px" android:text="Location:  "></TextView>
-        <EditText android:hint="Enter Zip Code" android:inputType="number" android:layout_height="wrap_content" android:id="@+id/editText1" android:text="" android:layout_width="wrap_content"></EditText>
-        <Button android:id="@+id/useGPS" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Use GPS"></Button>
+        <EditText android:hint="Enter Zip Code" android:inputType="number" android:layout_height="wrap_content" android:id="@+id/editText1" android:layout_width="wrap_content" android:layout_weight="1"></EditText>
+        <Button android:id="@+id/useGPS" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="right" android:text="Use GPS"></Button>
 	    
-	    <!--  Location should auto-fill if GPS is enabled. -->
 	 </LinearLayout>
 		
 	<LinearLayout
