@@ -18,6 +18,8 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.*;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -46,6 +48,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class observ extends Activity {
 	
@@ -217,10 +220,26 @@ public class observ extends Activity {
 		        else
 		        {
 
-		        //
+					//
 		        //
 		        //
 		        // Define a listener that responds to location updates
+		        	NetworkInfo info = ((ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE)).
+		            getActiveNetworkInfo();
+
+		            if (info == null || !info.isConnected()) {
+		            	buildAlertMessageNoData();
+		            }
+		            else
+		            {
+		        
+		            	/*Context context = getApplicationContext();
+		            	CharSequence text = info.getSubtypeName();
+		            	int duration = Toast.LENGTH_SHORT;
+
+		            	Toast toast = Toast.makeText(context, text, duration);
+		            	toast.show();*/
+		        
 		        LocationListener locationListener = new LocationListener() {
 		            public void onLocationChanged(Location loc){
 		            //updateWithNewLocation(loc);
@@ -246,6 +265,7 @@ public class observ extends Activity {
 		                txt.setText(zip);	//Show location in text box
 		            }
 		            }
+		            
 
 					//@Override
 					public void onProviderDisabled(String provider) {
@@ -287,7 +307,9 @@ public class observ extends Activity {
 		        
 				
 			}
-		});
+			
+		}}
+        );
         
         //CANCEL BUTTON  
         cancel.setOnClickListener(new View.OnClickListener(){	
@@ -532,14 +554,16 @@ public class observ extends Activity {
 		return dialog;
 	}
     private void buildAlertMessageNoGps() {
+    	 //final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Yout GPS seems to be disabled, do you want to enable it?")
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
                .setCancelable(false)
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                        //launchGPSOptions(); 
                 	   Intent myIntent = new Intent( Settings.ACTION_SECURITY_SETTINGS );
                 	    startActivity(myIntent);
+                	  
                 	    
                    }
                })
@@ -550,72 +574,32 @@ public class observ extends Activity {
                });
         final AlertDialog alert = builder.create();
         alert.show();
-        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        if(locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER))
-        {
-
-
-        //
-        //
-        //
-        // Define a listener that responds to location updates
-        LocationListener locationListener = new LocationListener() {
-            public void onLocationChanged(Location loc){
-            //updateWithNewLocation(loc);
-            Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
-            List<Address> addresses = null;
-			try {
-				addresses = gcd.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            if (addresses.size() > 0){
-                //String Text = addresses.get(0).getLocality();
-                EditText txt = (EditText) findViewById(R.id.editText1);
-                txt.setText(addresses.get(0).getPostalCode()); 
-                
-                //Save Log Variables
-                INFO.LATITUDE = String.valueOf(loc.getLatitude());
-                INFO.LONGITUDE = String.valueOf(loc.getLongitude());
-                
-                String zip = String.valueOf(addresses.get(0).getPostalCode());
-                INFO.ZIP = zip;
-                txt.setText(zip);	//Show location in text box
-            }
-            }
-
-			//@Override
-			public void onProviderDisabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			//@Override
-			public void onProviderEnabled(String provider) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			//@Override
-			public void onStatusChanged(String provider, int status,
-					Bundle extras) {
-				// TODO Auto-generated method stub
-				
-			}
-            
-            };
-            
-            //TODO: (Robin?) If GPS is disabled & user is about to submit data...
-            //- Grab zip code from  (EditText) findViewById(R.id.editText1);
-            //- If zip code does not exist, inform user
-            //- Else convert zip code into approx. latitude & logitude
-            //- Store zip code, lat. & long. as Strings into bundl with key names LATITUDE, LOGITUDE, ZIP -> BUNDL.putString("key", "value");
-
-        // Register the listener with the Location Manager to receive location updates
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-        }
+        
     }
+    
+    private void buildAlertMessageNoData() {
+   	 //final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+       final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+       builder.setMessage("You need your data connection to use GPS. Would you like to activate that now?")
+              .setCancelable(false)
+              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                  public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                      //launchGPSOptions(); 
+               	  Intent myIntent = new Intent( Settings.ACTION_SETTINGS );
+               	  startActivity(myIntent);
+               	  
+               	    
+                  }
+              })
+              .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                  public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                       dialog.cancel();
+                  }
+              });
+       final AlertDialog alert = builder.create();
+       alert.show();
+       
+   }
     
     @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
