@@ -47,13 +47,14 @@ public class sqguide extends Activity {
     }
     
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
-        if (requestCode == CAMERA_PIC_REQUEST) {  
-        	Bitmap thumbnail = (Bitmap) data.getExtras().get("data");  
-        	ImageView usrPic = (ImageView) findViewById(R.id.userPic);
-        	usrPic.setImageBitmap(thumbnail);
-        	usrPic.setVisibility(View.VISIBLE);}
-        
-        if(resultCode == RESULT_CANCELED) {
+        if(resultCode == RESULT_OK) {
+        	if (requestCode == CAMERA_PIC_REQUEST) {  
+        		Bitmap thumbnail = (Bitmap) data.getExtras().get("data");  
+        		ImageView usrPic = (ImageView) findViewById(R.id.userPic);
+        		usrPic.setImageBitmap(thumbnail);
+        		usrPic.setVisibility(View.VISIBLE);}
+        }
+        else if(resultCode == RESULT_CANCELED) {
         	return;
         }
     } 
