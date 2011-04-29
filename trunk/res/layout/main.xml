@@ -1,53 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#b6b6b6" android:layout_height="wrap_content" android:layout_width="wrap_content">
-	
-	<ImageView 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:maxWidth="385px"
-    android:maxHeight="105px"
-    android:id="@+id/title" 
-    android:src="@drawable/title2" 
-    android:scaleType="fitXY"
-    ></ImageView>
+	android:background="#b6b6b6" android:layout_height="wrap_content"
+	android:layout_width="wrap_content">
 
-    <ImageView 
-    android:layout_width="wrap_content" 
-    android:layout_centerHorizontal="true"
-    android:id="@+id/squirrel1" 
-    android:src="@drawable/squirrel" 
-    android:layout_height="wrap_content"
-   	android:layout_below="@+id/title"
-    ></ImageView>
-    
-    
-    
-    <Button 
-    android:id="@+id/buttonSQG"
-    android:text="@string/id1" 
-    android:layout_height="wrap_content" 
-    android:layout_width="wrap_content"
-	android:layout_alignParentBottom="true"
-	android:layout_alignParentRight="true"
-    android:textStyle="bold" 
-    android:textSize="18px"
-    >
-    </Button>
-    
-    <Button 
-    android:id="@+id/buttonObs"
-    android:text="@string/obs"
-    android:layout_height="wrap_content" 
-    android:layout_width="wrap_content" 
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentLeft="true"
-    android:layout_toLeftOf="@+id/buttonSQG"
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+		android:maxWidth="385px" android:maxHeight="105px" android:id="@+id/title"
+		android:src="@drawable/title2" android:scaleType="fitXY"></ImageView>
 
-    android:textStyle="bold" 
-    android:textSize="18px"
-    >
-    </Button>
-    
+	<ImageView android:layout_width="wrap_content"
+		android:layout_centerHorizontal="true" android:id="@+id/squirrel1"
+		android:src="@drawable/squirrel" android:layout_height="wrap_content"
+		android:layout_below="@+id/title"></ImageView>
+
+
+
+	<Button android:id="@+id/buttonSQG" android:text="@string/id1"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentRight="true" android:textStyle="bold"
+		android:textSize="18px">
+	</Button>
+
+	<Button android:id="@+id/buttonObs" android:text="@string/obs"
+		android:layout_height="wrap_content" android:layout_width="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true" android:layout_toLeftOf="@+id/buttonSQG"
+
+		android:textStyle="bold" android:textSize="18px">
+	</Button>
+
 </RelativeLayout>

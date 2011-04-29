@@ -1,143 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent" android:orientation="vertical"
-  android:background="#b6b6b6" android:screenOrientation="portrait">
-  
-    <TextView android:text="HOW OFTEN are the following animals at the observation site per day?" 
-    	      android:id="@+id/textView1" 
-              android:layout_height="wrap_content"
-              android:textColor="#FFFFFF"
-	    	  android:background="#000000"
-	    	  android:textStyle="bold"
-	    	  android:textSize="12px" android:layout_width="fill_parent"></TextView>
-	    	  
-	<LinearLayout
-	  xmlns:android="http://schemas.android.com/apk/res/android"
-	  android:layout_width="fill_parent"
-	  android:layout_height="wrap_content" android:orientation="horizontal"
-	  android:background="#b6b6b6">
-	  
-	<TextView android:text="None, " 
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-	    	  android:background="#000000"
-	    	  android:textColor="#FFFFFF"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>
-	<TextView android:text="Low, "
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-	    	  android:background="#000000"
-	    	  android:textColor="#c9f5e5"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>
-	<TextView android:text="Medium, " 
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-	    	  android:background="#000000"
-	    	  android:textColor="#6de4b8"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>
-	    	  
-	 <TextView android:text="or High?" 
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="fill_parent"
-	    	  android:background="#000000"
-	    	  android:textColor="#10d28b"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>   
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="#b6b6b6"
+	android:screenOrientation="portrait">
+
+	<TextView
+		android:text="HOW OFTEN are the following animals at the observation site per day?"
+		android:id="@+id/textView1" android:layout_height="wrap_content"
+		android:textColor="#FFFFFF" android:background="#000000"
+		android:textStyle="bold" android:textSize="12px" android:layout_width="fill_parent"></TextView>
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="horizontal" android:background="#b6b6b6">
+
+		<TextView android:text="None, " android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:background="#000000" android:textColor="#FFFFFF"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
+		<TextView android:text="Low, " android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:background="#000000" android:textColor="#c9f5e5"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
+		<TextView android:text="Medium, " android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:background="#000000" android:textColor="#6de4b8"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
+
+		<TextView android:text="or High?" android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:background="#000000" android:textColor="#10d28b"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
 	</LinearLayout>
-	    	  
-    <TableLayout 
-    android:id="@+id/tableLayout1" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content">
-	    	 
-	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Dogs" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>  
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/seekBar1"
-    android:progress="0"
-    android:max="3" 
-    android:progressDrawable="@drawable/gradient"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView3" android:text="Cats" android:textSize="18px" android:textColor="#000000"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/seekBar2"
-    android:progress="0"
-    android:max="3" 
-    android:progressDrawable="@drawable/gradient"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView8" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Coyotes" android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/seekBar3"
-    android:progress="0"
-    android:max="3" 
-    android:progressDrawable="@drawable/gradient"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView9" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    <TextView android:text="Hawks" android:id="@+id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/seekBar4"
-    android:progress="0"
-    android:max="3" 
-    android:progressDrawable="@drawable/gradient"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="25px">
-    <TextView android:text="Poisoned\nGrain" android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18px" android:textColor="#000000"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/seekBar5"
-    android:progress="0"
-    android:max="3" 
-    android:progressDrawable="@drawable/gradient"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView11" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    </TableLayout>
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/relativeLayout1">
-        <Button android:layout_width="100px" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:id="@+id/Next_Animals" android:layout_alignParentBottom="true" android:text="Next"></Button>
-        <ImageView android:layout_width="wrap_content" android:id="@+id/imageView1" android:src="@drawable/coyote" android:layout_alignParentBottom="true" android:layout_height="wrap_content"></ImageView>
-    </RelativeLayout>
-    
+
+	<TableLayout android:id="@+id/tableLayout1"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+			<TextView android:text="Dogs" android:id="@+id/textView2"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/seekBar1"
+				android:progress="0" android:max="3" android:progressDrawable="@drawable/gradient"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView7"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:id="@+id/textView3"
+				android:text="Cats" android:textSize="18px" android:textColor="#000000"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/seekBar2"
+				android:progress="0" android:max="3" android:progressDrawable="@drawable/gradient"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView8"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+			<TextView android:text="Coyotes" android:id="@+id/textView4"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/seekBar3"
+				android:progress="0" android:max="3" android:progressDrawable="@drawable/gradient"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView9"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+			<TextView android:text="Hawks" android:id="@+id/textView5"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/seekBar4"
+				android:progress="0" android:max="3" android:progressDrawable="@drawable/gradient"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView10"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="25px">
+			<TextView android:text="Poisoned\nGrain" android:id="@+id/textView6"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/seekBar5"
+				android:progress="0" android:max="3" android:progressDrawable="@drawable/gradient"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView11"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+	</TableLayout>
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/relativeLayout1">
+		<Button android:layout_width="100px" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" android:id="@+id/Next_Animals"
+			android:layout_alignParentBottom="true" android:text="Next"></Button>
+		<ImageView android:layout_width="wrap_content" android:id="@+id/imageView1"
+			android:src="@drawable/coyote" android:layout_alignParentBottom="true"
+			android:layout_height="wrap_content"></ImageView>
+	</RelativeLayout>
+
 </LinearLayout>

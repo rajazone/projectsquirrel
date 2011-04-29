@@ -1,78 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="fill_parent" 
-android:layout_height="fill_parent"
-android:id="@+id/scrollView1"
-android:background="#b6b6b6">
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:id="@+id/scrollView1" android:background="#b6b6b6">
 
-<LinearLayout
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:orientation="vertical"
-  android:background="#b6b6b6">
-  
-	<ImageView 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:maxWidth="385px"
-    android:maxHeight="105px"
-    android:id="@+id/title" 
-    android:src="@drawable/title2" 
-    android:scaleType="fitXY"
-    ></ImageView>
-  	
-  
-	<TextView 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:textSize="12px"
-    android:text="\tProject Squirrel was originally created by Wendy Jackson and Joel Brown, and has been operating since 1997. During this time, over 1000 people have participated, provided observations, and filled out the survey. We have been able to learn a great deal about these squirrels, particularly in the Chicago Metropolitan Region. Observations from other parts of the country have also been welcome and interesting. " 
-    android:padding="4px"
-    >
-    </TextView>
- 
- <LinearLayout
-  android:layout_width="fill_parent"
-  android:layout_height="wrap_content"
-  android:orientation="horizontal"
-  android:background="#b6b6b6">
-  
-  	<ImageView 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-	android:src="@drawable/squirrel2" 
-    ></ImageView>
-    <TextView 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:textSize="12px"
-    android:text="\tProject Squirrel Android sets out to take the classic Project Squirrel survey method and bring it to the 21st century."
-    android:paddingRight="4px"
-    >
-    </TextView>
-</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:orientation="vertical"
+		android:background="#b6b6b6">
 
-	<TextView 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:textSize="12px"
-    android:text="\tFor More information, please visit the Project Squirrel website:"
-    android:padding="4px"
-    >
-    </TextView>
-    
-	<TextView 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textSize="16px"
-    android:text="http://projectsquirrel.org/"
-    android:autoLink="web"
-    >
-    </TextView>
-    
-</LinearLayout>
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:maxWidth="385px" android:maxHeight="105px" android:id="@+id/title"
+			android:src="@drawable/title2" android:scaleType="fitXY"></ImageView>
+
+
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textColor="#000000"
+			android:textSize="12px"
+			android:text="\tProject Squirrel was originally created by Wendy Jackson and Joel Brown, and has been operating since 1997. During this time, over 1000 people have participated, provided observations, and filled out the survey. We have been able to learn a great deal about these squirrels, particularly in the Chicago Metropolitan Region. Observations from other parts of the country have also been welcome and interesting. "
+			android:padding="4px">
+		</TextView>
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal"
+			android:background="#b6b6b6">
+
+			<ImageView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:src="@drawable/squirrel2"></ImageView>
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:textColor="#000000"
+				android:textSize="12px"
+				android:text="\tProject Squirrel Android sets out to take the classic Project Squirrel survey method and bring it to the 21st century."
+				android:paddingRight="4px">
+			</TextView>
+		</LinearLayout>
+
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textColor="#000000"
+			android:textSize="12px"
+			android:text="\tFor More information, please visit the Project Squirrel website:"
+			android:padding="4px">
+		</TextView>
+
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textSize="16px"
+			android:text="http://projectsquirrel.org/" android:autoLink="web">
+		</TextView>
+
+	</LinearLayout>
 </ScrollView>

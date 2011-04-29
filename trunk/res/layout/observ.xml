@@ -1,255 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#b6b6b6" android:orientation="vertical"
-    android:screenOrientation="portrait">
-    
-    <TextView 
-    android:text="Please complete entire form to submit Project Squirrel data." 
-    android:id="@+id/header1" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textColor="#FFFFFF"
-    android:background="#000000"
-    android:textStyle="bold"
-    android:textSize="12px"
-    >
-    </TextView>
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#b6b6b6" android:orientation="vertical"
+	android:screenOrientation="portrait">
 
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5px"
-    android:background="#b6b6b6" android:orientation="horizontal">
-    <!--  DATE  -->
-     
-	    <TextView 
-	    android:text="Date: " 
-	    android:id="@+id/date1" 
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content"
-	    android:textColor="#000000"
-	    android:textStyle="bold"
-	    android:textSize="14px"
-	    android:layout_weight="2"
-	    >
-	    </TextView>
-	    
-	    <Button 
-	    android:text="Set Date" 
-	    android:id="@+id/date2" 
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content"
-	    android:textSize="14px"
-	    >
-	    </Button>
-	    
-	    <!--  TIME  -->
-	    <TextView 
-	    android:layout_height="wrap_content" 
-	    android:id="@+id/time1" 
-	    android:text="Time: " 
-	    android:textColor="#000000" 
-	    android:layout_width="wrap_content" 
-	    android:layout_marginLeft="20px"
-	    android:textStyle="bold" 
-	    android:textSize="14px"
-	    android:layout_weight="2"
-	    android:gravity="right">
-	    </TextView>
-	    
-	    <Button 
-	    android:layout_height="wrap_content" 
-	    android:textSize="14px" 
-	    android:layout_width="wrap_content" 
-	    android:text="Set Time" 
-	    android:id="@+id/time2">
-	    </Button>
-	</LinearLayout>
-	
-    <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="#b6b6b6" android:orientation="horizontal">
-    
-    <!--  LOCATION  -->
-    <!--  Note: not in table as to allow for "EditText" ro span entire screen width -->
-        <TextView android:textColor="#000000" android:inputType="number" android:textStyle="bold" android:id="@+id/loc1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="14px" android:text="Location:  "></TextView>
-        <EditText android:hint="Enter Zip Code" android:inputType="number" android:layout_height="wrap_content" android:id="@+id/editText1" android:layout_width="wrap_content" android:layout_weight="1"></EditText>
-        <Button android:id="@+id/useGPS" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="right" android:text="Use GPS"></Button>
-	    
-	 </LinearLayout>
-		
-	<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="#b6b6b6" android:orientation="horizontal"> 
-	    
-  	<!--  SETTING  -->
-   	<TextView 
-	   android:text="Setting:     " 
-	   android:id="@+id/set1" 
-	   android:layout_width="wrap_content" 
-	   android:layout_height="wrap_content"
-	   android:textColor="#000000"
-	   android:textStyle="bold"
-	   android:textSize="14px"
-	   >
+	<TextView
+		android:text="Please complete entire form to submit Project Squirrel data."
+		android:id="@+id/header1" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:textColor="#FFFFFF"
+		android:background="#000000" android:textStyle="bold"
+		android:textSize="12px">
 	</TextView>
-		
-    <Spinner 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/spinner1"
-    >
-    </Spinner>
-    </LinearLayout>	
-  
-  	<!-- NOTE: Divider created here dynamically in .java file -->
-  	<ImageView
-	android:id="@+id/div1" 
-	android:layout_width="fill_parent" 
-	android:layout_height="2px"
-	>
+
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_marginTop="5px" android:background="#b6b6b6"
+		android:orientation="horizontal">
+		<!-- DATE -->
+
+		<TextView android:text="Date: " android:id="@+id/date1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="#000000" android:textStyle="bold"
+			android:textSize="14px" android:layout_weight="2">
+		</TextView>
+
+		<Button android:text="Set Date" android:id="@+id/date2"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textSize="14px">
+		</Button>
+
+		<!-- TIME -->
+		<TextView android:layout_height="wrap_content" android:id="@+id/time1"
+			android:text="Time: " android:textColor="#000000"
+			android:layout_width="wrap_content" android:layout_marginLeft="20px"
+			android:textStyle="bold" android:textSize="14px"
+			android:layout_weight="2" android:gravity="right">
+		</TextView>
+
+		<Button android:layout_height="wrap_content" android:textSize="14px"
+			android:layout_width="wrap_content" android:text="Set Time"
+			android:id="@+id/time2">
+		</Button>
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:background="#b6b6b6"
+		android:orientation="horizontal">
+
+		<!-- LOCATION -->
+		<!-- Note: not in table as to allow for "EditText" ro span entire screen 
+			width -->
+		<TextView android:textColor="#000000" android:inputType="number"
+			android:textStyle="bold" android:id="@+id/loc1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="14px"
+			android:text="Location:  "></TextView>
+		<EditText android:hint="Enter Zip Code" android:inputType="number"
+			android:layout_height="wrap_content" android:id="@+id/editText1"
+			android:layout_width="wrap_content" android:layout_weight="1"></EditText>
+		<Button android:id="@+id/useGPS" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_gravity="right"
+			android:text="Use GPS"></Button>
+
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:background="#b6b6b6"
+		android:orientation="horizontal">
+
+		<!-- SETTING -->
+		<TextView android:text="Setting:     " android:id="@+id/set1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="#000000" android:textStyle="bold"
+			android:textSize="14px">
+		</TextView>
+
+		<Spinner android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:id="@+id/spinner1">
+		</Spinner>
+	</LinearLayout>
+
+	<!-- NOTE: Divider created here dynamically in .java file -->
+	<ImageView android:id="@+id/div1" android:layout_width="fill_parent"
+		android:layout_height="2px">
 	</ImageView>
 
-	
-	<!--  SQUIRREL COUNT -->
-	<TextView 
-    android:text="Please enter number of squirrels seen." 
-    android:id="@+id/header2" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content"
-    android:textColor="#FFFFFF"
-    android:background="#000000"
-    android:textStyle="bold"
-    android:textSize="12px"
-    >
-    </TextView>
-	
-	
-    <TableLayout
-	android:id="@+id/main_layout"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5px"
-    >
-    
-    <TableRow>
-    <TextView 
-    android:text="Fox Squirrels: " 
-    android:id="@+id/loc1" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:textStyle="bold"
-    android:textSize="14px"
-    android:inputType="number"
-    >
-    </TextView>
-    <Button 
-	android:id="@+id/fox_minus" 
-	android:background="@drawable/custom_button_minus"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>
-	
-	<EditText 
-    android:text="0"
-    android:id="@+id/fox_text" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:inputType="number" >
-    </EditText>
-	
-    <Button 
-	android:id="@+id/fox_plus" 
-	android:background="@drawable/custom_button_plus"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>    
-	</TableRow>
-	
-	<TableRow>
-    <TextView 
-    android:text="Gray Squirrels: " 
-    android:id="@+id/loc1" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:textColor="#000000"
-    android:textStyle="bold"
-    android:textSize="14px"
-    android:inputType="number"
-    >
-    </TextView>
-    <Button 
-	android:id="@+id/gray_minus" 
-	android:background="@drawable/custom_button_minus"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>
-	
-	<EditText 
-    android:text="0"
-    android:id="@+id/gray_text" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"
-    android:inputType="number" >
-    </EditText>
-	
-    <Button 
-	android:id="@+id/gray_plus" 
-	android:background="@drawable/custom_button_plus"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>    
-	</TableRow>
+
+	<!-- SQUIRREL COUNT -->
+	<TextView android:text="Please enter number of squirrels seen."
+		android:id="@+id/header2" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:textColor="#FFFFFF"
+		android:background="#000000" android:textStyle="bold"
+		android:textSize="12px">
+	</TextView>
+
+
+	<TableLayout android:id="@+id/main_layout"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="5px">
+
+		<TableRow>
+			<TextView android:text="Fox Squirrels: " android:id="@+id/loc1"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="#000000" android:textStyle="bold"
+				android:textSize="14px" android:inputType="number">
+			</TextView>
+			<Button android:id="@+id/fox_minus" android:background="@drawable/custom_button_minus"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<EditText android:text="0" android:id="@+id/fox_text"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:inputType="number">
+			</EditText>
+
+			<Button android:id="@+id/fox_plus" android:background="@drawable/custom_button_plus"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+		</TableRow>
+
+		<TableRow>
+			<TextView android:text="Gray Squirrels: " android:id="@+id/loc1"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="#000000" android:textStyle="bold"
+				android:textSize="14px" android:inputType="number">
+			</TextView>
+			<Button android:id="@+id/gray_minus" android:background="@drawable/custom_button_minus"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<EditText android:text="0" android:id="@+id/gray_text"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:inputType="number">
+			</EditText>
+
+			<Button android:id="@+id/gray_plus" android:background="@drawable/custom_button_plus"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+		</TableRow>
 	</TableLayout>
-	
-  <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_marginTop="25px">		
-  		<Button 
-  		android:text="Next" 
-  		android:layout_width="100px" 
-  		android:id="@+id/nextButton" 
-  		android:layout_height="wrap_content"
-  		android:layout_alignParentRight="true" 
-  		android:layout_alignParentBottom="true">
-  		</Button>
-  		
-  		<Button 
-  		android:text="Cancel" 
-  		android:layout_width="100px" 
-  		android:id="@+id/cancelButton" 
-  		android:layout_height="wrap_content"
-  		android:layout_alignParentLeft="true" 
-  		android:layout_alignParentBottom="true">
-  		</Button>
-  		
-  		<Button 
-  		android:text="Squirrel Guide" 
-  		android:layout_width="fill_parent" 
-  		android:id="@+id/guideButton" 
-  		android:layout_height="wrap_content"
-  		android:layout_toLeftOf="@id/nextButton"
-  		android:layout_toRightOf="@id/cancelButton"
-  		android:layout_alignParentBottom="true">
-  		</Button>
-  		
-  		<ImageView 
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content"
-		android:src="@drawable/squirrel2" 
-		android:layout_above="@id/guideButton"
-		android:layout_centerHorizontal="true"
-	    ></ImageView>
-  	
-  	</RelativeLayout> 
+
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:layout_marginTop="25px">
+		<Button android:text="Next" android:layout_width="100px"
+			android:id="@+id/nextButton" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true">
+		</Button>
+
+		<Button android:text="Cancel" android:layout_width="100px"
+			android:id="@+id/cancelButton" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentBottom="true">
+		</Button>
+
+		<Button android:text="Squirrel Guide" android:layout_width="fill_parent"
+			android:id="@+id/guideButton" android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/nextButton" android:layout_toRightOf="@id/cancelButton"
+			android:layout_alignParentBottom="true">
+		</Button>
+
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/squirrel2"
+			android:layout_above="@id/guideButton"
+			android:layout_centerHorizontal="true"></ImageView>
+
+	</RelativeLayout>
 
 </LinearLayout>
