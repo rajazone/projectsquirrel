@@ -1,230 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent" android:orientation="vertical"
-  android:background="#b6b6b6" android:screenOrientation="portrait">
-  
-    <TextView android:text="Are there any of the following kinds of trees at the observation site?" 
-    	      android:id="@+id/textView1" 
-              android:layout_height="wrap_content"
-              android:textColor="#FFFFFF"
-	    	  android:background="#000000"
-	    	  android:textStyle="bold"
-	    	  android:textSize="12px" android:layout_width="fill_parent"
-	    	  ></TextView>
-	    	  
-	<LinearLayout
-	  xmlns:android="http://schemas.android.com/apk/res/android"
-	  android:layout_width="fill_parent"
-	  android:layout_height="wrap_content" android:orientation="horizontal"
-	  android:background="#b6b6b6">
-	  
-	
-	<TextView android:text="No,"
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-	    	  android:background="#000000"
-	    	  android:textColor="#FF0000"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  
-	    	  </TextView>
-	    	  <TextView android:text="Don't Know, " 
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-	    	  android:background="#000000"
-	    	  android:textColor="#FFFFFF"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>
-	<TextView android:text="or Yes?" 
-    	      android:id="@+id/textView2" 
-              android:layout_height="wrap_content"
-              android:layout_width="fill_parent"
-	    	  android:background="#000000"
-	    	  android:textColor="#10d28b"
-	    	  android:textStyle="bold"
-	    	  android:textSize="14px">
-	    	  </TextView>
-	    	  
-	  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:background="#b6b6b6"
+	android:screenOrientation="portrait">
+
+	<TextView
+		android:text="Are there any of the following KINDS OF TREES at the observation site?"
+		android:id="@+id/textView1" android:layout_height="wrap_content"
+		android:textColor="#FFFFFF" android:background="#000000"
+		android:textStyle="bold" android:textSize="12px" android:layout_width="fill_parent"></TextView>
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:orientation="horizontal" android:background="#b6b6b6">
+
+
+		<TextView android:text="No," android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:background="#000000" android:textColor="#FF0000"
+			android:textStyle="bold" android:textSize="14px">
+
+		</TextView>
+		<TextView android:text="Don't Know, " android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:background="#000000" android:textColor="#FFFFFF"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
+		<TextView android:text="or Yes?" android:id="@+id/textView2"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:background="#000000" android:textColor="#10d28b"
+			android:textStyle="bold" android:textSize="14px">
+		</TextView>
+
+
 	</LinearLayout>
-	    	  
-    <TableLayout 
-    android:id="@+id/tableLayout1" 
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content">
-	    	 
-	<TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-        
-    <Button 
-	android:id="@+id/trees_btn1" 
-	android:background="@drawable/custom_button_leaf"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>  
-    
-    <TextView android:text="Nut-Bearing Trees" android:id="@+id/NBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"                 
-       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
-    
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/trees_seekBar1"
-    android:progress="1"
-    android:max="2" 
-    android:progressDrawable="@drawable/gradient3"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
 
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-        
-    <Button 
-	android:id="@+id/trees_btn2" 
-	android:background="@drawable/custom_button_leaf"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>  
-    
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/SBText" android:text="Seed-Bearing Trees" android:textSize="16px" android:textColor="#000000"                 
-       android:clickable="true" 
-       android:layout_gravity="center_vertical"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/trees_seekBar2"
-    android:progress="1"
-    android:max="2" 
-    android:progressDrawable="@drawable/gradient3"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView8" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-    
-    <Button 
-	android:id="@+id/trees_btn3" 
-	android:background="@drawable/custom_button_leaf"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>  
-    
-    <TextView android:text="Fruit-Bearing Trees" android:id="@+id/FBText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"                 
-       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/trees_seekBar3"
-    android:progress="1"
-    android:max="2" 
-    android:progressDrawable="@drawable/gradient3"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView9" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
+	<TableLayout android:id="@+id/tableLayout1"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
 
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="10px">
-        
-    <Button 
-	android:id="@+id/trees_btn4" 
-	android:background="@drawable/custom_button_leaf"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>  
-  
-    <TextView 
-    android:text="Tiny-Seeded Trees" 
-    android:id="@+id/TSText" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    android:textSize="16px" 
-    android:textColor="#000000"
-    android:layout_gravity="center_vertical">
-    </TextView>
-    
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/trees_seekBar4"
-    android:progress="1"
-    android:max="2" 
-    android:progressDrawable="@drawable/gradient3"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    
-    <TableRow android:layout_width="fill_parent" android:layout_marginBottom="25px">
-    
-    <Button 
-	android:id="@+id/trees_btn5" 
-	android:background="@drawable/custom_button_leaf"
-	android:layout_width="wrap_content" 
-	android:layout_height="wrap_content"
-	>
-	</Button>  
-    
-    <TextView android:text="Coniferous Trees" android:id="@+id/CFText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#000000"              
-       android:clickable="true" android:layout_gravity="center_vertical"></TextView>
-    <SeekBar 
-    android:layout_height="wrap_content" 
-    android:layout_width="fill_parent" 
-    android:id="@+id/trees_seekBar5"
-    android:progress="1"
-    android:max="2" 
-    android:progressDrawable="@drawable/gradient3"
-    android:layout_weight=".5">
-    </SeekBar>
-    <TextView android:text="   " android:id="@+id/textView11" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-    </TableRow>
-    
-    
-    
-    
-    </TableLayout>
-    
-    
-    <EditText 
-        android:hint="Other trees or comments about trees. (optional)" 
-        android:id="@+id/trees_comments" 
-        android:layout_height="wrap_content"  
-        android:layout_width="fill_parent">
-    </EditText>
-    
-    
-    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
-		
-        <Button 
-        android:text="Next" 
-        android:id="@+id/Next_Trees" 
-        android:layout_height="wrap_content" 
-        android:layout_alignParentRight="true" 
-        android:layout_alignParentBottom="true" 
-        android:layout_width="100px">
-        </Button>
-        
-        <TextView 
-	    android:text="TIP: Buttons next to each tree type\nlead to tree guides." 
-	    android:layout_width="wrap_content" 
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentBottom="true"
-	    android:textColor="#000000"
-	    android:textSize="12px"
-	    android:padding="2px">
-	    </TextView>
-        
-    </RelativeLayout>
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+
+			<Button android:id="@+id/trees_btn1" android:background="@drawable/custom_button_leaf"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<TextView android:text="Nut-Bearing " android:id="@+id/NBText"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"
+				android:clickable="true" android:layout_gravity="center_vertical"></TextView>
+
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/trees_seekBar1"
+				android:progress="1" android:max="2" android:progressDrawable="@drawable/gradient3"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView7"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+
+			<Button android:id="@+id/trees_btn2" android:background="@drawable/custom_button_leaf"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:id="@+id/SBText"
+				android:text="Seed-Bearing " android:textSize="18px"
+				android:textColor="#000000" android:clickable="true"
+				android:layout_gravity="center_vertical"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/trees_seekBar2"
+				android:progress="1" android:max="2" android:progressDrawable="@drawable/gradient3"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView8"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+
+			<Button android:id="@+id/trees_btn3" android:background="@drawable/custom_button_leaf"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<TextView android:text="Fruit-Bearing " android:id="@+id/FBText"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"
+				android:clickable="true" android:layout_gravity="center_vertical"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/trees_seekBar3"
+				android:progress="1" android:max="2" android:progressDrawable="@drawable/gradient3"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView9"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="20px">
+
+			<Button android:id="@+id/trees_btn4" android:background="@drawable/custom_button_leaf"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<TextView android:text="Tiny-Seeded " android:id="@+id/TSText"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"
+				android:layout_gravity="center_vertical">
+			</TextView>
+
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/trees_seekBar4"
+				android:progress="1" android:max="2" android:progressDrawable="@drawable/gradient3"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView10"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+
+		<TableRow android:layout_width="fill_parent"
+			android:layout_marginBottom="25px">
+
+			<Button android:id="@+id/trees_btn5" android:background="@drawable/custom_button_leaf"
+				android:layout_width="wrap_content" android:layout_height="wrap_content">
+			</Button>
+
+			<TextView android:text="Coniferous " android:id="@+id/CFText"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textSize="18px" android:textColor="#000000"
+				android:clickable="true" android:layout_gravity="center_vertical"></TextView>
+			<SeekBar android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:id="@+id/trees_seekBar5"
+				android:progress="1" android:max="2" android:progressDrawable="@drawable/gradient3"
+				android:layout_weight=".5">
+			</SeekBar>
+			<TextView android:text="   " android:id="@+id/textView11"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+		</TableRow>
+
+
+
+
+	</TableLayout>
+
+
+	<EditText android:hint="Other trees or comments about trees. (optional)"
+		android:id="@+id/trees_comments" android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+	</EditText>
+
+
+	<RelativeLayout android:id="@+id/relativeLayout1"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+
+		<Button android:text="Next" android:id="@+id/Next_Trees"
+			android:layout_height="wrap_content" android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true" android:layout_width="100px">
+		</Button>
+
+		<TextView android:text="TIP: Buttons next to each tree type\nlead to tree guides."
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true" android:textColor="#000000"
+			android:textSize="12px" android:padding="2px">
+		</TextView>
+
+	</RelativeLayout>
 
 </LinearLayout>
